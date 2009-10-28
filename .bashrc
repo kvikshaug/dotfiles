@@ -48,10 +48,8 @@ export HISTSIZE=10000
 export HISTFILESIZE=10000
 export GIT_PS1_SHOWDIRTYSTATE=1 # indicate uncommitted changes in prompt
 
-export JAVA_HOME=/usr/lib/jvm/java-6-sun/
-
-export NXJ_HOME=/media/docus/Skole/UiA/IKT410/lejos_nxj/
-export PATH=$PATH:$NXJ_HOME/bin
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
+export JDK_HOME=$JAVA_HOME
 
 alias ll='ls -l'
 alias la='ls -la'
