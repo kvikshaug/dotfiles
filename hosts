@@ -5,6 +5,7 @@
 192.168.2.103	logs.kvikshaug.no
 
 # hosts behind our nat, these are dynamic and subject to change
+192.168.2.101	misle
 192.168.2.103	spittle
 192.168.2.111	safety
 192.168.2.104	shelter
