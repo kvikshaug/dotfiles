@@ -48,6 +48,9 @@ export HISTSIZE=10000
 export HISTFILESIZE=10000
 export GIT_PS1_SHOWDIRTYSTATE=1 # indicate uncommitted changes in prompt
 
+# use this if fsr gems won't install properly (by root)
+#export PATH=$PATH:/home/murray/.gem/ruby/1.8/bin
+
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
 export JDK_HOME=$JAVA_HOME
 
