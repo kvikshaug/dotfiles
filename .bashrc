@@ -86,9 +86,15 @@ function record() {
 function sendkey () {
   if [ -f ~/.ssh/id_rsa.pub ]
   then
+    if [ -z $2 ]
+    then
+      local port="22"
+    else
+      local port="$2"
+    fi
     if [ $# -gt 0 ]
     then
-      ssh $1 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub
+      ssh $1 -p $port 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub
     fi
   fi
 }
