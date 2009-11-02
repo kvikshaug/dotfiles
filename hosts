@@ -1,8 +1,6 @@
-# NAT overrides for my domains
-# (Because I can't connect to the external IP from within the NAT)
-# Comment if outside!
-192.168.2.103	gh.kvikshaug.no
-192.168.2.103	logs.kvikshaug.no
+# Use these to connect to local domains if inside of NAT
+#192.168.2.103	gh.kvikshaug.no
+#192.168.2.103	logs.kvikshaug.no
 
 # hosts behind our nat, these are dynamic and subject to change
 192.168.2.101	misle
