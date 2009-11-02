@@ -1,10 +1,10 @@
 # Use these to connect to local domains if inside of NAT
-#spittle         myrvang85.net
-#spittle         www.myrvang85.net
-#spittle         kvikshaug.no
-#spittle         www.kvikshaug.no
-#spittle         gh.kvikshaug.no
-#spittle         logs.kvikshaug.no
+#192.168.2.103   myrvang85.net
+#192.168.2.103   www.myrvang85.net
+#192.168.2.103   kvikshaug.no
+#192.168.2.103   www.kvikshaug.no
+#192.168.2.103   gh.kvikshaug.no
+#192.168.2.103   logs.kvikshaug.no
 
 # hosts behind our nat, these are dynamic and subject to change
 192.168.2.101	misle
