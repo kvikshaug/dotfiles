@@ -38,6 +38,8 @@ fi
 
 # git-aware prompt: http://blog.fedora-fr.org/bochecha/post/2009/08/A-git-aware-prompt-(part2)
 # PS1="$PS1$(__git_ps1)"
+# git bash-completion
+source .git-completion.bash
 
 export PAGER=less
 export MANPAGER=less
@@ -66,7 +68,7 @@ alias sysrq='ssh sysrq.no'
 alias hinux='ssh hinux.hin.no'
 alias scabb='ssh heiatufte.net -p 23232'
 alias shelter='ssh as@shelter -p 23232'
-alias spittle='ssh gh.kvikshaug.no -p 23232'
+alias spittle='ssh gh.kvikshaug.no'
 
 alias sagi='sudo apt-get install'
 alias acs='apt-cache search'
