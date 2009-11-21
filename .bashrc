@@ -48,15 +48,14 @@ export HISTSIZE=10000
 export HISTFILESIZE=10000
 export GIT_PS1_SHOWDIRTYSTATE=1 # indicate uncommitted changes in prompt
 
-# use this if fsr gems won't install properly (by root)
-#export PATH=$PATH:/home/murray/.gem/ruby/1.8/bin
+export PATH=$PATH:/home/murray/.gem/ruby/1.8/bin
 
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
 export JDK_HOME=$JAVA_HOME
 
 alias ll='ls -l'
 alias la='ls -la'
-alias l='ls -cf'
+alias l='ll'
 
 alias mv='mv -v'
 alias cp='cp -v'
@@ -66,7 +65,7 @@ alias sysrq='ssh sysrq.no'
 alias hinux='ssh hinux.hin.no'
 alias scabb='ssh heiatufte.net -p 23232'
 alias shelter='ssh as@shelter -p 23232'
-alias spittle='ssh gh.kvikshaug.no -p 23232'
+alias spittle='ssh gh.kvikshaug.no'
 
 alias sagi='sudo apt-get install'
 alias acs='apt-cache search'
@@ -80,7 +79,7 @@ alias tyvm='echo np'
 function mkcd() { mkdir "$1" && cd "$1"; }
 function scpsyspub() { scp $1 murray@sysrq.no:~/public_html/; }
 function scpsys() { scp $1 murray@sysrq.no:~/; }
-function myip() { wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1; }
+function checkip() { wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1; }
 function record() {
   arecord -f cd -d 7200 | lame -h - ~/Desktop/out.mp3;
   echo Saved file to ~/Desktop/out.mp3;
