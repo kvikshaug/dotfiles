@@ -67,7 +67,7 @@ alias sysrq='ssh sysrq.no'
 alias hinux='ssh hinux.hin.no'
 alias scabb='ssh heiatufte.net -p 23232'
 alias shelter='ssh as@shelter -p 23232'
-alias spittle='ssh gh.kvikshaug.no'
+alias spittle='ssh www.kvikshaug.no'
 
 alias sagi='sudo apt-get install'
 alias acs='apt-cache search'
