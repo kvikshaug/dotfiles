@@ -38,6 +38,8 @@ fi
 
 # git-aware prompt: http://blog.fedora-fr.org/bochecha/post/2009/08/A-git-aware-prompt-(part2)
 # PS1="$PS1$(__git_ps1)"
+# git bash-completion
+source .git-completion.bash
 
 export PAGER=less
 export MANPAGER=less
