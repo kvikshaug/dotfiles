@@ -36,6 +36,9 @@ fi
 
 # The rest here is stuff to make me feel at home at a terminal.
 
+# novell print stuff
+#source /etc/profile.d/novell-iprint.sh
+
 # git-aware prompt: http://blog.fedora-fr.org/bochecha/post/2009/08/A-git-aware-prompt-(part2)
 # PS1="$PS1$(__git_ps1)"
 # git bash-completion
@@ -50,7 +53,7 @@ export HISTSIZE=10000
 export HISTFILESIZE=10000
 export GIT_PS1_SHOWDIRTYSTATE=1 # indicate uncommitted changes in prompt
 
-export PATH=$PATH:/home/murray/.gem/ruby/1.8/bin
+#export PATH=$PATH:/home/murray/.gem/ruby/1.8/bin
 
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
 export JDK_HOME=$JAVA_HOME
@@ -63,6 +66,8 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -iv'
 
+alias ag='ack-grep'
+
 alias sysrq='ssh sysrq.no'
 alias hinux='ssh hinux.hin.no'
 alias scabb='ssh heiatufte.net -p 23232'
@@ -74,9 +79,13 @@ alias acs='apt-cache search'
 alias ac='apt-cache'
 
 alias ssh='ssh -v'
-alias jazz='vlc http://www.sky.fm/mp3/smoothjazz.pls &'
+alias jazz='vlc http://www.sky.fm/listen/smoothjazz/64k.pls?5c906b6f97d384e &'
 alias servedir='ifconfig | grep "inet addr" && python -m SimpleHTTPServer'
 alias tyvm='echo np'
+
+alias login='/home/murray/apps/hp-auth/hp-auth.py -i'
+# start xflux with latitude of grimstad
+alias xflux='/home/murray/apps/xflux/xflux -l 58.34468 -k 4500'
 
 function mkcd() { mkdir "$1" && cd "$1"; }
 function scpsyspub() { scp $1 murray@sysrq.no:~/public_html/; }
@@ -85,6 +94,10 @@ function checkip() { wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d:
 function record() {
   arecord -f cd -d 7200 | lame -h - ~/Desktop/out.mp3;
   echo Saved file to ~/Desktop/out.mp3;
+}
+# start intellij idea
+function idea() {
+  /home/murray/apps/idea/bin/idea.sh &
 }
 # send ssh public key to some remote host
 function sendkey () {
