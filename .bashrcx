@@ -1,40 +1,4 @@
-# The default debian/ubuntu user bashrc routines
-
-[ -z "$PS1" ] && return
-export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
-export HISTCONTROL=ignoreboth
-shopt -s histappend
-shopt -s checkwinsize
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
-PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
-# The rest here is stuff to make me feel at home at a terminal.
+# .bashrc extensions - to make me feel at home at a terminal.
 
 # novell print stuff
 #source /etc/profile.d/novell-iprint.sh
