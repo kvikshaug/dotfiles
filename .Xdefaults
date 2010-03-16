@@ -1,0 +1,15 @@
+   URxvt.background:       #000000
+   URxvt.foreground:       gray90
+#   URxvt.color7:           gray90
+   URxvt.colorBD:          #fff
+   URxvt.cursorColor:      gray90
+   URxvt.highlightColor:   #666
+   URxvt.visualBell:       true
+
+   URxvt.font:             xft:Droid Sans Mono:pixelsize=12
+   URxvt.scrollBar:        no thanks
+# -name Terminal -fn "xft:Droid Sans Mono:pixelsize=11" -fade 20 +sb -depth 32 -fg white -bg black
+
+URxvt.perl-ext:        default,matcher
+URxvt.urlLauncher:     /usr/bin/opera
+URxvt.matcher.button:  1 
