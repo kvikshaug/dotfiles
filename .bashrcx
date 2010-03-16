@@ -31,6 +31,7 @@ alias cp='cp -v'
 alias rm='rm -iv'
 
 alias ag='ack-grep'
+alias grep='echo What is wrong with ack-grep?'
 
 alias sysrq='ssh sysrq.no'
 alias hinux='ssh hinux.hin.no'
@@ -49,7 +50,7 @@ alias tyvm='echo np'
 
 alias login='/home/murray/apps/hp-auth/hp-auth.py -i'
 # start xflux with latitude of grimstad
-alias xflux='/home/murray/apps/xflux/xflux -l 58.34468 -k 4500'
+alias xflux='/home/murray/apps/xflux/xflux.sh'
 
 function mkcd() { mkdir "$1" && cd "$1"; }
 function scpsyspub() { scp $1 murray@sysrq.no:~/public_html/; }
