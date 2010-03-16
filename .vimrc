@@ -4,6 +4,9 @@ set hlsearch
 " show results while searching
 set incsearch
 
+" autoindent
+set autoindent
+
 " abbreviations
 :abbr psvm public static void main(String[] args) {
 :abbr sout System.out.println("");
