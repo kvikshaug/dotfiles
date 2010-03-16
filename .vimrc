@@ -14,14 +14,18 @@ set smartcase
 
 " ignore arrow keys (until i shake off the habit of using them)
 " note - needed for command-line mode
-map  <Up> <Nop>
-imap <Up> <Nop>
-map  <Down> <Nop>
-imap <Down> <Nop>
-map  <Left> <Nop>
-imap <Left> <Nop>
-map  <Right> <Nop>
-imap <Right> <Nop>
+nmap  <Up> <Nop>
+imap  <Up> <Nop>
+omap  <Up> <Nop>
+nmap  <Down> <Nop>
+imap  <Down> <Nop>
+omap  <Down> <Nop>
+nmap  <Left> <Nop>
+imap  <Left> <Nop>
+omap  <Left> <Nop>
+nmap  <Right> <Nop>
+imap  <Right> <Nop>
+omap  <Right> <Nop>
 
 " abbreviations
 :abbr psvm public static void main(String[] args) {
