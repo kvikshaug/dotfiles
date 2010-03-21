@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 # List all files to copy in to or out from homedir
-set files .vimrc .gvimrc .gitconfig .config/fish/config.fish .Xdefaults
+set files .vimrc .gvimrc .gitconfig .config/fish/config.fish .Xdefaults .vim/ftplugin/html/sparkup.vim .vim/ftplugin/html/sparkup.py
 
 if test (count $argv) -lt 1
   echo "Usage: copy in   - collect from homedir"
