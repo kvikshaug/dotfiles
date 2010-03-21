@@ -8,6 +8,9 @@ function sagi -d "Shortcut for sudo apt-get install"; sudo apt-get install $argv
 function acs -d "Shortcut for searching the apt-cache"; apt-cache search $argv; end
 function ac -d "Shortcut for the apt-cache command"; apt-cache $argv; end
 
+function spittle -d "Connect to spittle"; ssh spittle; end
+function shelter -d "Connect to shelter"; ssh -p 23232 as@shelter; end
+
 function mkcd -d "mkdir AND cd to it in one go!"
   mkdir $argv
   if test $status = 0
