@@ -8,3 +8,5 @@
 	autosetupmerge = always
 [push]
 	default = tracking
+[core]
+	editor = vim
