@@ -1,2 +1,2 @@
-set gfn=Droid\ Sans\ Mono\ 10
+set guifont=Liberation\ Mono\ 10
 colorscheme pablo
