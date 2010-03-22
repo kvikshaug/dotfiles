@@ -8,8 +8,9 @@ function sagi -d "Shortcut for sudo apt-get install"; sudo apt-get install $argv
 function acs -d "Shortcut for searching the apt-cache"; apt-cache search $argv; end
 function ac -d "Shortcut for the apt-cache command"; apt-cache $argv; end
 
-function spittle -d "Connect to spittle"; ssh spittle; end
-function shelter -d "Connect to shelter"; ssh -p 23232 as@shelter; end
+function spittle -d "Connect to spittle when inside of NAT"; ssh spittle; end
+function spittle_remote -d "Connect to spittle"; ssh www.kvikshaug.no; end
+function shelter -d "Connect to shelter when inside of NAT"; ssh -p 23232 as@shelter; end
 
 function scpsyspub -d "scp files to my sysrq public_html directory"
   scp $argv murray@sysrq.no~/public_html/
