@@ -1,14 +1,20 @@
 #!/usr/bin/fish
+# Script for spreading or collecting the dotfiles into their git repo dir
+
 # List all files to copy in to or out from homedir
 set files .vimrc .gvimrc .gitconfig .config/fish/config.fish .Xdefaults .vim/ftplugin/html/sparkup.vim .vim/ftplugin/html/sparkup.py
 
-if test (count $argv) -lt 1
-  echo "Usage: copy in   - collect from homedir"
-  echo "       copy out  - spread to homedir"
-  exit 1
+switch "$argv[1]"
+  case "in"
+    echo "This will overwrite files in the repo. Please confirm (y/n):"
+  case "out"
+    echo "This will overwrite files IN YOUR HOMEDIR. Please confirm (y/n):"
+  case "*"
+    echo "Usage: copy in   - collect from homedir"
+    echo "       copy out  - spread to homedir"
+    exit 1
 end
-
-echo "This will overwrite files. Please confirm (y/n):"
+  
 read confirm
 if test $confirm != "y"
   exit 0
