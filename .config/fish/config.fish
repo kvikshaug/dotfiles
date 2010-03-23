@@ -13,7 +13,7 @@ function spittle_remote -d "Connect to spittle"; ssh www.kvikshaug.no; end
 function shelter -d "Connect to shelter when inside of NAT"; ssh -p 23232 as@shelter; end
 
 function scpsyspub -d "scp files to my sysrq public_html directory"
-  scp $argv murray@sysrq.no~/public_html/
+  scp $argv murray@sysrq.no:~/public_html/
 end
 
 function mkcd -d "mkdir AND cd to it in one go!"
