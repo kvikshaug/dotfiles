@@ -10,3 +10,5 @@
 	default = tracking
 [core]
 	editor = vim
+[achievement]
+	upload = true

@@ -1,3 +1,5 @@
+set PATH $PATH /home/murray/apps/git-achievements
+
 function mv -d "Be verbose"; mv -v $argv; end
 function cp -d "Be verbose"; cp -v $argv; end
 function rm -d "Be verbose, and confirm removal"; rm -iv $argv; end
@@ -89,5 +91,9 @@ function x -d "Extract files based on file extension"
       end
     end
   end
+end
+
+function git -d "Direct git through git-achievements"
+  /home/murray/apps/git-achievements/git-achievements $argv
 end
 
