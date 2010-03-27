@@ -49,7 +49,7 @@ end
 
 function sendkey -d "Send ssh public key to some remote host"
   if test -f ~/.ssh/id_rsa.pub
-    if test -z $argv[2]
+    if test (count $argv) -lt 2
       set port 22
     else
       set port $argv[2]
