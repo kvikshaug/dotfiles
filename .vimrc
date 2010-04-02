@@ -1,6 +1,9 @@
 " set a comfortable window size
 set lines=30 columns=100
 
+" use bash for external commands
+set shell=/bin/bash
+
 " incremental, highlighted search and ignorce case if all lowercase
 set incsearch
 set hlsearch
