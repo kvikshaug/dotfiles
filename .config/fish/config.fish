@@ -1,4 +1,4 @@
-set PATH $PATH /home/murray/apps/git-achievements
+set PATH $PATH /home/murray/apps/git-achievements /home/murray/apps/showoff-krisb/bin
 
 function mv -d "Be verbose"; mv -v $argv; end
 function cp -d "Be verbose"; cp -v $argv; end
