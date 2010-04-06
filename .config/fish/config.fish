@@ -1,5 +1,6 @@
 set PATH $PATH /home/murray/apps/git-achievements /home/murray/apps/showoff-krisb/bin
 
+function l -d "ll shortcut"; ll $argv; end
 function mv -d "Be verbose"; mv -v $argv; end
 function cp -d "Be verbose"; cp -v $argv; end
 function rm -d "Be verbose, and confirm removal"; rm -iv $argv; end
