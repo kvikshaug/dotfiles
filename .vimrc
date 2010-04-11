@@ -4,6 +4,11 @@ set lines=30 columns=100
 " use bash for external commands
 set shell=/bin/bash
 
+" syntax highlighting, dark background, filetype detection on
+syntax on
+set background=dark
+filetype plugin indent on
+
 " incremental, highlighted search and ignorce case if all lowercase
 set incsearch
 set hlsearch
@@ -15,6 +20,12 @@ set expandtab
 set tabstop=4
 set cindent
 set shiftwidth=4
+
+set showcmd        " show (partial) command in status line
+set showmatch      " show matching brackets
+set autowrite      " automatically save before commands like :next and :make
+set hidden         " hide buffers when they are abandoned
+set mouse=a        " enable mouse usage
 
 " ignore arrow keys (until i shake off the habit of using them)
 " note - needed for command-line mode
