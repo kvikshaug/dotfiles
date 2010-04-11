@@ -1,31 +1,32 @@
-" set a comfortable window size
-set lines=30 columns=100
+set lines=30 columns=100   " set a comfortable window size
+set shell=/bin/bash        " use bash for external commands
+syntax on                  " syntax highlighting
+set background=dark        " dark background
+filetype plugin indent on  " filetype detection on
 
-" use bash for external commands
-set shell=/bin/bash
+set incsearch    " incremental search
+set hlsearch     " (don't) highlight search results
+set ignorecase   " ignore case when searching..
+set smartcase    " ..but only if search is all lc
 
-" syntax highlighting, dark background, filetype detection on
-syntax on
-set background=dark
-filetype plugin indent on
+set expandtab     " spaces as tabs
+set shiftwidth=2  " no of indentationspaces used (for <<, >>, cindent ++)
+set softtabstop=2 " no of indentationspaces used by <TAB> and <BS>
+set smarttab      " smart tab insertion
+set cindent       " use complex c-indentation
 
-" incremental, highlighted search and ignorce case if all lowercase
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
+set showcmd      " show (partial) command in status line
+set showmatch    " show matching brackets
+set autowrite    " automatically save before commands like :next and :make
+set hidden       " hide buffers when they are abandoned
+"set mouse=a     " (don't) enable mouse usage
 
-" spaces for <tab> and clever indentation
-set expandtab
-set tabstop=4
-set cindent
-set shiftwidth=4
+" some java abbreviations
+:abbr psvm public static void main(String[] args) {
+:abbr sout System.out.println("
 
-set showcmd        " show (partial) command in status line
-set showmatch      " show matching brackets
-set autowrite      " automatically save before commands like :next and :make
-set hidden         " hide buffers when they are abandoned
-set mouse=a        " enable mouse usage
+" sparkup html zen-code style shortcuts
+so ~/.vim/ftplugin/html/sparkup.vim
 
 " ignore arrow keys (until i shake off the habit of using them)
 " note - needed for command-line mode
@@ -41,11 +42,4 @@ omap  <Left> <Nop>
 nmap  <Right> <Nop>
 imap  <Right> <Nop>
 omap  <Right> <Nop>
-
-" some java abbreviations
-:abbr psvm public static void main(String[] args) {
-:abbr sout System.out.println("
-
-" sparkup html zen-code style shortcuts
-so ~/.vim/ftplugin/html/sparkup.vim
 
