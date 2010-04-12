@@ -1,0 +1,18 @@
+#!/bin/bash
+# This file is not used by dwm, I've manually set gnome to run it at startup.
+# It contains processes that fsr won't work in crontab, Xdefaults or
+# gnomerc, and other scripts that should run at startup.
+
+# dwm status bar
+while true; do
+  xsetroot -name "$(/home/murray/.dwmsb)"
+  sleep 1m
+done &
+
+# change background every once in a while
+while sleep 4h; do
+  gconftool-2 --type string --set /desktop/gnome/background/picture_filename $(/home/murray/.gnomebg)
+done &
+
+# xflux; warmer night-time light temperatures
+/home/murray/apps/xflux/xflux.sh

@@ -1,0 +1,23 @@
+#!/usr/bin/fish
+# Selects the next file from a directory supposed to contain background images
+
+set COUNTFILE .gnomebg-current
+
+set directory /home/murray/apps/dwm-5.7.2/backgrounds/
+set files (/bin/ls --format=single-column $directory)
+
+stat $COUNTFILE 2>&1 > /dev/null
+if test $status -eq 1
+  echo 1 > $COUNTFILE
+end
+
+set cbg (cat $COUNTFILE)
+
+if test $cbg -ge (count $files)
+  set cbg 0
+end
+
+set cbg (expr $cbg + 1)
+
+echo $cbg > $COUNTFILE
+echo -n $directory$files[$cbg]
