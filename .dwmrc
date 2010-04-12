@@ -10,7 +10,7 @@ while true; do
 done &
 
 # change background every once in a while
-while sleep 4h; do
+while sleep 1h; do
   gconftool-2 --type string --set /desktop/gnome/background/picture_filename $(/home/murray/.gnomebg)
 done &
 
