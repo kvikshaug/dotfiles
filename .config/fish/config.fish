@@ -98,3 +98,11 @@ function git -d "Direct git through git-achievements"
   /home/murray/apps/git-achievements/git-achievements $argv
 end
 
+function md -d "Easily mount 'docus' exthd"
+  sudo mount /dev/sdb1 /media/docus
+end
+
+function umd -d "Easily unmount 'docus' exthd"
+  sudo umount /dev/sdb1
+end
+
