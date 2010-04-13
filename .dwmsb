@@ -10,19 +10,22 @@ curl -u (~/.gc) --silent https://mail.google.com/mail/feed/atom | tr -d '\n' | a
 
 # number of new mail
 set newmailcount (cat -n /tmp/currentnewmail | wc -l)
-echo -n "$newmailcount"
-echo -n "M"
 
-# show name and subject of latest mail if applicable
+# display count and info if there are new mail
 if test $newmailcount -gt 0
+  # print count
+  echo -n "$newmailcount"
+  echo -n "M"
+
+  # print name and subject of latest mail
   echo -n " "
   cat /tmp/currentnewmail | cut -d\n -f 1 | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2: \1/p" | tr -d '\n'
+
+  # separator
+  echo -n " | "
 end
 
 /bin/rm $tmpfile
-
-# separator
-echo -n " | "
 
 # disk usage
 df -h | ag --nocolor sda1 | awk '{ print $3 " (" $5 ")" }' | tr -d '\n'
