@@ -40,8 +40,8 @@ function checkip -d "Print this machines external IP address"
   wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d\  -f 6 | cut -d\< -f 1;
 end
 
-function jazz -d "Launch VLC with the sky.fm smooth jazz channel :)"
-  vlc http://www.sky.fm/listen/smoothjazz/64k.pls\?5c906b6f97d384e &
+function jazz -d "Launch VLC minimized with the sky.fm smooth jazz channel :)"
+  vlc --qt-start-minimized http://www.sky.fm/listen/smoothjazz/64k.pls\?5c906b6f97d384e &
 end
 
 function record -d "Record from soundcard output and save the result as mp3"
