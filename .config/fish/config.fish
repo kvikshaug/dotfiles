@@ -8,6 +8,7 @@ function cp -d "Be verbose"; cp -v $argv; end
 function rm -d "Be verbose, and confirm removal"; rm -iv $argv; end
 function ssh -d "Be verbose"; ssh -v $argv; end
 function ag -d "Shortcut for ack-grep"; ack-grep $argv; end
+function top -d "Use htop, not top"; htop; end
 
 function sagi -d "Shortcut for sudo apt-get install"; sudo apt-get install $argv; end
 function acs -d "Shortcut for searching the apt-cache"; apt-cache search $argv; end
