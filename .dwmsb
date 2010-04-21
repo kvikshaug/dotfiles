@@ -4,6 +4,7 @@
 
 # Use a file because fish handles lines as array entries
 # and I don't know how to handle that yet
+# TODO use mktemp
 set tmpfile /tmp/currentnewmail
 
 curl -u (~/.gc) --silent https://mail.google.com/mail/feed/atom | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' > $tmpfile
