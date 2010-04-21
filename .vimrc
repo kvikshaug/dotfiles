@@ -25,9 +25,6 @@ set hidden       " hide buffers when they are abandoned
 :abbr psvm public static void main(String[] args) {
 :abbr sout System.out.println("
 
-" sparkup html zen-code style shortcuts
-so ~/.vim/ftplugin/html/sparkup.vim
-
 " ignore arrow keys (until i shake off the habit of using them)
 " note - needed for command-line mode
 nmap  <Up> <Nop>
