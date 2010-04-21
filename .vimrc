@@ -25,18 +25,3 @@ set hidden       " hide buffers when they are abandoned
 :abbr psvm public static void main(String[] args) {
 :abbr sout System.out.println("
 
-" ignore arrow keys (until i shake off the habit of using them)
-" note - needed for command-line mode
-nmap  <Up> <Nop>
-imap  <Up> <Nop>
-omap  <Up> <Nop>
-nmap  <Down> <Nop>
-imap  <Down> <Nop>
-omap  <Down> <Nop>
-nmap  <Left> <Nop>
-imap  <Left> <Nop>
-omap  <Left> <Nop>
-nmap  <Right> <Nop>
-imap  <Right> <Nop>
-omap  <Right> <Nop>
-
