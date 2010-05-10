@@ -40,10 +40,6 @@ function checkip -d "Print this machines external IP address"
   wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d\  -f 6 | cut -d\< -f 1;
 end
 
-function jazz -d "Launch VLC minimized with the sky.fm smooth jazz channel :)"
-  vlc --qt-start-minimized http://www.sky.fm/listen/smoothjazz/64k.pls\?5c906b6f97d384e &
-end
-
 function record -d "Record from soundcard output and save the result as mp3"
   arecord -f cd -d 7200 | lame -h - ~/Desktop/out.mp3
   echo Saved file to ~/Desktop/out.mp3
