@@ -22,21 +22,26 @@ if [ -f /etc/environment ]; then
     . /etc/environment
 fi
 
-xsetbg /usr/share/slim/themes/default/background.jpg
+# start xbindkeys daemon (should maybe be done in some init script instead)
 xbindkeys
 
-# dwm status bar
+# set a reasonable default volume
+amixer set Master unmute
+amixer set Master 40
+
+# start xflux; warmer night-time light temperatures
+/home/murray/apps/xflux/xflux.sh
+
+# update dwm status bar
 while true; do
   xsetroot -name "$(/home/murray/.dwmsb)"
   sleep 1m
 done &
 
 # change background every once in a while
-while sleep 1h; do
-  xsetbg $(/home/murray/.nextbg)
-done &
-
-# xflux; warmer night-time light temperatures
-/home/murray/apps/xflux/xflux.sh
+# while sleep 1h; do
+#   xsetbg $(/home/murray/.nextbg)
+# done &
+xsetbg /usr/share/slim/themes/default/background.jpg
 
 exec dwm

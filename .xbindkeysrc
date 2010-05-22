@@ -42,16 +42,20 @@
 "xbindkeys_show" 
   control+shift + q
 
+# Sound levels
 "amixer set Master 5%+ > /dev/null"
   XF86AudioRaiseVolume
-
 "amixer set Master 5%- > /dev/null"
   XF86AudioLowerVolume
-
 "amixer set Master toggle > /dev/null"
   XF86AudioMute
 
-"/usr/sbin/pm-suspend > ~/lol 2>~/lol"
+# Print screen
+"scrot ~/ss.png"
+  Print
+
+# Suspend
+"sudo /usr/sbin/pm-suspend >/dev/null 2>&1"
   Pause
 
 # set directly keycode (here control + f with my keyboard)
