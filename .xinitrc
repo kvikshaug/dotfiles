@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export LANG=en_US.UTF-8
 export LC_CTYPE="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
@@ -13,9 +15,28 @@ export LC_MEASUREMENT="en_US.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 
 if [ -f $HOME/.Xmodmap ]; then
-    /usr/bin/xmodmap $HOME/.Xmodmap
+    xmodmap $HOME/.Xmodmap
+fi
+
+if [ -f /etc/environment ]; then
+    . /etc/environment
 fi
 
 xsetbg /usr/share/slim/themes/default/background.jpg
+xbindkeys
+
+# dwm status bar
+while true; do
+  xsetroot -name "$(/home/murray/.dwmsb)"
+  sleep 1m
+done &
+
+# change background every once in a while
+while sleep 1h; do
+  xsetbg $(/home/murray/.nextbg)
+done &
+
+# xflux; warmer night-time light temperatures
+/home/murray/apps/xflux/xflux.sh
 
 exec dwm

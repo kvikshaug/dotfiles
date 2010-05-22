@@ -51,6 +51,9 @@
 "amixer set Master toggle > /dev/null"
   XF86AudioMute
 
+"/usr/sbin/pm-suspend > ~/lol 2>~/lol"
+  Pause
+
 # set directly keycode (here control + f with my keyboard)
 #"xterm"
 #  c:41 + m:0x4
