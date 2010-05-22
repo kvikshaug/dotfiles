@@ -1,5 +1,5 @@
 #!/usr/bin/fish
-set PATH $PATH /home/murray/apps/git-achievements /home/murray/apps/showoff-krisb/bin
+set PATH $PATH /home/murray/apps/git-achievements
 
 function l -d "ll shortcut"; ll $argv; end
 function ll -d "Customize dirlisting"; ls -lh --group-directories-first $argv; end
@@ -11,6 +11,7 @@ function ag -d "Shortcut for ack-grep"; ack-grep $argv; end
 function top -d "Use htop, not top"; htop; end
 
 function sagi -d "Shortcut for sudo apt-get install"; sudo apt-get install $argv; end
+function sagr -d "Shortcut for sudo apt-get remove"; sudo apt-get remove $argv; end
 function acs -d "Shortcut for searching the apt-cache"; apt-cache search $argv; end
 function ac -d "Shortcut for the apt-cache command"; apt-cache $argv; end
 
@@ -100,6 +101,17 @@ function md -d "Easily mount 'docus' exthd"
 end
 
 function umd -d "Easily unmount 'docus' exthd"
-  sudo umount /dev/sdb1
+  sudo umount /media/docus
+end
+
+function screen -d "Notify instead of replacing"; echo "No, you're trying out tmux, remember?"; end
+
+function ec -d "Add emacs buffer"; emacsclient -n; end
+function e -d "Start emacs"; emacs -nw; end
+
+function xpc -d "Get xprop instance, class and title";
+xprop |awk '
+    /^WM_CLASS/{sub(/.* =/, "instance:"); sub(/,/, "\nclass:"); print}
+    /^WM_NAME/{sub(/.* =/, "title:"); print}'
 end
 

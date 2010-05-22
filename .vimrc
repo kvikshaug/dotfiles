@@ -3,6 +3,9 @@ syntax on                  " syntax highlighting
 set background=dark        " dark background
 filetype plugin indent on  " filetype detection on
 
+set backspace=indent,start,eol " backspace removes newlines, indent, start insertion point
+
+set ruler        " show cursor pos.
 set incsearch    " incremental search
 "set hlsearch     " (don't) highlight search results
 set ignorecase   " ignore case when searching..
