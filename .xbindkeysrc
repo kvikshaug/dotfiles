@@ -55,8 +55,8 @@
   Print
 
 # Suspend
-"sudo /usr/sbin/pm-suspend >/dev/null 2>&1"
-  Pause
+#"sudo /usr/sbin/pm-suspend >/dev/null 2>&1"
+#  Pause
 
 # set directly keycode (here control + f with my keyboard)
 #"xterm"

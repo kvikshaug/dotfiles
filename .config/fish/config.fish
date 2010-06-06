@@ -10,10 +10,11 @@ function ssh -d "Be verbose"; ssh -v $argv; end
 function ag -d "Shortcut for ack-grep"; ack-grep $argv; end
 function top -d "Use htop, not top"; htop; end
 
-function sagi -d "Shortcut for sudo apt-get install"; sudo apt-get install $argv; end
-function sagr -d "Shortcut for sudo apt-get remove"; sudo apt-get remove $argv; end
-function acs -d "Shortcut for searching the apt-cache"; apt-cache search $argv; end
-function ac -d "Shortcut for the apt-cache command"; apt-cache $argv; end
+function pm -d "pacman"; pacman $argv; end
+function pmq -d "sudo pacman -Q"; sudo pacman -Q $argv; end
+function pmr -d "sudo pacman -R"; sudo pacman -R $argv; end
+function pms -d "sudo pacman -S"; sudo pacman -S $argv; end
+function pmss -d "pacman -Ss"; pacman -Ss $argv; end
 
 function shelter -d "Connect to shelter when inside of NAT"; ssh -p 23232 as@shelter; end
 
@@ -56,6 +57,8 @@ function sendkey -d "Send ssh public key to some remote host"
     if test (count $argv) -gt 0
       ssh $argv[1] -p $port "cat >> ~/.ssh/authorized_keys" < ~/.ssh/id_rsa.pub
     end
+  else
+    echo "There is no ~/.ssh/id_rsa.pub, please generate your keys with 'ssh-keygen'"
   end
 end
 
@@ -115,3 +118,4 @@ xprop |awk '
     /^WM_NAME/{sub(/.* =/, "title:"); print}'
 end
 
+function m -d "mplayer shortcut"; mplayer $argv; end

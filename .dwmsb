@@ -5,12 +5,12 @@
 # Use a file because fish handles lines as array entries
 # and I don't know how to handle that yet
 # TODO use mktemp
-set tmpfile /tmp/currentnewmail
+set tmpfile (mktemp .dwmsb-tempfile.XXXXXXXX)
 
 curl -u (~/.gc) --silent https://mail.google.com/mail/feed/atom | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' > $tmpfile
 
 # number of new mail
-set newmailcount (cat -n /tmp/currentnewmail | wc -l)
+set newmailcount (cat -n $tmpfile | wc -l)
 
 # display count and info if there are new mail
 if test $newmailcount -gt 0
@@ -20,7 +20,7 @@ if test $newmailcount -gt 0
 
   # print name and subject of latest mail
   echo -n " "
-  cat /tmp/currentnewmail | cut -d\n -f 1 | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2: \1/p" | tr -d '\n'
+  cat $tmpfile | cut -d\n -f 1 | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2: \1/p" | tr -d '\n'
 
   # separator
   echo -n " | "
@@ -29,7 +29,7 @@ end
 /bin/rm $tmpfile
 
 # disk usage
-df -h | ag --nocolor sda1 | awk '{ print $3 " (" $5 ")" }' | tr -d '\n'
+df -h | grep sda4 | awk '{ print $3 " (" $5 ")" }' | tr -d '\n'
 
 # separator
 echo -n " | "
