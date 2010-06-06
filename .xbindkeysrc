@@ -54,6 +54,10 @@
 "scrot ~/ss.png"
   Print
 
+# Switch keyboard layout
+"/home/murray/.switchxkbmap"
+  Menu
+
 # Suspend
 #"sudo /usr/sbin/pm-suspend >/dev/null 2>&1"
 #  Pause
