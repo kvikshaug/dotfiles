@@ -1,17 +1,91 @@
-URxvt.background:       #000000
-URxvt.foreground:       gray90
-URxvt.color7:           gray90
-URxvt.colorBD:          #fff
-URxvt.cursorColor:      gray90
-URxvt.highlightColor:   #666
-URxvt.visualBell:       true
+! XCursor
+!!!!!!!!!!!
 
-URxvt.font:             xft:Dejavu Sans Mono:pixelsize=11
-#URxvt.font:             xft:Liberation Mono:pixelsize=18
-URxvt.scrollBar:        false
+Xcursor.theme: basewhite
+! Xcursor.size:  22
 
-URxvt.perl-ext:         default,matcher
-URxvt.urlLauncher:      /usr/local/bin/opera
-URxvt.matcher.button:   1 
+! URXVT
+!!!!!!!!
 
-URxvt.saveLines:        65534
+! Font
+URxvt.font: xft:Inconsolata:pixelsize=15
+
+! Clickable links
+URxvt.perl-ext:       default,matcher
+URxvt.urlLauncher:    /usr/local/bin/opera
+URxvt.matcher.button: 1 
+
+! Other options
+URxvt.saveLines:  65534
+URxvt.visualBell: true
+URxvt.scrollBar:  false
+
+! Colors (modified theme one from http://phraktured.net/terminal-colors/)
+URxvt.background: rgb:00/00/00
+URxvt.foreground: rgb:e0/e0/e0
+URxvt.color0:     rgb:00/00/00
+URxvt.color1:     rgb:a8/00/00
+URxvt.color2:     rgb:00/a8/00
+URxvt.color3:     rgb:a8/54/00
+URxvt.color4:     rgb:00/00/a8
+URxvt.color5:     rgb:a8/00/a8
+URxvt.color6:     rgb:00/a8/a8
+URxvt.color7:     rgb:a8/a8/a8
+URxvt.color8:     rgb:54/50/54
+URxvt.color9:     rgb:f8/54/50
+URxvt.color10:    rgb:50/fc/50
+URxvt.color11:    rgb:f8/fc/50
+URxvt.color12:    rgb:50/54/f8
+URxvt.color13:    rgb:f8/54/f8
+URxvt.color14:    rgb:50/fc/f8
+URxvt.color15:    rgb:f8/fc/f8
+! URxvt.colorBD:        #fff
+! URxvt.cursorColor:    gray90
+! URxvt.highlightColor: #666
+
+! XCalc
+!!!!!!!!!
+xcalc*geometry:                        200x275
+xcalc.ti.bevel.background:             #111111
+xcalc.ti.bevel.screen.background:      #000000
+xcalc.ti.bevel.screen.DEG.background:  #000000
+xcalc.ti.bevel.screen.DEG.foreground:  LightSeaGreen
+xcalc.ti.bevel.screen.GRAD.background: #000000
+xcalc.ti.bevel.screen.GRAD.foreground: LightSeaGreen
+xcalc.ti.bevel.screen.RAD.background:  #000000
+xcalc.ti.bevel.screen.RAD.foreground:  LightSeaGreen
+xcalc.ti.bevel.screen.INV.background:  #000000
+xcalc.ti.bevel.screen.INV.foreground:  Red
+xcalc.ti.bevel.screen.LCD.background:  #000000
+xcalc.ti.bevel.screen.LCD.foreground:  LightSeaGreen
+xcalc.ti.bevel.screen.LCD.shadowWidth: 0
+xcalc.ti.bevel.screen.M.background:    #000000
+xcalc.ti.bevel.screen.M.foreground:    LightSeaGreen
+xcalc.ti.bevel.screen.P.background:    #000000
+xcalc.ti.bevel.screen.P.foreground:    Yellow
+xcalc.ti.Command.foreground:  White
+xcalc.ti.Command.background:  #777777
+xcalc.ti.button5.background:  Orange3
+xcalc.ti.button19.background: #611161
+xcalc.ti.button18.background: #611161
+xcalc.ti.button20.background: #611111
+xcalc.ti.button20.label:      /
+xcalc.ti.button25.background: #722222
+xcalc.ti.button30.background: #833333
+xcalc.ti.button35.background: #944444
+xcalc.ti.button40.background: #a55555
+xcalc.ti.button22.background: #222262
+xcalc.ti.button23.background: #222262
+xcalc.ti.button24.background: #222272
+xcalc.ti.button27.background: #333373
+xcalc.ti.button28.background: #333373
+xcalc.ti.button29.background: #333373
+xcalc.ti.button32.background: #444484
+xcalc.ti.button33.background: #444484
+xcalc.ti.button34.background: #444484
+xcalc.ti.button37.background: #555595
+xcalc.ti.button38.background: #555595
+xcalc.ti.button39.background: #555595
+XCalc*Cursor:                 hand2
+XCalc*ShapeStyle:             rectangle
+

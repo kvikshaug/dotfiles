@@ -9,6 +9,7 @@ function rm -d "Be verbose, and confirm removal"; rm -iv $argv; end
 function ssh -d "Be verbose"; ssh -v $argv; end
 function ag -d "Shortcut for ack-grep"; ack-grep $argv; end
 function top -d "Use htop, not top"; htop; end
+function psg -d "Grep for process"; ps aux | grep $argv; end
 
 function pm -d "pacman"; pacman $argv; end
 function pmq -d "sudo pacman -Q"; sudo pacman -Q $argv; end
