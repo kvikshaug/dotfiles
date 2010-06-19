@@ -1,10 +1,9 @@
 #!/usr/bin/fish
 # This file controls the contents of my dwm status bar
-# It is set by the proc in .dwmrc every minute via 'xsetroot -name'
+# It is set by the proc in .xinitrc every minute via 'xsetroot -name'
 
 # Use a file because fish handles lines as array entries
 # and I don't know how to handle that yet
-# TODO use mktemp
 set tmpfile (mktemp .dwmsb-tempfile.XXXXXXXX)
 
 curl -u (~/.gc) --silent https://mail.google.com/mail/feed/atom | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' > $tmpfile
@@ -28,8 +27,12 @@ end
 
 /bin/rm $tmpfile
 
+# load avg
+cat /proc/loadavg | cut -d ' ' -f 1,2,3 | tr -d '\n'
+echo -n " | "
+
 # disk usage
-df -h | grep sda4 | awk '{ print $3 " (" $5 ")" }' | tr -d '\n'
+df -h | grep sda4 | awk '{ print $3 "/" $4 "/" $5 }' | sed 's/G//g' | tr -d '\n'
 
 # separator
 echo -n " | "
