@@ -2,7 +2,7 @@
 # Script for spreading or collecting the dotfiles into their git repo dir
 
 # List all files to copy in to or out from homedir
-set files .vimrc .gvimrc .gitconfig .config/fish/config.fish .Xdefaults .vim/ftplugin/html/sparkup.vim .vim/ftplugin/html/sparkup.py .dwmsb .tmux.conf .Xmodmap .xinitrc .xbindkeysrc .switchxkbmap
+set files .vimrc .gvimrc .gitconfig .config/fish/config.fish .Xdefaults .vim/ftplugin/html/sparkup.vim .vim/ftplugin/html/sparkup.py .dwmsb .tmux.conf .Xmodmap .xinitrc .xbindkeysrc .switchxkbmap .xpdfrc .dwmsb-mail
 
 switch "$argv[1]"
   case "in"

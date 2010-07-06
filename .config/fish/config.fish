@@ -1,5 +1,5 @@
 #!/usr/bin/fish
-set PATH $PATH /home/murray/apps/git-achievements
+set PATH $PATH /home/murray/apps/git-achievements /home/murray/.gem/ruby/1.9.1/bin
 
 function l -d "ll shortcut"; ll $argv; end
 function ll -d "Customize dirlisting"; ls -lh --group-directories-first $argv; end
@@ -7,7 +7,7 @@ function mv -d "Be verbose"; mv -v $argv; end
 function cp -d "Be verbose"; cp -v $argv; end
 function rm -d "Be verbose, and confirm removal"; rm -iv $argv; end
 function ssh -d "Be verbose"; ssh -v $argv; end
-function ag -d "Shortcut for ack-grep"; ack-grep $argv; end
+function ag -d "Shortcut for ack-grep BUT GREP NOW UNTIL I INSTALL ACK"; echo "Warning, using grep (not ack-grep)"; grep $argv; end
 function top -d "Use htop, not top"; htop; end
 function psg -d "Grep for process"; ps aux | grep $argv; end
 
@@ -16,6 +16,7 @@ function pmq -d "sudo pacman -Q"; sudo pacman -Q $argv; end
 function pmr -d "sudo pacman -R"; sudo pacman -R $argv; end
 function pms -d "sudo pacman -S"; sudo pacman -S $argv; end
 function pmss -d "pacman -Ss"; pacman -Ss $argv; end
+function pmsyu -d "sudo pacman -Syu"; sudo pacman -Suy $argv; end
 
 function shelter -d "Connect to shelter when inside of NAT"; ssh -p 23232 as@shelter; end
 
@@ -120,3 +121,7 @@ xprop |awk '
 end
 
 function m -d "mplayer shortcut"; mplayer $argv; end
+
+function wine -d "Reminder";
+  echo "Hei søtnos, du har glemt at du ikke gadd å kompilere wine for 64-bit arkitektur :)";
+end

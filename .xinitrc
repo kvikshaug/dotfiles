@@ -19,12 +19,17 @@ amixer set Master unmute
 amixer set Master 40
 
 # start xflux; warmer night-time light temperatures
-/home/murray/apps/xflux/xflux.sh
+# (don't; it's 32bit and won't run here)
+#/home/murray/apps/xflux/xflux.sh
 
 # update dwm status bar
-while true; do
+while sleep 5s; do
   xsetroot -name "$(/home/murray/.dwmsb)"
-  sleep 1m
+done &
+
+# fetch mail for dwm status bar
+while sleep 5m; do
+  /home/murray/.dwmsb-mail
 done &
 
 # change background every once in a while
@@ -37,8 +42,11 @@ done &
 
 # or fetch and set one of the earth
 xsetbg -at 0,15 /home/murray/.bg
-while sleep 3h; do
+while sleep 2h; do
   wget -O .bg http://static.die.net/earth/mercator/1600.jpg
+#if test $status -eq 0
+#  
+#
   mogrify -resize 1443x800 .bg
   xsetbg -at 0,15 /home/murray/.bg
 done &

@@ -2,3 +2,11 @@ remove Lock = Caps_Lock
 keysym Caps_Lock = Control_L
 add Control = Control_L
 
+! caps = control
+!keycode 66 = Control_L NoSymbol Control_L
+
+! sdf = æøå
+! keycode 39 = s S ae AE
+! keycode 40 = d D oslash Oslash
+! keycode 41 = f F aring Aring
+

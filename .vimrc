@@ -5,6 +5,8 @@ filetype plugin indent on  " filetype detection on
 
 set backspace=indent,start,eol " backspace removes newlines, indent, start insertion point
 
+autocmd BufEnter * lcd %:p:h " cd to current buffer directory
+
 set ruler        " show cursor pos.
 set incsearch    " incremental search
 "set hlsearch     " (don't) highlight search results

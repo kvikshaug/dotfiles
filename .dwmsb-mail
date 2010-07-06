@@ -1,0 +1,46 @@
+#!/usr/bin/fish
+# This file checks for new mail and outputs them to a temporary file,
+# which is checked by .dwmsb (which is the main status bar updater-file)
+# The mail logic is seperate because it polls less often than the sb is
+# updated.
+# The job is started in .xinitrc
+
+# The file .dwmsb will check and output
+set mailfile .dwmsb-mail-current
+echo "" > $mailfile
+
+# Use a temporray file because fish handles lines as array
+# entries and I don't know how to handle that yet
+set tmpfile1 (mktemp .dwmsb-tempfile.XXXXXXXX)
+set tmpfile2 (mktemp .dwmsb-tempfile.XXXXXXXX)
+
+curl -u (~/.gc) --silent https://mail.google.com/mail/feed/atom > $tmpfile1
+
+# if curl fails, say so
+set curlstatus $status
+if test $curlstatus -ne 0
+  echo -n "curl: $curlstatus | " > $mailfile
+else
+  cat $tmpfile1 | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' > $tmpfile2
+
+  # number of new mail
+  set newmailcount (cat -n $tmpfile2 | wc -l)
+
+  # display count and info if there are new mail
+  if test $newmailcount -gt 0
+    # print count
+    echo -n "$newmailcount" > $mailfile
+    echo -n "M" >> $mailfile
+
+    # print name and subject of latest mail
+    echo -n " " >> $mailfile
+    cat $tmpfile2 | cut -d\n -f 1 | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2: \1/p" | tr -d '\n' >> $mailfile
+
+    # separator
+    echo -n " | " >> $mailfile
+  end
+end
+
+/bin/rm $tmpfile1
+/bin/rm $tmpfile2
+

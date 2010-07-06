@@ -2,30 +2,19 @@
 # This file controls the contents of my dwm status bar
 # It is set by the proc in .xinitrc every minute via 'xsetroot -name'
 
-# Use a file because fish handles lines as array entries
-# and I don't know how to handle that yet
-set tmpfile (mktemp .dwmsb-tempfile.XXXXXXXX)
+# The mail line is retrieved in this file
+cat .dwmsb-mail-current | tr -d '\n'
 
-curl -u (~/.gc) --silent https://mail.google.com/mail/feed/atom | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' > $tmpfile
-
-# number of new mail
-set newmailcount (cat -n $tmpfile | wc -l)
-
-# display count and info if there are new mail
-if test $newmailcount -gt 0
-  # print count
-  echo -n "$newmailcount"
-  echo -n "M"
-
-  # print name and subject of latest mail
-  echo -n " "
-  cat $tmpfile | cut -d\n -f 1 | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2: \1/p" | tr -d '\n'
-
-  # separator
+# if discharging, show remaining power
+set chargingstatus (cat /proc/acpi/battery/BAT0/state | grep charging | awk '{print $3}')
+if test $chargingstatus != 'charged'
+  echo -n (cat /proc/acpi/battery/BAT0/state | grep remaining | awk '{print $3}')
   echo -n " | "
 end
 
-/bin/rm $tmpfile
+# cpu temp
+sensors | grep temp1 | awk '{print $2}' | sed 's/+//' | sed 's/..°C//' | tr -d '\n'
+echo -n " | "
 
 # load avg
 cat /proc/loadavg | cut -d ' ' -f 1,2,3 | tr -d '\n'
