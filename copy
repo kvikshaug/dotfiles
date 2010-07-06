@@ -29,4 +29,3 @@ for f in $files
     cp ./$f ~/$f
   end
 end
-echo "Note: Not touching /etc/hosts"
