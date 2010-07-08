@@ -2,8 +2,13 @@
 	name = Ali Kaafarani
 	email = kaafarani.ali@gmail.com
 [alias]
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-#	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+        ci = commit
+        st = status
+        br = branch
+        co = checkout
+        df = diff
+	lg = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset'
+        # --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr)%Creset'
 [branch]
 	autosetupmerge = always
 [push]
@@ -12,3 +17,20 @@
 	editor = vim
 #[achievement]
 #	upload = true
+[color]
+        branch = true
+        status = true
+        diff = true
+[log]
+        date = relative
+[help]
+        format = man #/html
+        browser = opera
+        autocorrect = -20
+[instaweb]
+        httpd = lighttpd
+        browser = opera
+[web]
+        browser = opera
+[browser "opera"]
+        cmd = opera
