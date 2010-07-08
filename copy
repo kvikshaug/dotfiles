@@ -2,7 +2,7 @@
 # Script for spreading or collecting the dotfiles into their git repo dir
 
 # List all files to copy in to or out from homedir
-set files .vimrc .gvimrc .gitconfig .config/fish/config.fish .Xdefaults .vim/ftplugin/html/sparkup.vim .vim/ftplugin/html/sparkup.py .dwmsb .tmux.conf .Xmodmap .xinitrc .xbindkeysrc .switchxkbmap .xpdfrc .dwmsb-mail
+set files .vimrc .gvimrc .vim .gitconfig .config/fish/config.fish .Xdefaults .dwmsb .tmux.conf .Xmodmap .xinitrc .xbindkeysrc .switchxkbmap .xpdfrc .dwmsb-mail
 
 switch "$argv[1]"
   case "in"
@@ -23,9 +23,9 @@ end
 
 for f in $files
   if test $argv[1] = "in" 
-    cp ~/$f ./$f
+    cp -r ~/$f ./$f
   end
   if test $argv[1] = "out"
-    cp ./$f ~/$f
+    cp -r ./$f ~/$f
   end
 end
