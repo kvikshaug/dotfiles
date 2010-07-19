@@ -1,5 +1,5 @@
 #!/usr/bin/fish
-set PATH $PATH /home/murray/apps/git-achievements /home/murray/.gem/ruby/1.9.1/bin
+set PATH $PATH /home/murray/apps/git-achievements /home/murray/.gem/ruby/1.9.1/bin /home/murray/apps/play-1.1-unstable-r942 /opt/scala-2.8.0.final/bin
 
 function l -d "ll shortcut"; ll $argv; end
 function ll -d "Customize dirlisting"; ls -lh --group-directories-first $argv; end

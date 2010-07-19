@@ -1,32 +1,47 @@
 set shell=/bin/bash        " use bash for external commands
-syntax on                  " syntax highlighting
 set background=dark        " dark background
+
+syntax on                  " syntax highlighting
 filetype plugin indent on  " filetype detection on
 
-set backspace=indent,start,eol " backspace removes newlines, indent, start insertion point
+set nobackup     " don't keep backup file
+set writebackup  " but keep it temporary while writing to disk
 
-autocmd BufEnter * lcd %:p:h " cd to current buffer directory
+set noruler      " show cursor pos.
+set ls=2         " always show statusline
+set stl=%f%(\ %n%)%(\ %M%)%(\ %R%)%(\ %W%)%(\ %y%)%{WarnNotUnix()}%=%l,%v\ %P
 
-set ruler        " show cursor pos.
 set incsearch    " incremental search
-"set hlsearch     " (don't) highlight search results
 set ignorecase   " ignore case when searching..
 set smartcase    " ..but only if search is all lc
-set textwidth=0  " don't linewrap unless i want to.
+"set hlsearch    " highlight search results
 
+set textwidth=0   " don't linewrap unless i want to.
 set expandtab     " spaces as tabs
 set shiftwidth=2  " no of indentationspaces used (for <<, >>, cindent ++)
 set softtabstop=2 " no of indentationspaces used by <TAB> and <BS>
 set smarttab      " smart tab insertion
-"set cindent       " use complex c-indentation (but don't combine with ftindent)
+set backspace=indent,start,eol " backspace removes newlines, indent, start insertion point in insert mode
 
+set history=50   " lines in cli history
 set showcmd      " show (partial) command in status line
 set showmatch    " show matching brackets
 set autowrite    " automatically save before commands like :next and :make
 set hidden       " hide buffers when they are abandoned
-"set mouse=a     " (don't) enable mouse usage
+"set mouse=a     " enable mouse usage
 
-" some java abbreviations
-:abbr psvm public static void main(String[] args) {
-:abbr sout System.out.println("
+" show diff between current buffer and the file it was loaded from
+command BufferDiff vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+
+" cd to current buffer directory
+autocmd BufEnter * lcd %:p:h
+
+" prints file format when it isn't unix, used in stl
+function WarnNotUnix()
+  if &ff=='unix'
+    return ""
+  else
+    return " {".&ff."!}"
+  endif
+endfunction
 

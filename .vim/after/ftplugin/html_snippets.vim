@@ -50,7 +50,7 @@ exec "Snippet mailto <a href=\"mailto:".st.et."?subject=".st.et."\">".st.et."</a
 exec "Snippet table <table border=\"".st.et."\"".st.et." cellpadding=\"".st.et."\"><CR><tr><th>".st.et."</th></tr><CR><tr><td>".st.et."</td></tr><CR></table>"
 exec "Snippet link <link rel=\"".st.et."\" href=\"".st.et."\" type=\"text/css\" media=\"".st.et."\" title=\"".st.et."\" charset=\"".st.et."\" />"
 exec "Snippet form <form action=\"".st.et."\" method=\"".st.et."\"><CR>".st.et."<CR><CR><p><input type=\"submit\" value=\"Continue &rarr;\" /></p><CR></form><CR>".st.et
-exec "Snippet ref <a href=\"".st.et."\">".st.et."</a>".st.et
+exec "Snippet aref <a href=\"".st.et."\">".st.et."</a>".st.et
 exec "Snippet h1 <h1 id=\"".st.et."\">".st.et."</h1>".st.et
 exec "Snippet input <input type=\"".st.et."\" name=\"".st.et."\" value=\"".st.et."\" ".st.et."/>".st.et
 exec "Snippet style <style type=\"text/css\" media=\"screen\"><CR>/* <![CDATA[ */<CR>".st.et."<CR>/* ]]> */<CR></style><CR>".st.et
