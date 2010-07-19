@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# US layout with altgr dead keys
+setxkbmap us altgr-intl
+
 if [ -f $HOME/.Xmodmap ]; then
     xmodmap $HOME/.Xmodmap
 fi
