@@ -6,8 +6,7 @@
 cat .dwmsb-mail-current | tr -d '\n'
 
 # if discharging, show remaining power
-set chargingstatus (cat /proc/acpi/battery/BAT0/state | grep charging | awk '{print $3}')
-if test $chargingstatus != 'charged'
+if test (cat /proc/acpi/battery/BAT0/state | grep charging | awk '{print $3}') != 'charged'
   echo -n (cat /proc/acpi/battery/BAT0/state | grep remaining | awk '{print $3}')
   echo -n " | "
 end
