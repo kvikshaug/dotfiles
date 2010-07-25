@@ -3,6 +3,7 @@ set background=dark        " dark background
 
 syntax on                  " syntax highlighting
 filetype plugin indent on  " filetype detection on
+set list listchars=tab:»·,trail:· " highlight trailing spaces and tab chars
 
 set nobackup     " don't keep backup file
 set writebackup  " but keep it temporary while writing to disk
