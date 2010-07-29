@@ -21,6 +21,7 @@ set textwidth=0   " don't linewrap unless i want to.
 set expandtab     " spaces as tabs
 set shiftwidth=2  " no of indentationspaces used (for <<, >>, cindent ++)
 set softtabstop=2 " no of indentationspaces used by <TAB> and <BS>
+" TODO make a function which changes the two values above easily
 set smarttab      " smart tab insertion
 set backspace=indent,start,eol " backspace removes newlines, indent, start insertion point in insert mode
 
@@ -46,3 +47,7 @@ function WarnNotUnix()
   endif
 endfunction
 
+" MiniBufExplorer options
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
