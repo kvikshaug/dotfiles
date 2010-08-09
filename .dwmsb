@@ -15,6 +15,10 @@ end
 sensors | grep temp1 | awk '{print $2}' | sed 's/+//' | sed 's/..°C//' | tr -d '\n'
 echo -n " | "
 
+# mem usg, thanks to: http://github.com/halhen/dotfiles/blob/master/.statusline.sh
+free -b | awk 'NR == 2 { print int(0.5 + 1000 * ($3 - ($6 + $7)) / $2)/10}' | tr -d '\n'
+echo -n "% | "
+
 # load avg
 cat /proc/loadavg | cut -d ' ' -f 1,2,3 | tr -d '\n'
 echo -n " | "
