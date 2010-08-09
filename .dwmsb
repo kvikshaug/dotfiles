@@ -21,8 +21,6 @@ echo -n " | "
 
 # disk usage
 df -h | grep sda4 | awk '{ print $3 "/" $4 "/" $5 }' | sed 's/G//g' | tr -d '\n'
-
-# separator
 echo -n " | "
 
 # show date
