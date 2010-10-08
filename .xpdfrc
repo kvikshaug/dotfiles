@@ -1,1 +1,3 @@
 urlCommand "opera '%s'"
+bind j              scrLockOff  nextPage
+bind k              scrLockOff  prevPage

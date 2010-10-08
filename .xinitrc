@@ -26,12 +26,14 @@ amixer set Master 40
 #/home/murray/apps/xflux/xflux.sh
 
 # update dwm status bar
-while sleep 5s; do
+while true; do
+  sleep 5s
   xsetroot -name "$(/home/murray/.dwmsb)"
 done &
 
 # fetch mail for dwm status bar
-while sleep 5m; do
+while true; do
+  sleep 5m
   /home/murray/.dwmsb-mail
 done &
 
@@ -45,13 +47,15 @@ done &
 
 # or fetch and set one of the earth
 xsetbg -at 0,15 /home/murray/.bg
-while sleep 2h; do
+while true; do
+  sleep 2h
   wget -O .bg http://static.die.net/earth/mercator/1600.jpg
-#if test $status -eq 0
-#  
-#
+  #if test $status -eq 0
   mogrify -resize 1443x800 .bg
   xsetbg -at 0,15 /home/murray/.bg
+  # save all pics
+  cp /home/murray/.bg /home/murray/pics/Diverse/earth/bg$(cat /home/murray/pics/Diverse/earth/current)
+  echo $(expr 1 + $(cat /home/murray/pics/Diverse/earth/current)) > /home/murray/pics/Diverse/earth/current
 done &
 
 exec /usr/local/bin/dwm

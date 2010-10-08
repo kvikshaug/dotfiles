@@ -52,6 +52,8 @@ exec "Snippet link <link rel=\"".st.et."\" href=\"".st.et."\" type=\"text/css\" 
 exec "Snippet form <form action=\"".st.et."\" method=\"".st.et."\"><CR>".st.et."<CR><CR><p><input type=\"submit\" value=\"Continue &rarr;\" /></p><CR></form><CR>".st.et
 exec "Snippet aref <a href=\"".st.et."\">".st.et."</a>".st.et
 exec "Snippet h1 <h1 id=\"".st.et."\">".st.et."</h1>".st.et
+exec "Snippet em <em>".st.et."</em>".st.et
+exec "Snippet img <img src=\"".st.et."\" alt=\"".st.et."\">".st.et
 exec "Snippet input <input type=\"".st.et."\" name=\"".st.et."\" value=\"".st.et."\" ".st.et."/>".st.et
 exec "Snippet style <style type=\"text/css\" media=\"screen\"><CR>/* <![CDATA[ */<CR>".st.et."<CR>/* ]]> */<CR></style><CR>".st.et
 exec "Snippet base <base href=\"".st.et."\"".st.et." />".st.et
