@@ -131,10 +131,10 @@ end
 function feh -d "Start feh, assuming some options";
   # if no arguments, start in current dir
   if test "$argv" = ""
-    /usr/bin/feh -.F .
+    /usr/bin/feh -.F -d -Sname .
   # if some arguments, let user specify dir
   else
-    /usr/bin/feh -.F $argv
+    /usr/bin/feh -.F -d -Sname $argv
   end
 end
 
