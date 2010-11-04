@@ -46,16 +46,14 @@ done &
 #xsetbg /usr/share/slim/themes/default/background.jpg
 
 # or fetch and set one of the earth
-xsetbg -at 0,15 /home/murray/.bg
-while true; do
-  sleep 2h
-  wget -O .bg http://static.die.net/earth/mercator/1600.jpg
-  #if test $status -eq 0
-  mogrify -resize 1443x800 .bg
-  xsetbg -at 0,15 /home/murray/.bg
-  # save all pics
-  cp /home/murray/.bg /home/murray/pics/Diverse/earth/bg$(cat /home/murray/pics/Diverse/earth/current)
-  echo $(expr 1 + $(cat /home/murray/pics/Diverse/earth/current)) > /home/murray/pics/Diverse/earth/current
-done &
+# xsetbg -at 0,15 /home/murray/.bg/world
+# while true; do
+#   sleep 2h
+#   wget -O .bg/world http://static.die.net/earth/mercator/1600.jpg
+#   #if test $status -eq 0
+#   mogrify -resize 1443x800 .bg
+#   xsetbg -at 0,15 /home/murray/.bg/world
+# done &
+xsetbg -center /home/murray/.bg/holstee-manifesto.jpg
 
 exec /usr/local/bin/dwm
