@@ -73,22 +73,42 @@ function x -d "Extract files based on file extension"
     end
 
     switch $arg
-      case '*.tar.bz2'
-        tar xjvf $arg
+      case '*.tar'
+        check_tarbomb $arg
+        if not test $status -eq 0
+          return 1
+        end
+        tar xvf $arg
       case '*.tar.gz'
+        check_tarbomb $arg
+        if not test $status -eq 0
+          return 1
+        end
         tar xzvf $arg
+      case '*.tgz'
+        check_tarbomb $arg
+        if not test $status -eq 0
+          return 1
+        end
+        tar xzvf $arg
+      case '*.tar.bz2'
+        check_tarbomb $arg
+        if not test $status -eq 0
+          return 1
+        end
+        tar xjvf $arg
+      case '*.tbz2'
+        check_tarbomb $arg
+        if not test $status -eq 0
+          return 1
+        end
+        tar xjvf $arg
+      case '*.gz'
+        gunzip -v $arg
       case '*.bz2'
         bunzip2 -v $arg
       case '*.rar'
         unrar x $arg
-      case '*.gz'
-        gunzip -v $arg
-      case '*.tar'
-        tar xvf $arg
-      case '*.tbz2'
-        tar xjvf $arg
-      case '*.tgz'
-        tar xzvf $arg
       case '*.zip'
         unzip $arg
       case '*.jar'
@@ -99,6 +119,68 @@ function x -d "Extract files based on file extension"
         echo "The file extension of '$arg' is not recognized by this script"
     end
   end
+end
+
+function check_tarbomb -d "Warn if specified tar is suspected to be a tarbomb"
+  # first, check the file size
+  if test (du -b $argv | awk '{print $1}') -gt 50000000 # 50MB
+    echo "$argv is over 50MB, skip tarbomb check? (y/N) "
+    read confirm
+    if test $confirm = "y"
+      return 0
+    end
+  end
+
+  echo "Checking for tarbomb, please wait..."
+  # search for multiple root dirs
+  if test (tar tf $argv | sed 's/^\.\///' | grep "/" | sed 's/\/.*//' | uniq | wc -l) -gt 1
+    echo "Warning: $argv contains more than one root directory! Really continue? (y/N) "
+    read confirm
+    if test $confirm != "y"
+      return 1
+    end
+  end
+
+  # test for absolute paths
+  if not test (tar tf $argv | grep -c "^/") -eq 0
+    echo "Warning: $argv contains absolute paths! Really continue? (y/N) "
+    read confirm
+    if test $confirm != "y"
+      return 1
+    end
+  end
+
+  # search for files in root dir
+  if not test (tar tf $argv | sed 's/^\.\///' | grep "/" -vc) -eq 0
+    echo "Warning: $argv contains files in root dir! Really continue? (y/N) "
+    read confirm
+    if test $confirm != "y"
+      return 1
+    end
+  end
+
+  set acceptOverwriting 0
+
+  for name in (tar tf $argv)
+    # check that no files or folders are overwritten
+    if test $acceptOverwriting -eq 0
+      test -e $name
+      if test $status -eq 0
+        echo "Warning: This would overwrite existing file/folder '$name'! Really continue? (a/y/N) "
+        read confirm
+        if test $confirm = "a"
+          set acceptOverwriting 1
+        else
+          if test $confirm != "y"
+            return 1
+          end
+        end
+      end
+    end
+  end
+
+  echo "Archive passed tarbomb tests, extracting..."
+  return 0
 end
 
 function git -d "Direct git through git-achievements"
