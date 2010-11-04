@@ -1,5 +1,5 @@
 #!/usr/bin/fish
-# This file controls the contents of my dwm status bar
+# Displays some hand-picked values in the dwm status bar
 # It is set by the proc in .xinitrc every minute via 'xsetroot -name'
 
 # The mail line is retrieved in this file
@@ -15,7 +15,7 @@ end
 sensors | grep temp1 | awk '{print $2}' | sed 's/+//' | sed 's/..°C//' | tr -d '\n'
 echo -n " | "
 
-# mem usg, thanks to: http://github.com/halhen/dotfiles/blob/master/.statusline.sh
+# mem usage
 free -b | awk 'NR == 2 { print int(int(0.5 + 1000 * ($3 - ($6 + $7)) / $2)/10) }' | tr -d '\n'
 echo -n "% | "
 
@@ -27,5 +27,5 @@ echo -n " | "
 cat /proc/loadavg | cut -d ' ' -f 1,2,3 | tr -d '\n'
 echo -n " | "
 
-# show date
+# current date
 echo -n (date +"%F %W %R")
