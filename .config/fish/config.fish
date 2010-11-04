@@ -67,33 +67,36 @@ end
 
 function x -d "Extract files based on file extension"
   for arg in $argv
-    if test -f $arg
-      switch $arg
-        case '*.tar.bz2'
-	  tar xjvf $arg
-        case '*.tar.gz'
-	  tar xzvf $arg
-        case '*.bz2'
-	  bunzip2 -v $arg
-        case '*.rar'
-	  unrar x $arg
-        case '*.gz'
-	  gunzip -v $arg
-        case '*.tar'
-	  tar xvf $arg
-        case '*.tbz2'
-	  tar xjvf $arg
-        case '*.tgz'
-	  tar xzvf $arg
-        case '*.zip'
-	  unzip $arg
-        case '*.jar'
-	  jar xvf $arg
-        case '*.Z' 
-	  uncompress $arg
-        case '*'
-          echo "'$arg' is not a valid file"
-      end
+    if not test -f $arg
+      echo "No such file $arg"
+      return 1
+    end
+
+    switch $arg
+      case '*.tar.bz2'
+        tar xjvf $arg
+      case '*.tar.gz'
+        tar xzvf $arg
+      case '*.bz2'
+        bunzip2 -v $arg
+      case '*.rar'
+        unrar x $arg
+      case '*.gz'
+        gunzip -v $arg
+      case '*.tar'
+        tar xvf $arg
+      case '*.tbz2'
+        tar xjvf $arg
+      case '*.tgz'
+        tar xzvf $arg
+      case '*.zip'
+        unzip $arg
+      case '*.jar'
+        jar xvf $arg
+      case '*.Z'
+        uncompress $arg
+      case '*'
+        echo "'$arg' is not a valid file"
     end
   end
 end
