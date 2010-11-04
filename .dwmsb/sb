@@ -1,9 +1,8 @@
 #!/usr/bin/fish
-# Displays some hand-picked values in the dwm status bar
-# It is set by the proc in .xinitrc every minute via 'xsetroot -name'
+# Displays some hand-picked data values in the dwm status bar
 
-# The mail line is retrieved in this file
-cat .dwmsb-mail-current | tr -d '\n'
+# Mail status
+cat ~/.dwmsb/mail-status | tr -d '\n'
 
 # if discharging, show remaining power
 if test (cat /proc/acpi/battery/BAT0/state | grep charging | awk '{print $3}') != 'charged'

@@ -1,3 +1,5 @@
 dotfiles
 .vim/.netrwhist
 .vim/.VimballRecord
+.dwmsb/.gc
+.dwmsb/mail-status

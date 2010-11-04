@@ -1,0 +1,23 @@
+#!/usr/bin/fish
+# Fetches the GMail atom feed into a temporary file, filters
+# it through the scala script and saves the output in $mailfile
+
+# The file to save current mail status in
+set mailfile ~/.dwmsb/mail-status
+
+# Use a temporary file to store the atom feed data
+set tmpfile (mktemp tempfile.XXXXXXXX)
+curl -u (~/.dwmsb/.gc) --silent https://mail.google.com/mail/feed/atom > $tmpfile
+
+set curlstatus $status
+if test $curlstatus -ne 0
+  # if curl fails, say so
+  echo -n "curl: $curlstatus | " > $mailfile
+else
+  # save the filtered output
+  set result (scala ~/.dwmsb/filter.scala $tmpfile)
+  echo $result > $mailfile
+end
+
+/bin/rm $tmpfile
+

@@ -28,13 +28,13 @@ amixer set Master 40
 # update dwm status bar
 while true; do
   sleep 5s
-  xsetroot -name "$(/home/murray/.dwmsb)"
+  xsetroot -name "$(/home/murray/.dwmsb/sb)"
 done &
 
 # fetch mail for dwm status bar
 while true; do
   sleep 5m
-  /home/murray/.dwmsb-mail
+  /home/murray/.dwmsb/mail
 done &
 
 # change background every once in a while

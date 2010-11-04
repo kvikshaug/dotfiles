@@ -1,5 +1,5 @@
 /**
- * Parses atom feed XML for gmail into a line showing:
+ * Parses atom feed XML for gmail and prints a line showing:
  * XM Y: Z
  * Where:
  * X = The number of unread mails in the inbox
