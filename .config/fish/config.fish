@@ -68,7 +68,7 @@ end
 function x -d "Extract files based on file extension"
   for arg in $argv
     if not test -f $arg
-      echo "No such file $arg"
+      echo "No such file '$arg'"
       return 1
     end
 
@@ -96,7 +96,7 @@ function x -d "Extract files based on file extension"
       case '*.Z'
         uncompress $arg
       case '*'
-        echo "'$arg' is not a valid file"
+        echo "The file extension of '$arg' is not recognized by this script"
     end
   end
 end
