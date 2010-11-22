@@ -155,7 +155,7 @@ function check_tarbomb -d "Warn if specified tar is suspected to be a tarbomb"
 
   # test for absolute paths
   if not test (tar tf $argv | grep -c "^/") -eq 0
-    echo "Warning: $argv contains absolute paths! Really continue? (y/N) "
+    echo "Warning: $argv contains absolute paths to root dir! Really continue? (y/N) "
     read confirm
     if test $confirm != "y"
       return 1
