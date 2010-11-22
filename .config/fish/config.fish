@@ -103,6 +103,18 @@ function x -d "Extract files based on file extension"
           return 1
         end
         tar xjvf $arg
+      case '*.tar.xz'
+        check_tarbomb $arg
+        if not test $status -eq 0
+          return 1
+        end
+        tar xJvf $arg
+      case '*.txz'
+        check_tarbomb $arg
+        if not test $status -eq 0
+          return 1
+        end
+        tar xJvf $arg
       case '*.gz'
         gunzip -v $arg
       case '*.bz2'
