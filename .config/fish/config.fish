@@ -163,7 +163,7 @@ function check_tarbomb -d "Warn if specified tar is suspected to be a tarbomb"
   end
 
   # search for files in root dir
-  if not test (tar tf $argv | sed 's/^\.\///' | grep "/" -vc) -eq 0
+  if not test (tar tf $argv | grep "/" -vc) -eq 0
     echo "Warning: $argv contains files in root dir! Really continue? (y/N) "
     read confirm
     if test $confirm != "y"
