@@ -3,7 +3,7 @@
 
 # List all files to copy in to or out from homedir
 set dirs .vim/ .dwmsb/
-set files .vimrc .gvimrc .gitconfig .config/fish/config.fish .Xdefaults .tmux.conf .Xmodmap .xinitrc .xbindkeysrc .xpdfrc .ctags
+set files .vimrc .gvimrc .gitconfig .config/fish/config.fish .config/fish/profile.fish .Xdefaults .tmux.conf .Xmodmap .xinitrc .xbindkeysrc .xpdfrc .ctags
 
 switch "$argv[1]"
   case "in"
