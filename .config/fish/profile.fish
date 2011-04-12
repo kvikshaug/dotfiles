@@ -3,7 +3,7 @@
 # This is just copied from /etc/profile{,.d/} and will have to be updated as the profile is updated
 
 # /etc/profile
-set -x PATH "/usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin"
+set -x PATH "/usr/local/bin" "/usr/bin" "/bin" "/usr/local/sbin" "/usr/sbin" "/sbin"
 
 # /etc/profile.d/glib2.sh
 set -x G_BROKEN_FILENAMES 1
