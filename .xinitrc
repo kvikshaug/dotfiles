@@ -7,11 +7,11 @@ if [ -f $HOME/.Xmodmap ]; then
     xmodmap $HOME/.Xmodmap
 fi
 
-if [ -f /etc/environment ]; then
-    . /etc/environment
-fi
+#if [ -f /etc/environment ]; then
+#    . /etc/environment
+#fi
 
-# TODO why doesn't this work as daemon in /etc/rc.conf ?
+# start xbindkeys
 xbindkeys
 
 # pretend that a non-reparenting window manager is running that the XToolkit/XAWT backend can recognize
@@ -54,6 +54,19 @@ done &
 #   mogrify -resize 1443x800 .bg
 #   xsetbg -at 0,15 /home/murray/.bg/world
 # done &
-xsetbg -center /home/murray/.bg/holstee-manifesto.jpg
+xsetbg -center /home/murray/.bg/aperture-laboratories.jpg
 
-exec /usr/local/bin/dwm
+case $1 in
+  "dwm")
+    exec /usr/local/bin/dwm
+    ;;
+
+  "lxde")
+    exec ck-launch-session startlxde
+    ;;
+
+  *)
+    exec /usr/local/bin/dwm
+    ;;
+esac
+

@@ -1,8 +1,15 @@
+
 ! XCursor
 !!!!!!!!!!!
 
 Xcursor.theme: basewhite
 ! Xcursor.size:  22
+
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.antialias: true
+Xft.lcfilter: lcddefault
+Xft.hintstyle: hintslight
 
 ! URXVT
 !!!!!!!!
@@ -88,4 +95,5 @@ xcalc.ti.button38.background: #555595
 xcalc.ti.button39.background: #555595
 XCalc*Cursor:                 hand2
 XCalc*ShapeStyle:             rectangle
+
 

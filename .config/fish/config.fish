@@ -1,5 +1,4 @@
 #!/usr/bin/fish
-set PATH $PATH /home/murray/usr/path/git-achievements /home/murray/.gem/ruby/1.9.1/bin /opt/scala-2.8.0.final/bin
 
 function l -d "ll shortcut"; ll $argv; end
 function ll -d "Customize dirlisting"; ls -lh --group-directories-first $argv; end
@@ -21,7 +20,7 @@ function ec -d "Add emacs buffer"; emacsclient -n; end
 function e -d "Start emacs"; emacs -nw; end
 function m -d "mplayer shortcut"; mplayer $argv; end
 function p -d "Shortcut to pdf-viewer"; xpdf $argv &; end
-function r -d "Shortcut to ranger"; ranger $argv; end
+function r -d "Shortcut to ranger"; /home/murray/usr/stuff/ranger-1.1.2/ranger.py $argv; end
 
 function shelter -d "Connect to shelter when inside of NAT"; ssh -p 23232 as@shelter; end
 
@@ -195,18 +194,10 @@ function check_tarbomb -d "Warn if specified tar is suspected to be a tarbomb"
   return 0
 end
 
-function git -d "Direct git through git-achievements"
-  /home/murray/usr/path/git-achievements/git-achievements $argv
-end
-
 function xpc -d "Get xprop instance, class and title";
 xprop |awk '
     /^WM_CLASS/{sub(/.* =/, "instance:"); sub(/,/, "\nclass:"); print}
     /^WM_NAME/{sub(/.* =/, "title:"); print}'
-end
-
-function wine -d "Reminder";
-  echo "Hei søtnos, du har glemt at du ikke gadd å kompilere wine for 64-bit arkitektur :)";
 end
 
 function vipw -d "Edit my encrypted password file";
@@ -295,3 +286,12 @@ function fish_prompt --description 'Write out the prompt'
 
 end
 
+function 3gptoflv -d "Convert 3gp to flv"
+  for i in $argv
+    ffmpeg -i $i  -ar 22050 -ab 32 -f flv -s 320x240 $i.flv
+  end
+end
+
+function cal -d "Monday is first weekday"; cal -m $argv; end
+
+function prettyJson -d "Pretty-print json"; python -m json.tool; end # /usr/bin/prettify_json.rb works fine too!

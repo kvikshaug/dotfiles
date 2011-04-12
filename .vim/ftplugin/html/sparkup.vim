@@ -56,9 +56,8 @@ function! s:Sparkup()
         endif
         let s:sparkup = '"' . s:sparkup . '"'
         let s:sparkup .= printf(' %s --indent-spaces=%s', s:sparkupArgs, &shiftwidth)
-        if has('win32') || has('win64')
-            let s:sparkup = 'python ' . s:sparkup
-        endif
+        " Force python2, since python3 is not compatible
+        let s:sparkup = 'python2 ' . s:sparkup
     endif
     exec '.!' . s:sparkup
     call s:SparkupNext()
