@@ -26,7 +26,7 @@ set -x LANG en_US.UTF8
 
 # /etc/profile.d/maven.sh
 set -x MAVEN_OPTS -Xmx512m
-set -x M@_HOME /opt/maven
+set -x M2_HOME /opt/maven
 set -x PATH $PATH $M2_HOME/bin
 
 # /etc/profile.d/perlbin.sh
