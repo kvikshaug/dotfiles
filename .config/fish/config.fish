@@ -9,6 +9,7 @@ function ll -d "Customize dirlisting"; ls -lh --group-directories-first $argv; e
 function mv -d "Be verbose"; mv -v $argv; end
 function cp -d "Be verbose"; cp -v $argv; end
 function rm -d "Be verbose, and confirm removal"; rm -iv $argv; end
+function rmdir -d "Be verbose"; rmdir -v $argv; end
 function ssh -d "Be verbose"; ssh -v $argv; end
 function top -d "Use htop, not top"; htop; end
 function psg -d "Grep for process"; ps aux | grep $argv; end
