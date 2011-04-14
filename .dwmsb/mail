@@ -15,7 +15,7 @@ if test $curlstatus -ne 0
   echo -n "curl: $curlstatus | " > $mailfile
 else
   # save the filtered output
-  set result (scala ~/.dwmsb/filter.scala $tmpfile)
+  set result (scala -cp ~/.dwmsb/ Filter $tmpfile)
   echo $result > $mailfile
 end
 
