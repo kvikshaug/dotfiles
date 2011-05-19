@@ -1,0 +1,24 @@
+# interface: 
+
+dns-resolution: no
+hide-source: no
+hide-destination: no
+
+port-resolution: yes
+port-display: on
+
+use-bytes: yes
+show-bars: yes
+promiscuous: no
+
+sort: 2s
+line-display: one-line-both
+show-totals: no
+
+log-scale: no
+
+# filter-code:
+max-bandwidth: 2M
+# net-filter:
+# screen-filter:
+
