@@ -300,3 +300,5 @@ end
 function cal -d "Monday is first weekday"; cal -m $argv; end
 
 function prettyJson -d "Pretty-print json"; python -m json.tool; end # /usr/bin/prettify_json.rb works fine too!
+
+function iftop -d "iftop"; sudo iftop $argv -c ~/.iftoprc; end

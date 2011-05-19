@@ -15,7 +15,7 @@ fi
 xbindkeys
 
 # pretend that a non-reparenting window manager is running that the XToolkit/XAWT backend can recognize
-wmname LG3D
+#wmname LG3D
 
 # set a reasonable default volume
 amixer set Master unmute
