@@ -45,8 +45,11 @@ amixer set Master 40
 #   mogrify -resize 1443x800 .bg
 #   xsetbg -at 0,15 /home/murray/.bg/world
 # done &
+
+# or set this one
 xsetbg -center /home/murray/.bg/aperture-laboratories.jpg
 
+# Ok, looks like we're done, fire up the wm
 case $1 in
   "dwm")
     exec /usr/local/bin/dwm
