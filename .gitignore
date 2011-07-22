@@ -1,8 +1,7 @@
 dotfiles
 .vim/.netrwhist
 .vim/.VimballRecord
-.dwmsb/.gc
-.dwmsb/mail-status
-.dwmsb/Filter$.class
-.dwmsb/Filter.class
+.dwmsb/old/
+.dwmsb/bin/
+.dwmsb/.creds
 

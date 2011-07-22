@@ -26,16 +26,7 @@ amixer set Master 40
 #/home/murray/apps/xflux/xflux.sh
 
 # update dwm status bar
-while true; do
-  sleep 5s
-  xsetroot -name "$(/home/murray/.dwmsb/sb)"
-done &
-
-# fetch mail for dwm status bar
-while true; do
-  sleep 5m
-  /home/murray/.dwmsb/mail
-done &
+/usr/bin/scala -cp /home/murray/code/jvmlib/joda-time-1.6/joda-time-1.6.jar:/home/murray/.dwmsb/bin/ StatusBar &
 
 # change background every once in a while
 # while sleep 1h; do
