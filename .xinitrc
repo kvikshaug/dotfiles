@@ -59,6 +59,10 @@ case $1 in
     exec ck-launch-session startlxde
     ;;
 
+  "xmonad")
+    exec /usr/bin/xmonad
+    ;;
+
   *)
     exec /usr/local/bin/dwm
     ;;
