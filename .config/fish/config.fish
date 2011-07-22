@@ -14,12 +14,13 @@ function ssh -d "Be verbose"; ssh -v $argv; end
 function top -d "Use htop, not top"; htop; end
 function psg -d "Grep for process"; ps aux | grep $argv; end
 
-function pm -d "pacman"; pacman $argv; end
-function pmq -d "sudo pacman -Q"; sudo pacman -Q $argv; end
-function pmr -d "sudo pacman -R"; sudo pacman -R $argv; end
-function pms -d "sudo pacman -S"; sudo pacman -S $argv; end
-function pmss -d "pacman -Ss"; pacman -Ss $argv; end
-function pmsyu -d "sudo pacman -Syu"; sudo pacman -Suy $argv; end
+function pacman -d "pacman-color"; pacman-color $argv; end
+function pm -d "pacman"; pacman-color $argv; end
+function pmq -d "sudo pacman -Q"; sudo pacman-color -Q $argv; end
+function pmr -d "sudo pacman -R"; sudo pacman-color -R $argv; end
+function pms -d "sudo pacman -S"; sudo pacman-color -S $argv; end
+function pmss -d "pacman -Ss"; pacman-color -Ss $argv; end
+function pmsyu -d "sudo pacman -Syu"; sudo pacman-color -Suy $argv; end
 
 function ec -d "Add emacs buffer"; emacsclient -n; end
 function e -d "Start emacs"; emacs -nw; end
@@ -135,6 +136,7 @@ function x -d "Extract files based on file extension"
         echo "The file extension of '$arg' is not recognized by this script"
     end
   end
+  echo "Please fix the check_tarbomb function soon :("
 end
 
 function check_tarbomb -d "Warn if specified tar is suspected to be a tarbomb"
@@ -203,22 +205,6 @@ function xpc -d "Get xprop instance, class and title";
 xprop |awk '
     /^WM_CLASS/{sub(/.* =/, "instance:"); sub(/,/, "\nclass:"); print}
     /^WM_NAME/{sub(/.* =/, "title:"); print}'
-end
-
-function vipw -d "Edit my encrypted password file";
-  set lastdir $PWD
-  and cd ~/usr/path/pwkeeper/
-  and scala no.kvikshaug.pwkeeper.Pwkeeper decrypt
-  and touch tmp
-  set modified (stat -c \%y tmp)
-  and vim tmp
-  and if test (stat -c \%y tmp) != $modified
-    scala no.kvikshaug.pwkeeper.Pwkeeper encrypt
-  else
-    echo "No modifications."
-  end
-  /bin/rm -f tmp
-  cd $lastdir
 end
 
 function feh -d "Start feh, assuming some options";
@@ -302,3 +288,13 @@ function cal -d "Monday is first weekday"; cal -m $argv; end
 function prettyJson -d "Pretty-print json"; python -m json.tool; end # /usr/bin/prettify_json.rb works fine too!
 
 function iftop -d "iftop"; sudo iftop $argv -c ~/.iftoprc; end
+
+function scalaapi -d "Open the local scala API in opera"
+  echo "Currently 2.9.0.1"
+  opera ~/usr/stuff/scala-2.9.0.1-devel-docs/api/index.html
+end
+
+function webcam -d "Start webcam with mplayer"
+  mplayer tv:// -tv driver=v4l2:width=640:height=480:device=/dev/video0 -fps 15 -vf screenshot
+end
+
