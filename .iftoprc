@@ -1,10 +1,10 @@
-# interface: 
+interface: wlan0
 
 dns-resolution: no
 hide-source: no
 hide-destination: no
 
-port-resolution: yes
+port-resolution: no
 port-display: on
 
 use-bytes: yes
@@ -18,7 +18,7 @@ show-totals: no
 log-scale: no
 
 # filter-code:
-max-bandwidth: 2M
+max-bandwidth: 3M
 # net-filter:
 # screen-filter:
 
