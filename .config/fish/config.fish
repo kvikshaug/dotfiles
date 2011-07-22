@@ -1,9 +1,5 @@
 #!/usr/bin/fish
 
-# If there's no parent loginshell process, manually create the env which
-# should have been read from /etc/profile
-#. ~/.config/fish/profile.fish
-
 function l -d "ll shortcut"; ll $argv; end
 function ll -d "Customize dirlisting"; ls -lh --group-directories-first $argv; end
 function mv -d "Be verbose"; mv -v $argv; end
