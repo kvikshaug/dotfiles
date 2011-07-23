@@ -50,7 +50,6 @@ object StatusBar {
 
   /* MAIL */
   val mailFetcher = actor {
-    // TODO where to save credentials?
     loop {
       receive {
         case _ =>
