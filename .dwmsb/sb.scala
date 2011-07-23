@@ -62,7 +62,7 @@ object StatusBar {
             if(mailcount > 0) {
               val author = ((xml \ "entry")(0) \ "author" \ "name").text
               val subject = ((xml \ "entry")(0) \ "title").text
-              sbSetter ! MailString(mailcount + "M " + author + ": " + subject + " | ")
+              sbSetter ! MailString(mailcount + "M " + author + " | ")
             } else {
               sbSetter ! MailString("")
             }
