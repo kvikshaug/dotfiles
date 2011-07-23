@@ -42,7 +42,7 @@ object StatusBar {
         case s: MailString => mailStatus = s.value
         case s: NetString => netUsage = s.value
         case _ =>
-          val statusBar = String.format("%s%s%s | %s | %s | %s | %s | %s", mailStatus, battery, cpuTemp, memUsage, diskUsage, loadAvg, netUsage, date)
+          val statusBar = String.format("%s%s%s | %s | %s | %s | %s | %s | %s", mailStatus, battery, cpuTemp, memUsage, diskUsage, loadAvg, netUsage, netStatus("wlan0", true), /*netStatus("eth0"),*/ date)
           run(Array("xsetroot", "-name", statusBar))
       }
     }
@@ -57,14 +57,18 @@ object StatusBar {
           val credentials = lines("/home/murray/.dwmsb/.creds")
           val username = credentials.next
           val password = credentials.next
-          var xml = XML.loadString(run(Array("wget", "-O", "-", "--user=" + username, "--password=" + password, "https://mail.google.com/mail/feed/atom")))
-          val mailcount = (xml \ "entry").size
-          if(mailcount > 0) {
-            val author = ((xml \ "entry")(0) \ "author" \ "name").text
-            val subject = ((xml \ "entry")(0) \ "title").text
-            sbSetter ! MailString(mailcount + "M " + author + ": " + subject + " | ")
-          } else {
-            sbSetter ! MailString("")
+          try {
+            var xml = XML.loadString(run(Array("wget", "-O", "-", "--user=" + username, "--password=" + password, "https://mail.google.com/mail/feed/atom")))
+            val mailcount = (xml \ "entry").size
+            if(mailcount > 0) {
+              val author = ((xml \ "entry")(0) \ "author" \ "name").text
+              val subject = ((xml \ "entry")(0) \ "title").text
+              sbSetter ! MailString(mailcount + "M " + author + ": " + subject + " | ")
+            } else {
+              sbSetter ! MailString("")
+            }
+          } catch {
+            case e => sbSetter ! MailString("?M | ")
           }
       }
     }
@@ -79,7 +83,8 @@ object StatusBar {
     loop {
       receive {
         case _ =>
-          val net = pickLine(read("/proc/net/dev"), 5)      
+          val net = pickLine(read("/proc/net/dev"), 5)
+          // TODO: don't hardcode wlan0
           val groups = """wlan0:\s+(\d+)\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+(\d+)""".r.findAllIn(net).matchData.next.subgroups
           val rx = groups(0).toLong
           val tx = groups(1).toLong
@@ -130,12 +135,24 @@ object StatusBar {
   /* LOAD AVG */
   def loadAvg = """\d.\d\d \d.\d\d \d.\d\d""".r.findFirstIn(read("/proc/loadavg")).getOrElse("?.?? ?.?? ?.??")
 
-  /* WLAN status */
-  def wlan = {
+  /* NETWORK STATUS */
+  def netStatus(iface: String, wireless: Boolean = false) = {
     // TODO Show whether wlan is disconnected, connected, or connecting
-    val wlan = pickLine(run(Array("iwconfig")), 5)
-    println(wlan)
-    ""
+    val ipLine = pickLine(run(Array("ifconfig", iface)), 2)
+    val matcher = """inet addr:([0-9\.]+)""".r.findAllIn(ipLine).matchData
+    val ip = if(matcher.hasNext) matcher.next.subgroups(0) else "↓"
+    if(wireless) {
+      val essidline = run(Array("iwgetid"))
+      if(essidline isEmpty) {
+        iface + ": " + ip + " @ ?"
+      } else {
+        val essidmatch = """ESSID:"(.*)"""".r
+        val essid = essidmatch.findAllIn(essidline).matchData.next.subgroups(0)
+        iface + /*": " + ip +*/ " @ " + essid
+      }
+    } else {
+      iface + ": " + ip
+    }
   }
 
   /* DATE */
