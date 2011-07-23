@@ -139,19 +139,17 @@ object StatusBar {
     // TODO Show whether wlan is disconnected, connected, or connecting
     val ipLine = pickLine(run(Array("ifconfig", iface)), 2)
     val matcher = """inet addr:([0-9\.]+)""".r.findAllIn(ipLine).matchData
-    val ip = if(matcher.hasNext) matcher.next.subgroups(0) else "↓"
-    if(wireless) {
+    val details = if(wireless) {
       val essidline = run(Array("iwgetid"))
       if(essidline isEmpty) {
-        iface + ": " + ip + " @ ?"
+        "↓"
       } else {
-        val essidmatch = """ESSID:"(.*)"""".r
-        val essid = essidmatch.findAllIn(essidline).matchData.next.subgroups(0)
-        iface + /*": " + ip +*/ " @ " + essid
+        """ESSID:"(.*)"""".r.findAllIn(essidline).matchData.next.subgroups(0)
       }
     } else {
-      iface + ": " + ip
+      if(matcher.hasNext) matcher.next.subgroups(0) else "↓"
     }
+    iface + ": " + details
   }
 
   /* DATE */
