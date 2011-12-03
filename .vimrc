@@ -40,7 +40,10 @@ set hidden       " hide buffers when they are abandoned
 command BufferDiff vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
 " cd to current buffer directory
-autocmd BufEnter * lcd %:p:h
+autocmd BufEnter * if expand('%:p') !~ '://' | :lchdir %:p:h | endif
+
+" Fix for fugitive
+autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
 
 " prints file format when it isn't unix, used in stl
 function WarnNotUnix()
