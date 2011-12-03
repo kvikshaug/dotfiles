@@ -23,6 +23,7 @@ set files $files .iftoprc
 set files $files .dwmsb/sb.scala
 set files $files .dwmsb/util.scala
 set files $files .taskrc
+set files $files .bg/setbg.py
 
 switch "$argv[1]"
   case "in"

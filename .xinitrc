@@ -30,26 +30,8 @@ xflux -l 59.91 -g 10.75 -k 4400
 # update dwm status bar
 /usr/bin/scala -cp /home/murray/code/jvmlib/joda-time-1.6/joda-time-1.6.jar:/home/murray/.dwmsb/bin/ StatusBar &
 
-# change background every once in a while
-# while sleep 1h; do
-#   xsetbg $(/home/murray/.nextbg)
-# done &
-
-# or just set the slim bg
-#xsetbg /usr/share/slim/themes/default/background.jpg
-
-# or fetch and set one of the earth
-# xsetbg -at 0,15 /home/murray/.bg/world
-# while true; do
-#   sleep 2h
-#   wget -O .bg/world http://static.die.net/earth/mercator/1600.jpg
-#   #if test $status -eq 0
-#   mogrify -resize 1443x800 .bg
-#   xsetbg -at 0,15 /home/murray/.bg/world
-# done &
-
-# or set this one
-xsetbg -center /home/murray/.bg/pink.jpg
+# Start background script
+/home/murray/.bg/setbg.py &
 
 # Ok, looks like we're done, fire up the wm
 case $1 in
