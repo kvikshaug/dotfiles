@@ -1,5 +1,8 @@
 #!/usr/bin/fish
 
+# functions for python virtualenv
+. ~/.config/fish/virtualenv.fish
+
 function l -d "ll shortcut"; ll $argv; end
 function ll -d "Customize dirlisting"; ls -lh --group-directories-first $argv; end
 function mv -d "Be verbose"; mv -v $argv; end
