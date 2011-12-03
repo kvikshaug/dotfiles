@@ -11,6 +11,9 @@ fi
 #    . /etc/environment
 #fi
 
+# turn off system bell
+xset b off
+
 # start xbindkeys
 xbindkeys
 
@@ -22,8 +25,7 @@ amixer set Master unmute
 amixer set Master 40
 
 # start xflux; warmer night-time light temperatures
-# (don't; it's 32bit and won't run here)
-#/home/murray/apps/xflux/xflux.sh
+xflux -l 59.91 -g 10.75 -k 4400
 
 # update dwm status bar
 /usr/bin/scala -cp /home/murray/code/jvmlib/joda-time-1.6/joda-time-1.6.jar:/home/murray/.dwmsb/bin/ StatusBar &
@@ -47,7 +49,7 @@ amixer set Master 40
 # done &
 
 # or set this one
-xsetbg -center /home/murray/.bg/aperture-laboratories.jpg
+xsetbg -center /home/murray/.bg/pink.jpg
 
 # Ok, looks like we're done, fire up the wm
 case $1 in

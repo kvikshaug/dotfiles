@@ -42,7 +42,7 @@ object StatusBar {
         case s: MailString => mailStatus = s.value
         case s: NetString => netUsage = s.value
         case _ =>
-          val statusBar = String.format("%s%s%s | %s | %s | %s | %s | %s | %s", mailStatus, battery, cpuTemp, memUsage, diskUsage, loadAvg, netUsage, netStatus("wlan0", true), /*netStatus("eth0"),*/ date)
+          val statusBar = String.format("%s%s%s | %s | %s | %s | %s | %s | %s | %s", mailStatus, battery, audio, cpuTemp, memUsage, diskUsage, loadAvg, netUsage, netStatus("wlan0", true), /*netStatus("eth0"),*/ date)
           run(Array("xsetroot", "-name", statusBar))
       }
     }
@@ -68,6 +68,7 @@ object StatusBar {
             }
           } catch {
             case e => sbSetter ! MailString("?M | ")
+            e.printStackTrace
           }
       }
     }
@@ -82,20 +83,28 @@ object StatusBar {
     loop {
       receive {
         case _ =>
-          val net = pickLine(read("/proc/net/dev"), 5)
-          // TODO: don't hardcode wlan0
-          val groups = """wlan0:\s+(\d+)\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+(\d+)""".r.findAllIn(net).matchData.next.subgroups
-          val rx = groups(0).toLong
-          val tx = groups(1).toLong
-          sbSetter ! NetString(f.format(((rx - lastrx) / 1000).toInt) + "RX/" + f.format(((tx - lasttx) / 1000).toInt) + "TX")
-          lastrx = rx
-          lasttx = tx
+          try {
+            val net = read("/proc/net/dev")
+            // TODO: don't hardcode w lan0
+            val groups = """wlan0:\s+(\d+)\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+(\d+)""".r.findAllIn(net).matchData.next.subgroups
+            val rx = groups(0).toLong
+            val tx = groups(1).toLong
+            sbSetter ! NetString(f.format(((rx - lastrx) / 1000).toInt) + "RX/" + f.format(((tx - lasttx) / 1000).toInt)   + "TX")
+            lastrx = rx
+            lasttx = tx
+          } catch {
+            case e =>
+              sbSetter ! NetString("?RX/?TX")
+          }
       }
     }
   }
 
   /* BATTERY */
   def battery = {
+    // se i /sys/class/power_supply/BAT0
+    "bat0 todo"
+    /*
     val battery = read("/proc/acpi/battery/BAT0/state")
     val capacity = """remaining capacity:\s+(\d+) mWh""".r.findAllIn(battery).matchData.next.subgroups(0)
     capacity
@@ -105,6 +114,16 @@ object StatusBar {
       capacity + "c | "
     } else {
       ""
+    }*/
+  }
+
+  /* AUDIO VOLUME */
+  def audio = {
+    val audio = pickLine(run(Array("amixer")), 6)
+    if("""\[off\]$""".r.findFirstIn(audio).isDefined) {
+      "M"
+    } else {
+      """\[(\d+%)\]""".r.findAllIn(audio).matchData.next.subgroups(0)
     }
   }
 
@@ -149,7 +168,7 @@ object StatusBar {
     } else {
       if(matcher.hasNext) matcher.next.subgroups(0) else "↓"
     }
-    iface + ": " + details
+    details
   }
 
   /* DATE */

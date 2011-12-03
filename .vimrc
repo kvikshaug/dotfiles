@@ -1,5 +1,6 @@
 set shell=/bin/bash        " use bash for external commands
 set background=dark        " dark background
+set number                 " line numbers
 
 syntax on                  " syntax highlighting
 filetype plugin indent on  " filetype detection on

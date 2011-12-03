@@ -3,16 +3,18 @@
 	email = kaafarani.ali@gmail.com
 [alias]
         ci = commit
-        st = status
+        st = status -sb
         br = branch
         co = checkout
+# Tbh, word-diff didn't really give a clearer picture of the diff
+#        df = diff --word-diff
         df = diff
-	lg = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset'
+	lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr)%Creset'
         # --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr)%Creset'
 [branch]
 	autosetupmerge = always
 [push]
-	default = tracking
+	default = upstream
 [core]
 	editor = vim
 #[achievement]
@@ -34,3 +36,5 @@
         browser = opera
 [browser "opera"]
         cmd = opera
+[merge]
+	conflictstyle = diff3

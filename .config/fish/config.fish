@@ -22,7 +22,7 @@ function ec -d "Add emacs buffer"; emacsclient -n; end
 function e -d "Start emacs"; emacs -nw; end
 function m -d "mplayer shortcut"; mplayer $argv; end
 function p -d "Shortcut to pdf-viewer"; xpdf $argv &; end
-function r -d "Shortcut to ranger"; /home/murray/usr/stuff/ranger-1.1.2/ranger.py $argv; end
+function r -d "Shortcut to ranger"; /home/murray/usr/path/ranger-1.1.2/ranger.py $argv; end
 
 function shelter -d "Connect to shelter when inside of NAT"; ssh -p 23232 as@shelter; end
 
@@ -292,5 +292,35 @@ end
 
 function webcam -d "Start webcam with mplayer"
   mplayer tv:// -tv driver=v4l2:width=640:height=480:device=/dev/video0 -fps 15 -vf screenshot
+end
+
+function netstat -d "Netstat with some commonly used options"
+  command sudo netstat --numeric --inet -p
+end
+
+function sudo -d "Netstat hack"
+  if test "$argv[1]" = "netstat"
+    echo "Just use 'netstat'."
+  else
+    command sudo $argv
+  end
+end
+
+function playall
+  for i in (/bin/ls)
+      m $i
+  end
+end
+
+function easy_install
+  echo "pip installs packages. Python packages. An easy_install replacement."
+end
+
+function man
+  if test "$argv[1]" = "lsof"
+    echo http://danielmiessler.com/study/lsof/
+  else
+    command man $argv
+  end
 end
 

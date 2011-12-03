@@ -7,8 +7,6 @@ object Util {
   def run(c: Array[String]) = {
     val p = Runtime.getRuntime.exec(c)
     val in = new BufferedReader(new InputStreamReader(p.getInputStream))
-    p.getErrorStream.close
-    p.getOutputStream.close
 
     val sb = new StringBuilder
     def readAll(r: BufferedReader): Unit = r.readLine match {
@@ -17,6 +15,8 @@ object Util {
     }
     readAll(in)
     in.close
+    p.getErrorStream.close
+    p.getOutputStream.close
     sb.toString
   }
 
