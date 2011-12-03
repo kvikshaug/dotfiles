@@ -7,8 +7,11 @@ set dirs .vim/
 set files        .vimrc
 set files $files .gvimrc
 set files $files .gitconfig
-set files $files .config/fish/config.fish
-set files $files .config/fish/virtualenv.fish
+set files $files .config/fish/config.fish.example
+set files $files .config/fish/config.pacman
+set files $files .config/fish/config.prompt
+set files $files .config/fish/config.shortcuts
+set files $files .config/fish/config.virtualenv
 set files $files .Xdefaults
 set files $files .tmux.conf
 set files $files .Xmodmap

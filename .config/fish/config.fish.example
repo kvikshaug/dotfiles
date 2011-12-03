@@ -1,0 +1,15 @@
+#!/usr/bin/fish
+# Example config, copy this to config.fish and comment unwanted confs
+
+# Platform specific
+. ~/.config/fish/config.pacman
+
+# Application specific
+. ~/.config/fish/config.shortcuts
+. ~/.config/fish/config.extract
+. ~/.config/fish/config.prompt
+. ~/.config/fish/config.virtualenv
+
+# Not tracked by version control
+. ~/.config/fish/config.private
+
