@@ -8,8 +8,13 @@ function cp -d "verbose cp"; cp -v $argv; end
 function rm -d "verbose rm, and confirm removal"; rm -iv $argv; end
 function rmdir -d "verbose rmdir"; rmdir -v $argv; end
 function ssh -d "verbose ssh"; ssh -v $argv; end
-function pgrep -d "more info for pgrep"; ps -fp (command pgrep -d, -x $argv); end
 function cal -d "Monday is first weekday"; cal -m $argv; end
+function pgrep -d "more info for pgrep"
+  set pidlist (command pgrep -d, -x $argv)
+  if test -n "$pidlist"
+    ps -fp $pidlist
+  end
+end
 function mkcd -d "mkdir AND cd to it in one go!"
   mkdir $argv
   if test $status = 0
