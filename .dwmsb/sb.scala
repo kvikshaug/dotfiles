@@ -42,7 +42,7 @@ object StatusBar {
         case s: MailString => mailStatus = s.value
         case s: NetString => netUsage = s.value
         case _ =>
-          val statusBar = String.format("%s%s%s | %s | %s | %s | %s | %s | %s | %s", mailStatus, battery, audio, cpuTemp, memUsage, diskUsage, loadAvg, netUsage, netStatus("wlan0", true), /*netStatus("eth0"),*/ date)
+          val statusBar = String.format("%s%s%s | %s | %s | %s/%s | %s | %s | %s", mailStatus, battery, audio, memUsage, diskUsage, loadAvg, cpuTemp, netUsage, netStatus("wlan0", true), /*netStatus("eth0"),*/ date)
           run(Array("xsetroot", "-name", statusBar))
       }
     }
@@ -128,7 +128,7 @@ object StatusBar {
   /* CPU TEMP */
   def cpuTemp = {
     val temp = pickLine(run(Array("sensors")), 3)
-    'c' + """.*?\+(\d+)\.\d.*""".r.findAllIn(temp).matchData.next.subgroups(0)
+    """.*?\+(\d+)\.\d.*""".r.findAllIn(temp).matchData.next.subgroups(0)
   }
 
   /* MEM USAGE */
