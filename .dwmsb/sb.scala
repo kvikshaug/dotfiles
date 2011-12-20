@@ -102,19 +102,17 @@ object StatusBar {
 
   /* BATTERY */
   def battery = {
-    // se i /sys/class/power_supply/BAT0
-    "bat0 todo"
-    /*
-    val battery = read("/proc/acpi/battery/BAT0/state")
-    val capacity = """remaining capacity:\s+(\d+) mWh""".r.findAllIn(battery).matchData.next.subgroups(0)
-    capacity
-    if(""" discharging""".r.findFirstIn(battery).isDefined) {
-      capacity + "d | "
-    } else if(""" charging""".r.findFirstIn(battery).isDefined) {
-      capacity + "c | "
-    } else {
+    val battery = read("/sys/class/power_supply/BAT0/uevent")
+    val status = """POWER_SUPPLY_STATUS=(.*)""".r.findAllIn(battery).matchData.next.subgroups(0)
+    if(status == "Charged") {
       ""
-    }*/
+    } else {
+      val energyNow = """POWER_SUPPLY_ENERGY_NOW=(\d+)""".r.findAllIn(battery).matchData.next.subgroups(0)
+      val energyFull = """POWER_SUPPLY_ENERGY_FULL=(\d+)""".r.findAllIn(battery).matchData.next.subgroups(0)
+      val pst = ((energyNow.toDouble / energyFull.toDouble) * 100).round
+      val statusChar = status(0).toLower // 'd' or 'c' (for discharging or charging)
+      String.format("%s%s | ", String.valueOf(pst), String.valueOf(statusChar))
+    }
   }
 
   /* AUDIO VOLUME */
