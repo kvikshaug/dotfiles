@@ -42,7 +42,7 @@ object StatusBar {
         case s: MailString => mailStatus = s.value
         case s: NetString => netUsage = s.value
         case _ =>
-          val statusBar = String.format("%s%s%s | %s | %s | %s/%s | %s | %s | %s", mailStatus, battery, audio, memUsage, diskUsage, loadAvg, cpuTemp, netUsage, netStatus("wlan0", true), /*netStatus("eth0"),*/ date)
+          val statusBar = String.format("%s%s%s | %s | %s | %s/%s | %s | %s | %s", mailStatus, battery, audio, memUsage, diskUsage, loadAvg, cpuTemp, netUsage, netStatus, date)
           run(Array("xsetroot", "-name", statusBar))
       }
     }
@@ -152,21 +152,24 @@ object StatusBar {
   def loadAvg = """\d.\d\d \d.\d\d \d.\d\d""".r.findFirstIn(read("/proc/loadavg")).getOrElse("?.?? ?.?? ?.??")
 
   /* NETWORK STATUS */
-  def netStatus(iface: String, wireless: Boolean = false) = {
+  def netStatus = {
     // TODO Show whether wlan is disconnected, connected, or connecting
-    val ipLine = pickLine(run(Array("ifconfig", iface)), 2)
-    val matcher = """inet addr:([0-9\.]+)""".r.findAllIn(ipLine).matchData
-    val details = if(wireless) {
-      val essidline = run(Array("iwgetid"))
-      if(essidline isEmpty) {
-        "↓"
-      } else {
-        """ESSID:"(.*)"""".r.findAllIn(essidline).matchData.next.subgroups(0)
-      }
+    // first check for (and prioritize) wlan
+    val essidline = run(Array("iwgetid"))
+    if(!essidline.isEmpty) {
+      """ESSID:"(.*)"""".r.findAllIn(essidline).matchData.next.subgroups(0)
     } else {
-      if(matcher.hasNext) matcher.next.subgroups(0) else "↓"
+      // no wlan, try ethernet
+      val ipLine = run(Array("ip", "link", "show", "eth0"))
+      val matcher = """inet ([0-9\.]+)""".r.findAllIn(ipLine).matchData
+      if(!matcher.isEmpty) {
+        matcher.next.subgroups(0)
+      } else {
+        // No wlan0 nor eth0, looks like we're offline.
+        // TODO: wwan0 (mobile ip)
+        "↓"
+      }
     }
-    details
   }
 
   /* DATE */
