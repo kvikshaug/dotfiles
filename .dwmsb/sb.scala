@@ -84,9 +84,11 @@ object StatusBar {
       receive {
         case _ =>
           try {
+            val iface = if(ifaceUp("wlan0").isDefined) "wlan0"
+                        else if(ifaceUp("eth0").isDefined) "eth0"
+                        else "lo"
             val net = read("/proc/net/dev")
-            // TODO: don't hardcode w lan0
-            val groups = """wlan0:\s+(\d+)\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+(\d+)""".r.findAllIn(net).matchData.next.subgroups
+            val groups = (iface + """:\s+(\d+)\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+(\d+)""").r.findAllIn(net).matchData.next.subgroups
             val rx = groups(0).toLong
             val tx = groups(1).toLong
             sbSetter ! NetString(f.format(((rx - lastrx) / 1000).toInt) + "RX/" + f.format(((tx - lasttx) / 1000).toInt)   + "TX")
