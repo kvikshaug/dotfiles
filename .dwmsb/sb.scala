@@ -74,7 +74,7 @@ object StatusBar {
     }
   }
 
-  /* NET */
+  /* NET USAGE */
   val netAvg = actor {
     val f = NumberFormat.getInstance
     f.setMinimumIntegerDigits(3)
