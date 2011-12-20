@@ -154,22 +154,29 @@ object StatusBar {
   /* NETWORK STATUS */
   def netStatus = {
     // TODO Show whether wlan is disconnected, connected, or connecting
-    // first check for (and prioritize) wlan
-    val essidline = run(Array("iwgetid"))
-    if(!essidline.isEmpty) {
-      """ESSID:"(.*)"""".r.findAllIn(essidline).matchData.next.subgroups(0)
-    } else {
-      // no wlan, try ethernet
+    // prioritize wlan0
+    val wlan0 = ifaceUp("wlan0")
+    val eth0 = ifaceUp("eth0")
+    // TODO: wwan0 (mobile ip)
+    wlan0.getOrElse(eth0.getOrElse("↓"))
+  }
+
+  def ifaceUp(iface: String) = iface match {
+    case "wlan0" =>
+      val essidline = run(Array("iwgetid"))
+      if(!essidline.isEmpty) {
+        Some("""ESSID:"(.*)"""".r.findAllIn(essidline).matchData.next.subgroups(0))
+      } else {
+        None
+      }
+    case "eth0" =>
       val ipLine = run(Array("ip", "link", "show", "eth0"))
       val matcher = """inet ([0-9\.]+)""".r.findAllIn(ipLine).matchData
       if(!matcher.isEmpty) {
-        matcher.next.subgroups(0)
+        Some(matcher.next.subgroups(0))
       } else {
-        // No wlan0 nor eth0, looks like we're offline.
-        // TODO: wwan0 (mobile ip)
-        "↓"
+        None
       }
-    }
   }
 
   /* DATE */
