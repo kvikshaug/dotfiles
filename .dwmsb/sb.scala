@@ -123,14 +123,14 @@ object StatusBar {
     if("""\[off\]$""".r.findFirstIn(audio).isDefined) {
       "M"
     } else {
-      """\[(\d+%)\]""".r.findAllIn(audio).matchData.next.subgroups(0)
+      'v' + """\[(\d+%)\]""".r.findAllIn(audio).matchData.next.subgroups(0)
     }
   }
 
   /* CPU TEMP */
   def cpuTemp = {
     val temp = pickLine(run(Array("sensors")), 3)
-    """.*?\+(\d+)\.\d.*""".r.findAllIn(temp).matchData.next.subgroups(0)
+    'c' + """.*?\+(\d+)\.\d.*""".r.findAllIn(temp).matchData.next.subgroups(0)
   }
 
   /* MEM USAGE */
@@ -139,7 +139,7 @@ object StatusBar {
     val r = """Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)""".r
     val list = r.findAllIn(mem).matchData.next.subgroups.map(_.toDouble)
     val pst = ((list(1) - (list(4) + list(5))) / list(0)) * 100
-    String.valueOf(math.round(pst)) + "%"
+    'm' + String.valueOf(math.round(pst)) + "%"
   }
 
   /* DISK USAGE */
