@@ -106,7 +106,7 @@ object StatusBar {
   def battery = {
     val battery = read("/sys/class/power_supply/BAT0/uevent")
     val status = """POWER_SUPPLY_STATUS=(.*)""".r.findAllIn(battery).matchData.next.subgroups(0)
-    if(status == "Full") {
+    if(status == "Full" || status == "Unknown") {
       ""
     } else {
       val energyNow = """POWER_SUPPLY_ENERGY_NOW=(\d+)""".r.findAllIn(battery).matchData.next.subgroups(0)
