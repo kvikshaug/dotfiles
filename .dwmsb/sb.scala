@@ -84,7 +84,8 @@ object StatusBar {
       receive {
         case _ =>
           try {
-            val iface = if(ifaceUp("wlan0").isDefined) "wlan0"
+            val iface = if(ifaceUp("wwan0").isDefined) "wwan0"
+                        else if(ifaceUp("wlan0").isDefined) "wlan0"
                         else if(ifaceUp("eth0").isDefined) "eth0"
                         else "lo"
             val net = read("/proc/net/dev")
@@ -156,14 +157,22 @@ object StatusBar {
   /* NETWORK STATUS */
   def netStatus = {
     // TODO Show whether wlan is disconnected, connected, or connecting
-    // prioritize wlan0
+    // prioritize in this order:
+    val wwan0 = ifaceUp("wwan0")
     val wlan0 = ifaceUp("wlan0")
     val eth0 = ifaceUp("eth0")
-    // TODO: wwan0 (mobile ip)
-    wlan0.getOrElse(eth0.getOrElse("↓"))
+    wwan0.getOrElse(wlan0.getOrElse(eth0.getOrElse("↓")))
   }
 
   def ifaceUp(iface: String) = iface match {
+    case "wwan0" =>
+      val ipLine = pickLine(run(Array("ifconfig", "wwan0")), 2)
+      val matcher = """inet ([0-9\.]+)""".r.findAllIn(ipLine).matchData
+      if(!matcher.isEmpty) {
+        Some("wwan0/" + matcher.next.subgroups(0))
+      } else {
+        None
+      }
     case "wlan0" =>
       val essidline = run(Array("iwgetid"))
       if(!essidline.isEmpty) {
