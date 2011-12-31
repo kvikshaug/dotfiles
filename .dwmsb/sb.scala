@@ -175,7 +175,7 @@ object StatusBar {
       val ipLine = run(Array("ip", "addr", "show", "eth0"))
       val matcher = """inet ([0-9\.]+)""".r.findAllIn(ipLine).matchData
       if(!matcher.isEmpty) {
-        Some(matcher.next.subgroups(0))
+        Some("eth0/" + matcher.next.subgroups(0))
       } else {
         None
       }
