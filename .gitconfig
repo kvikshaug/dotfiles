@@ -1,6 +1,6 @@
 [user]
 	name = Ali Kaafarani
-	email = kaafarani.ali@gmail.com
+	email = ali@kvikshaug.no
 [alias]
         ci = commit
         st = status -sb
