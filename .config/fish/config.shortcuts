@@ -31,6 +31,7 @@ function r -d "ranger shortcut"; ranger $argv; end
 function iftop -d "iftop"; sudo iftop $argv -c ~/.iftoprc; end
 function ec -d "Add emacs buffer"; emacsclient -n; end
 function e -d "Start emacs"; emacs -nw; end
+function gitk -d "Always use --all"; gitk --all $argv; end
 function feh -d "Start feh, assuming some options";
   # if no arguments, start in current dir
   if test "$argv" = ""
