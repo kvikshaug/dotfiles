@@ -7,6 +7,7 @@ set dirs .vim/
 set files        .vimrc
 set files $files .gvimrc
 set files $files .gitconfig
+set files $files .config/fish/config.extract
 set files $files .config/fish/config.fish.example
 set files $files .config/fish/config.pacman
 set files $files .config/fish/config.prompt
