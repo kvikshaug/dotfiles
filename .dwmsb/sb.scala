@@ -177,7 +177,9 @@ object StatusBar {
     case "wlan0" =>
       val essidline = run(Array("iwgetid"))
       if(!essidline.isEmpty) {
-        Some("""ESSID:"(.*)"""".r.findAllIn(essidline).matchData.next.subgroups(0))
+        val ipLine = run(Array("ip", "addr", "show", "wlan0"))
+        val matcher = """inet ([0-9\.]+)""".r.findAllIn(ipLine).matchData
+        Some("""ESSID:"(.*)"""".r.findAllIn(essidline).matchData.next.subgroups(0) + '/' + matcher.next.subgroups(0))
       } else {
         None
       }
