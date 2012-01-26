@@ -44,13 +44,6 @@ end
 function netstat -d "Netstat with some commonly used options"
   command sudo netstat --numeric --inet -p
 end
-function sudo -d "Netstat hack"
-  if test "$argv[1]" = "netstat"
-    echo "Just use 'netstat'."
-  else
-    command sudo $argv
-  end
-end
 function easy_install
   echo "pip installs packages. Python packages. An easy_install replacement."
 end
