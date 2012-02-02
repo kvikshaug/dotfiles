@@ -42,7 +42,7 @@ function feh -d "Start feh, assuming some options";
   end
 end
 function netstat -d "Netstat with some commonly used options"
-  command sudo netstat --numeric --inet -p
+  command sudo netstat --numeric --inet -p $argv
 end
 function easy_install
   echo "pip installs packages. Python packages. An easy_install replacement."
