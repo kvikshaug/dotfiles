@@ -11,6 +11,7 @@
         df = diff
 	lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr)%Creset'
         # --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr)%Creset'
+        fp = fetch --prune
 [branch]
 	autosetupmerge = always
 [push]
