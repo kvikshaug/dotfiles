@@ -121,7 +121,7 @@ object StatusBar {
 
   /* AUDIO VOLUME */
   def audio = {
-    val audio = pickLine(run(Array("amixer")), 6)
+    val audio = pickLine(run(Array("amixer", "get", "Master")), 5)
     if("""\[off\]$""".r.findFirstIn(audio).isDefined) {
       "M"
     } else {
