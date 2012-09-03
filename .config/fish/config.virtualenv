@@ -43,11 +43,5 @@ function ve-start --description 'Start using a virtualenv'
     set -gx PATH $VIRTUAL_ENV/bin $PATH
 
     set -g _OLD_VIRTUAL_FISH_PROMPT_HOSTNAME $__fish_prompt_hostname
-    if test (basename $VIRTUAL_ENV) = "__"
-        # special case for Aspen magic directories
-        # see http://www.zetadev.com/software/aspen/
-        set -g __fish_prompt_hostname $__fish_prompt_hostname (basename (dirname $VIRTUAL_ENV))
-    else
-        set -g __fish_prompt_hostname "$__fish_prompt_hostname ("(basename $VIRTUAL_ENV)")"
-    end
+    set -g __fish_prompt_hostname "$__fish_prompt_hostname ("(basename $VIRTUAL_ENV)")"
 end

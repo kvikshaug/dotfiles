@@ -16,7 +16,7 @@
 data.location=/home/murray/.task
 include /usr/share/doc/task/rc/dark-256.theme
 
-include /usr/share/doc/task/rc/holidays-NO.rc
+include /usr/share/doc/task/rc/holidays.nb-NO.rc
 weekstart=Monday
 calendar.holidays=full
 calendar.details=full

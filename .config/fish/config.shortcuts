@@ -16,7 +16,7 @@ function pgrep -d "more info for pgrep"
   end
 end
 function mkcd -d "mkdir AND cd to it in one go!"
-  mkdir $argv
+  mkdir -p $argv
   if test $status = 0
     cd $argv
   end
@@ -32,6 +32,7 @@ function iftop -d "iftop"; sudo iftop $argv -c ~/.iftoprc; end
 function ec -d "Add emacs buffer"; emacsclient -n; end
 function e -d "Start emacs"; emacs -nw; end
 function gitk -d "Always use --all"; gitk --all $argv; end
+function sctl -d "supervisorctl shortcut"; supervisorctl $argv; end
 function feh -d "Start feh, assuming some options";
   # if no arguments, start in current dir
   if test "$argv" = ""

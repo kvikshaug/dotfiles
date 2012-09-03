@@ -18,7 +18,7 @@ xset b off
 xbindkeys
 
 # pretend that a non-reparenting window manager is running that the XToolkit/XAWT backend can recognize
-#wmname LG3D
+wmname LG3D
 
 # set a reasonable default volume
 amixer set Master unmute
@@ -32,6 +32,9 @@ xflux -l 59.91 -g 10.75 -k 4400
 
 # Start background script
 /home/murray/.bg/setbg.py &
+
+# Run prey at startup, in addition to the crontab
+#sudo /home/murray/usr/path/prey/prey.sh > /var/log/prey.log
 
 # Ok, looks like we're done, fire up the wm
 case $1 in

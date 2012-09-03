@@ -1,41 +1,50 @@
 [user]
-	name = Ali Kaafarani
-	email = ali@kvikshaug.no
-[alias]
-        ci = commit
-        st = status -sb
-        br = branch
-        co = checkout
-# Tbh, word-diff didn't really give a clearer picture of the diff
-#        df = diff --word-diff
-        df = diff
-	lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr)%Creset'
-        # --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr)%Creset'
-        fp = fetch --prune
-[branch]
-	autosetupmerge = always
-[push]
-	default = upstream
+    name = Ali Kaafarani
+    email = ali@kvikshaug.no
+
 [core]
-	editor = vim
-#[achievement]
-#	upload = true
-[color]
-        branch = true
-        status = true
-        diff = true
-[log]
-        date = relative
-[help]
-        format = man #/html
-        browser = opera
-        autocorrect = -20
-[instaweb]
-        httpd = lighttpd
-        browser = opera
-[web]
-        browser = opera
-[browser "opera"]
-        cmd = opera
+    editor = vim
+    whitespace = blank-at-eol,space-before-tab,tab-in-indent,cr-at-eol
+
+[alias]
+    ci = commit
+    st = status -sb
+    br = branch
+    co = checkout
+    df = diff
+    fp = fetch --prune
+    rb = rebase
+    rank = rank = shortlog -sn --no-merges
+    lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
+[branch]
+    autosetupmerge = always
+
 [merge]
-	conflictstyle = diff3
+    conflictstyle = diff3
+
+[push]
+    default = current
+
+[log]
+    date = relative
+
+[color]
+    branch = true
+    status = true
+    diff = true
+
+[help]
+    format = man #/html
+    browser = opera
+    autocorrect = -20
+
+[instaweb]
+    httpd = lighttpd
+    browser = opera
+
+[web]
+    browser = opera
+
+[browser "opera"]
+    cmd = opera

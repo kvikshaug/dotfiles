@@ -67,7 +67,7 @@ object StatusBar {
               sbSetter ! MailString("")
             }
           } catch {
-            case e: org.xml.sax.SAXParseException => sbSetter ! MailString("?M | ")
+            case e: org.xml.sax.SAXParseException => print("saxfail"); sbSetter ! MailString("?M | ")
             case e => sbSetter ! MailString("?M | ")
             e.printStackTrace
           }
