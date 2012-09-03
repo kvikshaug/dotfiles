@@ -14,7 +14,7 @@
     df = diff
     fp = fetch --prune
     rb = rebase
-    rank = rank = shortlog -sn --no-merges
+    rank = shortlog -sn --no-merges
     lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
 [branch]
