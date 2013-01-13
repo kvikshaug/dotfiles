@@ -22,6 +22,12 @@ function mkcd -d "mkdir AND cd to it in one go!"
   end
 end
 
+function keyhashes -d "View server key-hashes"
+  for key in (command ls /etc/ssh/ssh_*_key.pub)
+    ssh-keygen -lf $key
+  end
+end
+
 
 # Applications
 function m -d "mplayer shortcut"; mplayer $argv; end
@@ -97,8 +103,12 @@ function 3gptoflv -d "Convert 3gp to flv"
 end
 
 function prettyJson -d "Pretty-print json (/usr/bin/prettify_json.rb works fine too)"
-  python -m json.tool
+  echo "Use /usr/local/bin/pjson"
 end
+
+#function prettyJson -d "Pretty-print json (/usr/bin/prettify_json.rb works fine too)"
+#  python -m json.tool
+#end
 
 function scalaapi -d "Open the local scala API in opera"
   echo "Currently 2.9.0.1"
@@ -107,6 +117,10 @@ end
 
 function webcam -d "Start webcam with mplayer"
   mplayer tv:// -tv driver=v4l2:width=640:height=480:device=/dev/video0 -fps 15 -vf screenshot
+end
+
+function record -d "Record from webcam"
+  ffmpeg -f v4l2 -s 640x480 -i /dev/video0 out.mpg
 end
 
 function playall

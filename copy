@@ -1,30 +1,37 @@
 #!/usr/bin/fish
 # Script for spreading or collecting the dotfiles into their git repo dir
 
-# List all files to copy in to or out from homedir
+# Full directories
 set dirs .vim/
 
+# The usual stuff
 set files        .vimrc
-set files $files .gvimrc
 set files $files .gitconfig
+set files $files .ctags
+set files $files .iftoprc
+set files $files .taskrc
+set files $files .tmux.conf
+
+# Custom awesomeness
+set files $files .bg/setbg.py
+set files $files .dwmsb.py
+
+# Fish
 set files $files .config/fish/config.extract
 set files $files .config/fish/config.fish.example
 set files $files .config/fish/config.pacman
 set files $files .config/fish/config.prompt
 set files $files .config/fish/config.shortcuts
 set files $files .config/fish/config.virtualenv
-set files $files .Xdefaults
-set files $files .tmux.conf
+
+# X11
+set files $files .Xresources
 set files $files .Xmodmap
 set files $files .xinitrc
 set files $files .xbindkeysrc
 set files $files .xpdfrc
-set files $files .ctags
-set files $files .iftoprc
-set files $files .dwmsb/sb.scala
-set files $files .dwmsb/util.scala
-set files $files .taskrc
-set files $files .bg/setbg.py
+
+# Copy logic
 
 switch "$argv[1]"
   case "in"
@@ -36,7 +43,7 @@ switch "$argv[1]"
     echo "       copy out  - spread to homedir"
     exit 1
 end
-  
+
 read confirm
 if test $confirm != "y"
   exit 0
