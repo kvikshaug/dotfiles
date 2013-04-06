@@ -17,6 +17,7 @@
     rank = shortlog -sn --no-merges
     lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     gr = grep --heading --break
+    conflicted = diff --name-only --diff-filter=U
 
 [branch]
     autosetupmerge = always
@@ -35,6 +36,7 @@
     status = true
     diff = true
     grep = true
+    interactive = true
 
 [help]
     format = man #/html

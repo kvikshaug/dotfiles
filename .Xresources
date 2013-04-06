@@ -10,7 +10,7 @@ Xft.hintstyle: hintslight
 URxvt.font: xft:SourceCodePro:pixelsize=13
 ! Clickable links
 URxvt.perl-ext:       default,matcher
-URxvt.urlLauncher:    /usr/local/bin/opera
+URxvt.url-launcher:   /usr/local/bin/opera
 URxvt.matcher.button: 1
 URxvt.saveLines:      65534
 URxvt.visualBell:     true

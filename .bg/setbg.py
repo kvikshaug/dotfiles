@@ -5,7 +5,7 @@ import os, time, subprocess
 sleeptime = 5 # seconds
 
 # Hardcode
-subprocess.call(["xsetbg", "-border", "black", "/home/murray/.bg/img/gingham_red.png"])
+subprocess.call(["xsetbg", "-fullscreen", "-border", "black", "/home/murray/.bg/img/gfy.jpg"])
 
 # Iterate
 #i = 0

@@ -22,7 +22,7 @@ function mkcd -d "mkdir AND cd to it in one go!"
   end
 end
 
-function keyhashes -d "View server key-hashes"
+function ssh-keyhashes -d "View server key-hashes"
   for key in (command ls /etc/ssh/ssh_*_key.pub)
     ssh-keygen -lf $key
   end
@@ -135,5 +135,13 @@ function man
   else
     command man $argv
   end
+end
+
+# Default virtualenv setup, use the provided activate-script
+function ve-start
+  . env/bin/activate.fish
+end
+function ve-stop
+  deactivate
 end
 

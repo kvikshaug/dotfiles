@@ -15,8 +15,10 @@ xrdb -merge ~/.Xresources
 # turn off system bell
 xset b off
 
-# Start parcellite, cba to create systemd entry
+# Start parcellite and sync clipboard buffers
 /usr/bin/parcellite -n -d &
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
 
 # pretend that a non-reparenting window manager is running that the XToolkit/XAWT backend can recognize
 wmname LG3D
@@ -37,10 +39,6 @@ xsetbg -border black /home/murray/.bg/img/wallpaper_01.png
 
 # Run prey at startup, in addition to the crontab
 #sudo /home/murray/usr/path/prey/prey.sh > /var/log/prey.log
-
-# sync clipboard buffers
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
 
 # Ok, looks like we're done, fire up the wm
 case $1 in

@@ -1,4 +1,4 @@
-interface: wlan0
+interface: eth0
 
 dns-resolution: no
 hide-source: no
