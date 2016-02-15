@@ -27,15 +27,7 @@ amixer set Master 40
 xflux -l 59.91 -g 10.75 -k 4400
 
 # update dwm status bar
-#/usr/bin/python /home/murray/.dwmsb.py &
 ~/code/scripts/dwmsb/env/bin/python ~/code/scripts/dwmsb/dwmsb.py >> ~/code/scripts/dwmsb/output.log 2>&1 &
-
-# Set wallpaper, choose between rotating (script) or just static
-# /home/murray/.bg/setbg.py &
-#/home/murray/.bg/earthmoon-loop.sh &
-
-# Run prey at startup, in addition to the crontab
-#sudo /home/murray/usr/path/prey/prey.sh > /var/log/prey.log
 
 # Ok, looks like we're done, fire up the wm
 exec /usr/local/bin/dwm
