@@ -1,9 +1,0 @@
-#!/usr/bin/fish
-function pacman -d "pacman-color"; pacman-color $argv; end
-function pm -d "pacman"; pacman-color $argv; end
-function pmq -d "sudo pacman -Q"; sudo pacman-color -Q $argv; end
-function pmr -d "sudo pacman -R"; sudo pacman-color -R $argv; end
-function pms -d "sudo pacman -S"; sudo pacman-color -S $argv; end
-function pmss -d "pacman -Ss"; pacman-color -Ss $argv; end
-function pmsyu -d "sudo pacman -Syu"; sudo pacman-color -Suy $argv; end
-
