@@ -1,24 +1,20 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
 setxkbmap us altgr-intl
 xbindkeys
-if [ -f $HOME/.Xmodmap ]; then
-    xmodmap $HOME/.Xmodmap
-fi
-
+xmodmap $HOME/.Xmodmap
 xrdb -merge ~/.Xresources
 
-#if [ -f /etc/environment ]; then
-#    . /etc/environment
-#fi
-
 # turn off system bell
-xset b off
+#xset b off
 
-# Start parcellite and sync clipboard buffers
-/usr/bin/parcellite -n -d &
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
+# no screen saver
+xset s off
+
+# Start cliboard history manager and sync clipboard buffers
+/usr/bin/copyq &
+# autocutsel -fork &
+# autocutsel -selection PRIMARY -fork &
 
 # pretend that a non-reparenting window manager is running that the XToolkit/XAWT backend can recognize
 wmname LG3D
@@ -31,31 +27,15 @@ amixer set Master 40
 xflux -l 59.91 -g 10.75 -k 4400
 
 # update dwm status bar
-/usr/bin/python /home/murray/.dwmsb.py &
+#/usr/bin/python /home/murray/.dwmsb.py &
+~/code/scripts/dwmsb/env/bin/python ~/code/scripts/dwmsb/dwmsb.py >> ~/code/scripts/dwmsb/output.log 2>&1 &
 
 # Set wallpaper, choose between rotating (script) or just static
-#/home/murray/.bg/setbg.py &
-xsetbg -border black /home/murray/.bg/img/wallpaper_01.png
+# /home/murray/.bg/setbg.py &
+#/home/murray/.bg/earthmoon-loop.sh &
 
 # Run prey at startup, in addition to the crontab
 #sudo /home/murray/usr/path/prey/prey.sh > /var/log/prey.log
 
 # Ok, looks like we're done, fire up the wm
-case $1 in
-  "dwm")
-    exec /usr/local/bin/dwm
-    ;;
-
-  "lxde")
-    exec ck-launch-session startlxde
-    ;;
-
-  "xmonad")
-    exec /usr/bin/xmonad
-    ;;
-
-  *)
-    exec /usr/local/bin/dwm
-    ;;
-esac
-
+exec /usr/local/bin/dwm

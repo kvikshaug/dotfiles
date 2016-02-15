@@ -40,13 +40,14 @@
   XF86AudioMute
 
 # Print screen
-"scrot ~/ss.png"
+#"scrot ~/ss.png"
+"scrot"
   Print
 
 # Switch keyboard layout
 #"/home/murray/.swkbm"
-  ""
-  Menu
+#  ""
+#  Menu
 
 # Suspend
 #"sudo /usr/sbin/pm-suspend >/dev/null 2>&1"
@@ -55,6 +56,9 @@
 # set directly keycode (here control + f with my keyboard)
 #"xterm"
 #  c:41 + m:0x4
+
+"copyq show"
+  control+alt + h
 
 # specify a mouse button
 #"xterm"

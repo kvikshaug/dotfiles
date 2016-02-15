@@ -7,7 +7,7 @@
     whitespace = blank-at-eol,space-before-tab,tab-in-indent,cr-at-eol
 
 [alias]
-    ci = commit
+    ci = commit -v
     st = status -sb
     br = branch
     co = checkout
@@ -29,7 +29,7 @@
     default = current
 
 [log]
-    date = relative
+    date = default
 
 [color]
     branch = true
