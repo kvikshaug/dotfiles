@@ -40,18 +40,19 @@
 
 [help]
     format = man #/html
-    browser = opera
+    browser = chrome
     autocorrect = -20
 
 [instaweb]
     httpd = lighttpd
-    browser = opera
+    browser = chrome
 
 [web]
-    browser = opera
+    browser = chrome
 
-[browser "opera"]
-    cmd = opera
+[browser "chrome"]
+    cmd = chromium
+
 [grep]
     extendRegexp = true
     lineNumber = true
