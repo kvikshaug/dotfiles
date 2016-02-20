@@ -8,6 +8,7 @@
 
 [alias]
     ci = commit -v
+    amend = commit -v --amend
     st = status -sb
     br = branch
     co = checkout
