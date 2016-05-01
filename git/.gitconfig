@@ -4,7 +4,7 @@
 
 [core]
     editor = vim
-    whitespace = space-before-tab,tab-in-indent,trailing-space,cr-at-eol
+    whitespace = space-before-tab,trailing-space,cr-at-eol
 
 [alias]
     ci = commit -v
