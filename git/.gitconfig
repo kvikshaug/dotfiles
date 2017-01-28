@@ -8,7 +8,7 @@
     whitespace = space-before-tab,trailing-space,cr-at-eol
 
 [alias]
-    ci = commit
+    ci = commit --gpg-sign
     amend = commit --amend
     st = status -sb
     br = branch
