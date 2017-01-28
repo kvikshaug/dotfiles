@@ -10,6 +10,7 @@ xrdb -merge ~/.Xresources
 
 # no screen saver
 xset s off
+xset -dpms
 
 # Start cliboard history manager and sync clipboard buffers
 /usr/bin/copyq &
