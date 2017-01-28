@@ -1,6 +1,7 @@
 [user]
     name = Ali Kaafarani
     email = ali@kvikshaug.no
+    signingkey = 3624317D5BD201F8E93D9BD1916A78330030199E
 
 [core]
     editor = vim
