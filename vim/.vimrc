@@ -4,7 +4,6 @@ set number                 " line numbers
 
 syntax on                  " syntax highlighting
 filetype plugin indent on  " filetype detection on
-set list listchars=tab:»·,trail:· " highlight trailing spaces and tab chars
 set formatoptions+=ro      " indent block comments
 
 set nobackup     " don't keep backup file
