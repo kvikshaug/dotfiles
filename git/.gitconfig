@@ -9,7 +9,7 @@
 
 [alias]
     ci = commit --gpg-sign
-    amend = commit --amend
+    amend = commit --amend --gpg-sign
     st = status -sb
     br = branch
     co = checkout
