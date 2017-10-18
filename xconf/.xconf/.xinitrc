@@ -28,7 +28,7 @@ amixer set Master 40
 xflux -l 59.91 -g 10.75 -k 4400
 
 # update dwm status bar
-~/code/scripts/dwmsb/env/bin/python ~/code/scripts/dwmsb/dwmsb.py >> ~/code/scripts/dwmsb/output.log 2>&1 &
+/home/kvikshaug/bin/dwmsb
 
 # Ok, looks like we're done, fire up the wm
 exec /usr/local/bin/dwm
