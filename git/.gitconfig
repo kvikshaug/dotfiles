@@ -8,8 +8,8 @@
     whitespace = space-before-tab,trailing-space,cr-at-eol
 
 [alias]
-    ci = commit --gpg-sign
-    amend = commit --amend --gpg-sign
+    ci = commit
+    amend = commit --amend
     st = status -sb
     br = branch
     co = checkout
@@ -70,3 +70,4 @@
 
 [commit]
      verbose = true
+     gpgSign = true
