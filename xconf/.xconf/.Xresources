@@ -1,24 +1,35 @@
-Xcursor.theme: basewhite
-! Xcursor.size:  22
+! General settings
+URxvt.saveLines: 65534
+URxvt.visualBell: true
 
+! Clickable links
+URxvt.perl-ext: default,matcher
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
+! Cursor
+Xcursor.theme: basewhite
+Xcursor.size: 22
+
+! Font config
+Xft.dpi: 96
 Xft.hinting: true
 Xft.rgba: rgb
 Xft.antialias: true
 Xft.lcfilter: lcddefault
 Xft.hintstyle: hintslight
-
 URxvt.letterSpace: -1
 URxvt.font: xft:DejaVu Sans Mono:pixelsize=15
-!URxvt.font: xft:Liberation Mono:pixelsize=14
+!URxvt.font: xft:Liberation Mono:pixelsize=15
 !URxvt.font: xft:SourceCodePro:pixelsize=13
 
-! Clickable links
-URxvt.perl-ext:       default,matcher
-URxvt.url-launcher:   /usr/bin/firefox
-URxvt.matcher.button: 1
-URxvt.saveLines:      65534
-URxvt.visualBell:     true
-URxvt.scrollBar:      false
+! Scrolling
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.scrollBar: false
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
 
 ! Solarized color scheme for the X Window System
 !
@@ -143,4 +154,3 @@ xcalc.ti.button38.background: #555595
 xcalc.ti.button39.background: #555595
 XCalc*Cursor:                 hand2
 XCalc*ShapeStyle:             rectangle
-
