@@ -40,18 +40,10 @@
   XF86AudioMute
 
 # Print screen
-#"scrot ~/ss.png"
-"scrot"
+"maim -s | xclip -selection clipboard -t image/png"
   Print
-
-# Switch keyboard layout
-#"/home/murray/.swkbm"
-#  ""
-#  Menu
-
-# Suspend
-#"sudo /usr/sbin/pm-suspend >/dev/null 2>&1"
-#  Pause
+"maim -s ~/$(date +%s).png"
+  Shift + Print
 
 # set directly keycode (here control + f with my keyboard)
 #"xterm"
