@@ -12,6 +12,9 @@ xrdb -merge ~/.Xresources
 xset s off
 xset -dpms
 
+# wallpaper
+~/.fehbg
+
 # Start cliboard history manager and sync clipboard buffers
 /usr/bin/copyq &
 # autocutsel -fork &
