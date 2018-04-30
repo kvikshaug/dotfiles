@@ -6,7 +6,7 @@ xmodmap $HOME/.Xmodmap
 xrdb -merge ~/.Xresources
 
 # turn off system bell
-#xset b off
+xset b off
 
 # no screen saver
 xset s off
