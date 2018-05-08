@@ -17,7 +17,6 @@ xset -dpms
 
 # Sync clipboard buffers
 autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
 
 # Non-reparenting window manager for Java
 # See https://wiki.archlinux.org/index.php/Java#Non-reparenting_window_managers_.2F_Grey_window_.2F_Programs_not_drawing_properly
