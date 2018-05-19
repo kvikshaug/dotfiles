@@ -13,7 +13,10 @@ xset s off
 xset -dpms
 
 # wallpaper
-~/.fehbg
+while : ; do
+  ~/.fehbg
+  sleep 600
+done &
 
 # Sync clipboard buffers
 autocutsel -fork &
