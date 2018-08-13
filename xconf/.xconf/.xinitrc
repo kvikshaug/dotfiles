@@ -29,8 +29,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 amixer set Master unmute
 amixer set Master 40
 
-# start xflux; warmer night-time light temperatures
-xflux -l 59.91 -g 10.75 -k 4400
+# warmer night-time screen temperatures
+redshift -l 55.7:12.5 -t 6500:4400 -g 0.8 -m randr -v &
 
 # update dwm status bar
 /home/kvikshaug/bin/dwmsb
