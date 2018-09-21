@@ -32,13 +32,6 @@
 [log]
     date = default
 
-[color]
-    branch = true
-    status = true
-    diff = true
-    grep = true
-    interactive = true
-
 [help]
     format = man #/html
     browser = chrome
