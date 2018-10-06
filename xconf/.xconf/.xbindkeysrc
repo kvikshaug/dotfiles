@@ -40,10 +40,21 @@
   XF86AudioMute
 
 # Print screen
-"maim -s | xclip -selection clipboard -t image/png"
+"maim ~/$(date +%s).png"
   Print
-"maim -s ~/$(date +%s).png"
+
+# Print screen to clipboard
+"maim | xclip -selection clipboard -t image/png"
   Shift + Print
+
+# Print selection
+"maim -s ~/$(date +%s).png"
+  Control + Print
+
+# Print selection to clipboard
+"maim -s | xclip -selection clipboard -t image/png"
+  Control + Shift + Print
+
 
 # set directly keycode (here control + f with my keyboard)
 #"xterm"
