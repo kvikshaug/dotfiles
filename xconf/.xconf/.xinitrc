@@ -15,7 +15,7 @@ xset -dpms
 # wallpaper
 while : ; do
   ~/.fehbg
-  sleep 600
+  sleep 86400
 done &
 
 # Sync clipboard buffers
