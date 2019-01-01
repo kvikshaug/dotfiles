@@ -82,3 +82,8 @@
 #"rxvt"
 #  Control + b:2 + Release
 
+# Backlight
+"sudo backlight up"
+  XF86MonBrightnessUp
+"sudo backlight down"
+  XF86MonBrightnessDown
