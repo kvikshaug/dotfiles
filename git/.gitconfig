@@ -33,19 +33,8 @@
     date = default
 
 [help]
-    format = man #/html
-    browser = chrome
-    autocorrect = -20
-
-[instaweb]
-    httpd = lighttpd
-    browser = chrome
-
-[web]
-    browser = chrome
-
-[browser "chrome"]
-    cmd = chromium
+    format = man
+    autocorrect = -1
 
 [grep]
     extendRegexp = true
