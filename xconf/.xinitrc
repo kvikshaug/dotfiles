@@ -35,5 +35,8 @@ redshift -l 55.7:12.5 -t 6500:4400 -g 0.8 -m randr -v &
 # update dwm status bar
 /home/kvikshaug/bin/dwmsb
 
+# albert launcher
+albert &
+
 # Ok, looks like we're done, fire up the wm
 exec /usr/local/bin/dwm
