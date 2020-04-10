@@ -18,3 +18,4 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 set number
+set incsearch

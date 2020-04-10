@@ -26,7 +26,7 @@ exec xrdb -load ~/.Xresources
 
 # Background tasks
 exec albert &
-exec setrandom ~/.wallpaper/simpledesktops
+exec setrandom /home/kvikshaug/.wallpaper/simpledesktops
 exec redshift -l 55.7:12.5 -t 6500:4400 -m wayland -v &
 
 # Input configuration
@@ -36,16 +36,9 @@ input type:keyboard {
 }
 
 # Status Bar
+default_border pixel
 bar {
   swaybar_command waybar
-
-#  position top
-#  status_command while ~/code/dwmsb.go/bin/dwmsb; do sleep 1; done
-#  colors {
-#    statusline #ffffff
-#    background #323232
-#    inactive_workspace #32323200 #32323200 #5c5c5c
-#  }
 }
 
 # Application bindings
