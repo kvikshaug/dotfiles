@@ -1,0 +1,55 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "DejaVu Sans Mono";
+  font-size: 13px;
+}
+
+window#waybar {
+  background-color: #002b36;
+  color: white;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background: transparent;
+  color: white;
+  border-top: 2px solid transparent;
+}
+
+#workspaces button.focused {
+  color: #c9545d;
+  border-top: 2px solid #c9545d;
+}
+
+#pulseaudio, #network, #cpu, #memory, #battery, #clock {
+  padding: 0 3px;
+  margin: 0 2px;
+}
+
+#battery.discharging {
+  color: rgb(255, 100, 100);
+}
+
+#battery.critical:not(.plugged) {
+  color: red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    color: white;
+  }
+}
+
+#network.disconnected {
+  color: rgb(255, 100, 100);
+}
+
+#pulseaudio.muted {
+  color: rgb(255, 100, 100);
+}

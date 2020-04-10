@@ -1,3 +1,0 @@
-urlCommand "firefox '%s'"
-bind j scrLockOff nextPage
-bind k scrLockOff prevPage
