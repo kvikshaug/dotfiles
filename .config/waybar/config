@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery#bat0", "battery#bat1", "clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery#bat0", "battery#bat1", "clock"],
     "pulseaudio": {
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
@@ -29,6 +29,12 @@
     },
     "memory": {
         "format": "{}% "
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon8/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
     },
     "battery#bat0": {
         "bat": "BAT0",

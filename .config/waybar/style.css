@@ -22,9 +22,13 @@ window#waybar {
   border-top: 2px solid #c9545d;
 }
 
-#pulseaudio, #network, #cpu, #memory, #battery, #clock {
+#pulseaudio, #network, #cpu, #memory, #temperature, #battery, #clock {
   padding: 0 3px;
   margin: 0 2px;
+}
+
+#temperature.critical {
+  color: rgb(255, 100, 100);
 }
 
 #battery.discharging {
