@@ -41,6 +41,8 @@
         "format": "{capacity}% {icon}",
         "format-icons": ["", "", "", "", ""],
         "states": {
+            "full": 100,
+            "normal": 95,
             "critical": 15
         }
     },
@@ -49,6 +51,8 @@
         "format": "{capacity}% {icon}",
         "format-icons": ["", "", "", "", ""],
         "states": {
+            "full": 100,
+            "normal": 95,
             "critical": 15
         }
     },

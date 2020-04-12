@@ -31,6 +31,10 @@ window#waybar {
   color: rgb(255, 100, 100);
 }
 
+#battery.plugged:not(.full) {
+  color: rgb(100, 255, 100);
+}
+
 #battery.discharging {
   color: rgb(255, 100, 100);
 }
