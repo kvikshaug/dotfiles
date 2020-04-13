@@ -24,7 +24,7 @@ exec xrdb -load ~/.Xresources
 
 # Background tasks
 exec albert &
-exec setrandom /home/kvikshaug/.wallpaper/simpledesktops
+exec ~/.wallpaper/wallpaperd
 exec redshift -l 55.7:12.5 -t 6500:4400 -m wayland -v &
 
 # Input configuration
