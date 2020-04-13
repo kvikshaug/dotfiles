@@ -31,7 +31,7 @@ window#waybar {
   color: rgb(255, 100, 100);
 }
 
-#battery.plugged:not(.full) {
+#battery.charging {
   color: rgb(100, 255, 100);
 }
 
@@ -39,7 +39,7 @@ window#waybar {
   color: rgb(255, 100, 100);
 }
 
-#battery.critical:not(.plugged) {
+#battery.discharging.critical {
   color: red;
   animation-name: blink;
   animation-duration: 0.5s;
