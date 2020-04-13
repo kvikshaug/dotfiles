@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery#bat0", "battery#bat1", "clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery#bat0", "battery#bat1", "disk", "clock"],
     "pulseaudio": {
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
@@ -51,6 +51,11 @@
         "states": {
             "critical": 20
         }
+    },
+    "disk": {
+        "interval": 60,
+        "format": "{percentage_used}% ",
+        "path": "/"
     },
     "clock": {
         "format": "{:%Y-%m-%d %U %H:%M}"

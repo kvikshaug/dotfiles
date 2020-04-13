@@ -22,7 +22,7 @@ window#waybar {
   border-top: 2px solid #c9545d;
 }
 
-#pulseaudio, #network, #cpu, #memory, #temperature, #battery, #clock {
+#pulseaudio, #network, #cpu, #memory, #temperature, #battery, #disk, #clock {
   padding: 0 3px;
   margin: 0 2px;
 }
