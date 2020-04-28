@@ -17,6 +17,13 @@ window#waybar {
   border-top: 2px solid transparent;
 }
 
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  border-top: 2px solid white;
+  color: #c9545d;
+}
+
 #workspaces button.focused {
   color: #c9545d;
   border-top: 2px solid #c9545d;
