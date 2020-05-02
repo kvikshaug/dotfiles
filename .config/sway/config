@@ -45,9 +45,8 @@ bindsym Print+Control exec grim -g "$(slurp -d)"
 bindsym Print+Shift+Control exec grim -g "$(slurp -d)" - | wl-copy
 
 # Clipboard manager
-exec wl-paste -t text --watch clipman store
-exec wl-paste -p -t text --watch clipman store --histpath="~/.local/share/clipman-primary.json"
-bindsym $mod+o exec clipman pick -t rofi
+# Note: Reviewing clipboard history is implemented in the shell.
+exec wl-paste -w wl-clipboard-history
 
 # Special keys
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
