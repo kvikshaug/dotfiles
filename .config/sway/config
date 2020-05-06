@@ -66,6 +66,7 @@ bindsym $mod+Shift+w exec swaylock-blur
 bindsym $mod+Shift+q exec swaynag -t warning -m 'Really end the current Wayland session?' -b 'Yes, exit sway' 'swaymsg exit'
 
 # Moving around
+mouse_warping container
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
