@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+function init {
+  for output in $(swaymsg -t get_outputs | jq --raw-output 'map(select(.active == true)) | .[].name'); do
+    swaymsg focus output ${output}
+    navigate 1
+  done
+}
+
+function navigate {
+  focused_output=$(swaymsg -t get_outputs | jq --raw-output '. | map(select(.focused==true)) | .[0].id')
+  workspace=$1
+  swaymsg "workspace ${workspace} ${focused_output}:${workspace}"
+}
+
+function move {
+  focused_output=$(swaymsg -t get_outputs | jq --raw-output '. | map(select(.focused==true)) | .[0].id')
+  workspace=$1
+  swaymsg "move container to workspace ${workspace} ${focused_output}:${workspace}"
+}
+
+if [[ $1 == "init" ]]; then
+  init
+elif [[ $1 == "navigate" ]]; then
+  navigate $2
+elif [[ $1 == "move" ]]; then
+  move $2
+else
+  echo "unknown command"
+  exit 1
+fi

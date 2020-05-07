@@ -4,6 +4,9 @@
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery#bat0", "battery#bat1", "disk", "clock"],
+    "sway/workspaces": {
+        "format": "{name}"
+    },
     "pulseaudio": {
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",

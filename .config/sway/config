@@ -10,6 +10,8 @@ set $right l
 # Default outputs (use `wdisplays` for gui)
 output eDP-1 pos 0 0
 output HDMI-A-2 pos 1920 0
+exec swayws init
+focus output HDMI-A-2
 
 # Default audio volume
 exec amixer set Master unmute
@@ -77,29 +79,31 @@ bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
 # Workspaces
+bindsym $mod+1 exec swayws navigate 1
+bindsym $mod+2 exec swayws navigate 2
+bindsym $mod+3 exec swayws navigate 3
+bindsym $mod+4 exec swayws navigate 4
+bindsym $mod+5 exec swayws navigate 5
+bindsym $mod+6 exec swayws navigate 6
+bindsym $mod+7 exec swayws navigate 7
+bindsym $mod+8 exec swayws navigate 8
+bindsym $mod+9 exec swayws navigate 9
+bindsym $mod+0 exec swayws navigate 10
+bindsym $mod+Shift+1 exec swayws move 1
+bindsym $mod+Shift+2 exec swayws move 2
+bindsym $mod+Shift+3 exec swayws move 3
+bindsym $mod+Shift+4 exec swayws move 4
+bindsym $mod+Shift+5 exec swayws move 5
+bindsym $mod+Shift+6 exec swayws move 6
+bindsym $mod+Shift+7 exec swayws move 7
+bindsym $mod+Shift+8 exec swayws move 8
+bindsym $mod+Shift+9 exec swayws move 9
+bindsym $mod+Shift+0 exec swayws move 10
 bindsym $mod+tab workspace back_and_forth
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+Shift+Comma move workspace to output left
-bindsym $mod+Shift+Period move workspace to output right
+bindsym $mod+Comma focus output left
+bindsym $mod+Period focus output right
+bindsym $mod+Shift+Comma move container to output left
+bindsym $mod+Shift+Period move container to output right
 
 # Layout stuff
 bindsym $mod+b splith
