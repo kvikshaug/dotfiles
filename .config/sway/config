@@ -10,7 +10,7 @@ set $right l
 # Default outputs (use `wdisplays` for gui)
 output eDP-1 pos 0 0
 output HDMI-A-2 pos 1920 0
-exec swayws init
+exec_always swayws init
 focus output HDMI-A-2
 
 # Default audio volume
@@ -26,7 +26,7 @@ exec xrdb -load ~/.Xresources
 
 # Background tasks
 exec albert &
-exec ~/.wallpaper/wallpaperd
+exec_always ~/.wallpaper/wallpaperd
 exec redshift -l 55.7:12.5 -t 6500:4400 -m wayland -v &
 
 # Input configuration
@@ -63,7 +63,7 @@ bindsym $mod+Shift+Return exec termite
 bindsym $mod+Shift+c kill
 bindsym $mod+Shift+r nop  # workaround for https://github.com/swaywm/sway/issues/4975
 bindsym --release $mod+Shift+r reload
-bindsym $mod+Shift+p exec systemctl suspend && swaylock-blur
+bindsym $mod+Shift+p exec ~/bin/suspend
 bindsym $mod+Shift+w exec swaylock-blur
 bindsym $mod+Shift+q exec swaynag -t warning -m 'Really end the current Wayland session?' -b 'Yes, exit sway' 'swaymsg exit'
 

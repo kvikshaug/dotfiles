@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Blur before suspending to avoid a short delay on wake before blur takes effect.
+swaylock-blur &
+sleep 0.3
+systemctl suspend

@@ -1,0 +1,50 @@
+#!/usr/bin/env sh
+set -euo pipefail
+
+clipboard_file="$HOME/.local/share/clipboard.sqlite"
+
+query () {
+  echo "$1" | sqlite3 -separator "," "$clipboard_file"
+}
+
+if [ ! -f "$clipboard_file" ]; then
+  query "
+  CREATE TABLE c (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, contents text);
+  CREATE TRIGGER rotate_rows AFTER INSERT ON c
+    BEGIN
+      DELETE FROM c WHERE id <= (SELECT id FROM c ORDER BY id DESC LIMIT 1000, 1);
+    END;"
+fi
+
+helpusage () {
+  echo "Usage: $0 OPTION [ARG]"
+  echo ""
+  echo "Without any arguments the command will insert contents of stdin in the database"
+  echo "   -l [NUMBER]  Print last NUMBER of clipboard entries (defaults to 10 entries)"
+  echo "   -p [INDEX]   Print clipboard entry at INDEX (defaults to the last entry)"
+  echo "   -c           Copy a clipboard entry from the history selected with fzf"
+}
+
+if [ $# = 0 ]; then
+  contents="$(< /dev/stdin sed "s/'/''/g")"
+  if [ "$contents" = "" ]; then
+    helpusage
+    exit 1
+  else
+    query "INSERT INTO c (contents) VALUES ('${contents}');"
+    exit 0
+  fi
+fi
+
+
+if [ "$1" = "-l" ]; then
+  query "SELECT MAX(id), REPLACE(contents, '
+', '') FROM c GROUP BY contents ORDER BY id DESC LIMIT ${2:-10}"
+elif [ "$1" = "-p" ]; then
+  query "SELECT contents FROM c WHERE id = ${2:-"(SELECT id FROM c ORDER BY id DESC)"}"
+elif [ "$1" = "-c" ]; then
+  wl-clipboard-history -p "$(wl-clipboard-history -l 50 | fzf --with-nth 2.. -d , | cut -d ',' -f1)" | wl-copy
+else
+  helpusage
+  exit 1
+fi
