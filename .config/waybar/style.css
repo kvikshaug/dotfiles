@@ -31,13 +31,6 @@ window#waybar {
 
 #workspaces button.urgent {
   background-color: red;
-  animation: 0.5s linear 0s infinite alternate bgurgent;
-}
-
-@keyframes bgurgent {
-  to {
-    background-color: #002b36;
-  }
 }
 
 #pulseaudio, #network, #cpu, #memory, #temperature, #battery, #disk, #clock {
