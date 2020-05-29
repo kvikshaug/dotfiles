@@ -38,6 +38,11 @@ window#waybar {
   margin: 0 2px;
 }
 
+#memory.critical {
+  color: red;
+  animation: 0.5s linear 0s infinite alternate blink;
+}
+
 #temperature.critical {
   color: rgb(255, 100, 100);
 }

@@ -33,7 +33,10 @@
     },
     "memory": {
         "interval": 3,
-        "format": "{}% "
+        "format": "{}% ",
+        "states": {
+            "critical": 80
+        }
     },
     "temperature": {
         "interval": 3,
