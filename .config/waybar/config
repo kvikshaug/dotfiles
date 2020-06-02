@@ -3,14 +3,21 @@
     "position": "top",
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery#bat0", "battery#bat1", "disk", "clock"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "battery#bat0", "battery#bat1", "disk", "clock"],
     "sway/workspaces": {
         "format": "{name}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
+        "format-muted": "0% ",
         "format-icons": {
             "headphones": "",
             "handsfree": "",
@@ -25,7 +32,7 @@
     "network": {
         "format-wifi": "{essid} {signalStrength}% ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠"
+        "format-disconnected": "Offline"
     },
     "cpu": {
         "interval": 3,

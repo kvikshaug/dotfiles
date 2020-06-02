@@ -29,6 +29,9 @@
 [push]
     default = current
 
+[pull]
+    ff = only
+
 [log]
     date = default
 
