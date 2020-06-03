@@ -29,7 +29,8 @@
 }
 
 #workspaces button.urgent {
-  background-color: red;
+  color: #fdf6e3;
+  background-color: #dc322f;
 }
 
 #window {
