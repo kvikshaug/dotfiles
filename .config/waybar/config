@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "battery#bat0", "battery#bat1", "disk", "clock"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "disk", "temperature", "battery#bat0", "battery#bat1", "clock"],
     "sway/workspaces": {
         "format": "{name}"
     },
@@ -45,6 +45,11 @@
             "critical": 80
         }
     },
+    "disk": {
+        "interval": 60,
+        "format": "{percentage_used}% ",
+        "path": "/"
+    },
     "temperature": {
         "interval": 3,
         "hwmon-path": "/sys/class/hwmon/hwmon8/temp1_input",
@@ -55,7 +60,9 @@
     "battery#bat0": {
         "bat": "BAT0",
         "format": "{capacity}% {icon}",
+        "format-discharging": "{capacity}% {icon} {time}",
         "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h {M}m",
         "states": {
             "critical": 20
         }
@@ -63,15 +70,12 @@
     "battery#bat1": {
         "bat": "BAT1",
         "format": "{capacity}% {icon}",
+        "format-discharging": "{capacity}% {icon} {time}",
         "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h {M}m",
         "states": {
             "critical": 20
         }
-    },
-    "disk": {
-        "interval": 60,
-        "format": "{percentage_used}% ",
-        "path": "/"
     },
     "clock": {
         "format": "{:%Y-%m-%d %U %H:%M}"

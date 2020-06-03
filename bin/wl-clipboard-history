@@ -20,7 +20,7 @@ helpusage () {
   echo "Usage: $0 OPTION [ARG]"
   echo ""
   echo "Without any arguments the command will insert contents of stdin in the database"
-  echo "   -l [NUMBER]  Print last NUMBER of clipboard entries (defaults to 10 entries)"
+  echo "   -l           Print all clipboard entries"
   echo "   -p [INDEX]   Print clipboard entry at INDEX (defaults to the last entry)"
   echo "   -c           Copy a clipboard entry from the history selected with fzf"
 }
@@ -39,11 +39,11 @@ fi
 
 if [ "$1" = "-l" ]; then
   query "SELECT MAX(id), REPLACE(contents, '
-', '') FROM c GROUP BY contents ORDER BY id DESC LIMIT ${2:-10}"
+', '') FROM c GROUP BY contents ORDER BY id DESC"
 elif [ "$1" = "-p" ]; then
   query "SELECT contents FROM c WHERE id = ${2:-"(SELECT id FROM c ORDER BY id DESC)"}"
 elif [ "$1" = "-c" ]; then
-  wl-clipboard-history -p "$(wl-clipboard-history -l 50 | fzf --with-nth 2.. -d , | cut -d ',' -f1)" | wl-copy
+  wl-clipboard-history -p "$(wl-clipboard-history -l | fzf --with-nth 2.. -d , | cut -d ',' -f1)" | wl-copy
 else
   helpusage
   exit 1

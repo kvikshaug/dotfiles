@@ -5,15 +5,14 @@
   font-size: 13px;
 }
 
-window#waybar {
+#waybar {
   background-color: #002b36;
-  color: white;
 }
 
 #workspaces button {
   padding: 0 5px;
   background: transparent;
-  color: white;
+  color: #93a1a1;
   border-top: 2px solid transparent;
 }
 
@@ -33,43 +32,51 @@ window#waybar {
   background-color: red;
 }
 
-#pulseaudio, #network, #cpu, #memory, #temperature, #battery, #disk, #clock {
-  padding: 0 3px;
-  margin: 0 2px;
+#window {
+  color: #93a1a1;
 }
 
-#memory.critical {
-  color: red;
-  animation: 0.5s linear 0s infinite alternate blink;
+#idle_inhibitor, #pulseaudio, #network, #cpu, #memory, #disk, #temperature, #battery, #clock {
+  border-left: 1px solid #005469;
+  padding: 0 8px;
+  margin: 0;
+  color: #93a1a1;
 }
 
-#temperature.critical {
-  color: rgb(255, 100, 100);
-}
-
-#battery.charging {
-  color: rgb(100, 255, 100);
-}
-
-#battery.discharging {
-  color: rgb(255, 100, 100);
-}
-
-#battery.discharging.critical {
-  color: red;
-  animation: 0.5s linear 0s infinite alternate blink;
-}
-
-@keyframes blink {
-  to {
-    color: white;
-  }
-}
-
-#network.disconnected {
-  color: rgb(255, 100, 100);
+#idle_inhibitor.activated {
+  color: #c9545d;
 }
 
 #pulseaudio.muted {
-  color: rgb(255, 100, 100);
+  color: #c9545d;
+}
+
+#network.disconnected {
+  color: #c9545d;
+}
+
+#memory.critical {
+  animation: 0.5s linear 0s infinite alternate attention;
+}
+
+#temperature.critical {
+  animation: 0.5s linear 0s infinite alternate attention;
+}
+
+#battery.charging {
+  color: #859900;
+}
+
+#battery.discharging {
+  color: #c9545d;
+}
+
+#battery.discharging.critical {
+  animation: 0.5s linear 0s infinite alternate attention;
+}
+
+@keyframes attention {
+  to {
+    background-color: #dc322f;
+  }
 }
