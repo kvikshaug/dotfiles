@@ -7,28 +7,6 @@ set $down j
 set $up k
 set $right l
 
-# Default outputs (use `wdisplays` for gui)
-output eDP-1 pos 0 0
-output HDMI-A-2 pos 1920 0
-exec_always swayws init
-focus output HDMI-A-2
-
-# Default audio volume
-exec amixer set Master unmute
-exec amixer set Master 40
-
-# Idle configuration
-exec swayidle -w timeout 1800 "swaylock-blur"
-
-# Workaround for Xwayland DPI increasing after hotplug
-# See: https://gitlab.freedesktop.org/xorg/xserver/-/issues/731
-exec xrdb -load ~/.Xresources
-
-# Background tasks
-exec albert &
-exec_always ~/.wallpaper/wallpaperd
-exec redshift -l 55.7:12.5 -t 6500:4400 -m wayland -v &
-
 # Input configuration
 input type:keyboard {
   xkb_layout us(altgr-intl)
@@ -41,7 +19,24 @@ bar {
   swaybar_command waybar
 }
 
-# Application bindings
+# Default outputs (use `wdisplays` for gui)
+output eDP-1 pos 0 0
+output HDMI-A-2 pos 1920 0
+exec swayws init
+focus output HDMI-A-2
+
+# Workaround for Xwayland DPI increasing after hotplug
+# See: https://gitlab.freedesktop.org/xorg/xserver/-/issues/731
+exec xrdb -load ~/.Xresources
+
+# Wallpaper
+exec_always ~/.wallpaper/wallpaperd
+bindsym $mod+Shift+e exec ~/.wallpaper/wallpaper
+
+# Redshift (screen color temperature)
+exec redshift -l 55.7:12.5 -t 6500:4400 -m wayland -v &
+
+# Print screen
 bindsym Print exec grim
 bindsym Print+Control exec grim -g "$(slurp -d)"
 bindsym Print+Shift+Control exec grim -g "$(slurp -d)" - | wl-copy
@@ -50,21 +45,31 @@ bindsym Print+Shift+Control exec grim -g "$(slurp -d)" - | wl-copy
 # Note: Reviewing clipboard history is implemented in the shell.
 exec wl-paste -w wl-clipboard-history
 
-# Special keys
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+# Audio default value and controls
+exec pactl set-sink-mute 0 false
+exec pactl set-sink-volume 0 40%
+bindsym XF86AudioRaiseVolume exec pactl -- set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl -- set-sink-volume 0 -5%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+
+# Laptop brightness
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
-# Sway/WM
+# Idle configuration and locking
+exec swayidle -w timeout 1800 "swaylock-blur"
+bindsym $mod+Shift+p exec ~/bin/suspend
+bindsym $mod+Shift+w exec swaylock-blur
+
+# Application launcher
+exec albert &
 bindsym $mod+p exec albert show
 bindsym $mod+Shift+Return exec termite
+
+# Sway / window management
 bindsym $mod+Shift+c kill
 bindsym $mod+Shift+r nop  # workaround for https://github.com/swaywm/sway/issues/4975
 bindsym --release $mod+Shift+r reload
-bindsym $mod+Shift+p exec ~/bin/suspend
-bindsym $mod+Shift+w exec swaylock-blur
 bindsym $mod+Shift+q exec swaynag -t warning -m 'Really end the current Wayland session?' -b 'Yes, exit sway' 'swaymsg exit'
 
 # Moving around
