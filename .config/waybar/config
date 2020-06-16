@@ -78,6 +78,6 @@
         }
     },
     "clock": {
-        "format": "{:%Y-%m-%d %U %H:%M}"
+        "format": "{:%Y-%m-%d %V %H:%M}"
     }
 }
