@@ -73,6 +73,9 @@ bindsym $mod+Shift+r nop  # workaround for https://github.com/swaywm/sway/issues
 bindsym --release $mod+Shift+r reload
 bindsym $mod+Shift+q exec swaynag -t warning -m 'Really end the current Wayland session?' -b 'Yes, exit sway' 'swaymsg exit'
 
+# Slack call minipanel
+for_window [title="^Slack$"] floating enable
+
 # Moving around
 mouse_warping container
 bindsym $mod+$left focus left
