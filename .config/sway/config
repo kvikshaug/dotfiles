@@ -48,10 +48,10 @@ exec wl-paste -w wl-clipboard-history
 # Audio default value and controls
 exec pactl set-sink-mute 0 false
 exec pactl set-sink-volume 0 40%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%
+bindsym XF86AudioMute exec pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute alsa_input.pci-0000_00_1f.3.analog-stereo toggle
 
 # Laptop brightness
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
