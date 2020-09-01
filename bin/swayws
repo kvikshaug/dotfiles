@@ -25,6 +25,8 @@ elif [[ $1 == "navigate" ]]; then
   navigate $2
 elif [[ $1 == "move" ]]; then
   move $2
+elif [[ $1 == "reset" ]]; then
+  swayws-reset.py
 else
   echo "unknown command"
   exit 1

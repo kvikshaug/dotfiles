@@ -68,6 +68,7 @@ bindsym $mod+p exec albert show
 bindsym $mod+Shift+Return exec termite
 
 # Sway / window management
+bindsym $mod+Shift+t exec swayws reset
 bindsym $mod+Shift+c kill
 bindsym $mod+Shift+r nop  # workaround for https://github.com/swaywm/sway/issues/4975
 bindsym --release $mod+Shift+r reload
