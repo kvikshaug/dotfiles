@@ -1,60 +1,61 @@
 [user]
-    name = Ali Kaafarani
-    email = ali@kvikshaug.no
-    signingkey = 3624317D5BD201F8E93D9BD1916A78330030199E
+  name = Ali Kaafarani
+  email = ali@kvikshaug.no
+  signingkey = 3624317D5BD201F8E93D9BD1916A78330030199E
 
 [core]
-    editor = vim
-    whitespace = space-before-tab,trailing-space,cr-at-eol
+  editor = vim
+  whitespace = space-before-tab,trailing-space,cr-at-eol
 
 [alias]
-    ci = commit
-    amend = commit --amend
-    st = status -sb
-    br = branch
-    co = checkout
-    df = diff
-    rb = rebase
-    rank = shortlog -sn --no-merges
-    lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-    gr = grep --heading --break
-    conflicted = diff --name-only --diff-filter=U
+  st = status -sb
+  lg = log --graph --abbrev-commit --date=relative --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  gr = grep --heading --break
+  br = branch
+  co = checkout
+  df = diff
+  ci = commit
+  amend = commit --amend
+  rb = rebase
+  fa = fetch --all
+  rank = shortlog -sn --no-merges
+  conflicted = diff --name-only --diff-filter=U
 
 [branch]
-    autosetupmerge = always
+  autosetupmerge = always
 
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
 
 [push]
-    default = current
+  default = current
 
 [pull]
-    ff = only
+  ff = only
 
 [log]
-    date = default
+  date = default
 
 [help]
-    format = man
-    autocorrect = -1
+  format = man
+  autocorrect = -1
 
 [grep]
-    extendRegexp = true
-    lineNumber = true
+  extendRegexp = true
+  lineNumber = true
 
 [color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 
 [diff]
-    compactionHeuristic = true
+  compactionHeuristic = true
 
 [commit]
-     verbose = true
-     gpgSign = true
+ verbose = true
+ gpgSign = true
 
 [fetch]
-    prune = true
+  prune = true
