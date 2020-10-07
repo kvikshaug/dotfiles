@@ -74,7 +74,8 @@
 }
 
 #battery.discharging.critical {
-  animation: 0.5s linear 0s infinite alternate attention;
+  color: white;
+  background-color: #dc322f;
 }
 
 @keyframes attention {
