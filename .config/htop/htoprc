@@ -27,4 +27,3 @@ left_meters=AllCPUs CPU
 left_meter_modes=1 1
 right_meters=Memory Battery Tasks LoadAverage Uptime Clock
 right_meter_modes=1 2 2 2 2 2
-vim_mode=0
