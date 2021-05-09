@@ -66,7 +66,7 @@ bindsym $mod+Shift+w exec swaylock-blur
 # Application launcher
 exec albert &
 bindsym $mod+p exec albert show
-bindsym $mod+Shift+Return exec termite
+bindsym $mod+Shift+Return exec alacritty
 
 # Sway / window management
 bindsym $mod+Shift+t exec swayws reset
