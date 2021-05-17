@@ -18,34 +18,10 @@ font:
 draw_bold_text_with_bright_colors: true
 
 # Solarized Light
-# colors:
-#   primary:
-#     background: '0xfdf6e3'
-#     foreground: '0x586e75'
-#   normal:
-#     black:   '0x002b36'
-#     red:     '0xdc322f'
-#     green:   '0x859900'
-#     yellow:  '0xb58900'
-#     blue:    '0x268bd2'
-#     magenta: '0x6c71c4'
-#     cyan:    '0x2aa198'
-#     white:   '0x93a1a1'
-#   bright:
-#     black:   '0x657b83'
-#     red:     '0xdc322f'
-#     green:   '0x859900'
-#     yellow:  '0xb58900'
-#     blue:    '0x268bd2'
-#     magenta: '0x6c71c4'
-#     cyan:    '0x2aa198'
-#     white:   '0xfdf6e3'
-
-# Solarized Dark
 colors:
   primary:
-    background: '0x002b36'
-    foreground: '0x93a1a1'
+    background: '0xfdf6e3'
+    foreground: '0x586e75'
   normal:
     black:   '0x002b36'
     red:     '0xdc322f'
@@ -64,3 +40,27 @@ colors:
     magenta: '0x6c71c4'
     cyan:    '0x2aa198'
     white:   '0xfdf6e3'
+
+# Solarized Dark
+# colors:
+#   primary:
+#     background: '0x002b36'
+#     foreground: '0x93a1a1'
+#   normal:
+#     black:   '0x002b36'
+#     red:     '0xdc322f'
+#     green:   '0x859900'
+#     yellow:  '0xb58900'
+#     blue:    '0x268bd2'
+#     magenta: '0x6c71c4'
+#     cyan:    '0x2aa198'
+#     white:   '0x93a1a1'
+#   bright:
+#     black:   '0x657b83'
+#     red:     '0xdc322f'
+#     green:   '0x859900'
+#     yellow:  '0xb58900'
+#     blue:    '0x268bd2'
+#     magenta: '0x6c71c4'
+#     cyan:    '0x2aa198'
+#     white:   '0xfdf6e3'
