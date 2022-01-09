@@ -31,7 +31,7 @@ focus output HDMI-A-2
 exec xrdb -load ~/.Xresources
 
 # Wallpaper
-exec_always ~/.wallpaper/wallpaperd
+# exec_always ~/.wallpaper/wallpaperd
 bindsym $mod+Shift+e exec ~/.wallpaper/wallpaper
 
 # Redshift (screen color temperature)
