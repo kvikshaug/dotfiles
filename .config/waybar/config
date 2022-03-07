@@ -7,6 +7,9 @@
     "sway/workspaces": {
         "format": "{name}"
     },
+    "sway/window": {
+        "icon": false
+    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
