@@ -38,9 +38,8 @@ bindsym $mod+Shift+e exec ~/.wallpaper/wallpaper
 exec redshift -l 55.7:12.5 -t 6500:4400 -m wayland -v &
 
 # Print screen
-bindsym Print exec grim
-bindsym Print+Control exec grim -g "$(slurp -d)"
-bindsym Print+Shift+Control exec grim -g "$(slurp -d)" - | wl-copy
+bindsym Print exec flameshot full
+bindsym Print+Control exec flameshot gui
 
 # Clipboard manager
 # Note: Reviewing clipboard history is implemented in the shell.
