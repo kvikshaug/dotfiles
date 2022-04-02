@@ -21,6 +21,9 @@
   rank = shortlog -sn --no-merges
   conflicted = diff --name-only --diff-filter=U
 
+[init]
+  defaultBranch = master
+
 [branch]
   autosetupmerge = always
 
@@ -54,8 +57,8 @@
   compactionHeuristic = true
 
 [commit]
- verbose = true
- gpgSign = true
+  verbose = true
+  gpgSign = true
 
 [fetch]
   prune = true
