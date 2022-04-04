@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+function mount {
+  sshfs brillig:drive ~/drive -C
+}
+
+function umount {
+  fusermount3 -u ~/drive
+}
+
+if [[ $1 == "mount" ]]; then
+  mount
+elif [[ $1 == "umount" ]]; then
+  umount
+else
+  echo "unknown command"
+  exit 1
+fi
