@@ -43,8 +43,8 @@ bindsym Print+Control exec grim -g "$(slurp -d)"
 bindsym Print+Shift+Control exec grim -g "$(slurp -d)" - | wl-copy
 
 # Clipboard manager
-# Note: Reviewing clipboard history is implemented in the shell.
-exec wl-paste -w wl-clipboard-history
+exec copyq &
+bindsym $mod+c exec copyq toggle
 
 # Audio default value and controls
 exec pactl set-sink-mute 0 false
@@ -63,14 +63,19 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 # Idle configuration and locking
-exec swayidle -w timeout 1800 "swaylock-blur"
+set $lock swaylock --grace 10 --screenshots --fade-in 1 --effect-pixelate 15 --clock --datestr "%A, %b %d" --timestr "%H:%M"
+exec swayidle -w timeout 1800 $lock
+bindsym $mod+Shift+w exec $lock
 bindsym $mod+Shift+p exec ~/bin/suspend
-bindsym $mod+Shift+w exec swaylock-blur
 
 # Application launcher
 exec albert &
 bindsym $mod+p exec albert show
 bindsym $mod+Shift+Return exec alacritty
+
+# Enable floating by default for select applications.
+for_window [app_id="thunderbird" title=".*[Rr]eminder.*"] floating enable
+for_window [app_id="com.github.hluk.copyq"] floating enable
 
 # Sway / window management
 bindsym $mod+Shift+t exec swayws reset
