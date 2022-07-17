@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Blur before suspending to avoid a short delay on wake before blur takes effect.
 notify-send Suspending -t 1900
-swaylock-blur &
-sleep 2
+swaylock --grace 0 --screenshots --fade-in 1 --effect-pixelate 15 --clock --datestr "%A, %b %d" --timestr "%H:%M" &
+sleep 3
 systemctl suspend
