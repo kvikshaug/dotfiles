@@ -62,3 +62,6 @@
 
 [fetch]
   prune = true
+
+[gcrypt]
+  require-explicit-force-push = true
