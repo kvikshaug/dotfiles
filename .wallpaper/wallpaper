@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+
+function setremote() {
+  # Fetch random post from a subreddit of your liking.
+  # Ideas: r/earthporn, r/spaceporn, r/wallpaper
+  subreddit="r/wallpaper"
+  curl -so /tmp/wallpaperd.image $(wget -O - -q https://www.reddit.com/${subreddit}/random.json | jq -r '.[0].data.children[0].data.url')
+  setwallpaper -m fill /tmp/wallpaperd.image
+  return $?
+}
+
+function setlocal() {
+  # Pick a random locally stored wallpaper (pick a folder to your liking):
+  setrandom -m fill -r $HOME/.wallpaper/files
+}
+
+echo "wallpaperd: setting remote background"
+RETURNVALUE=$(setremote)
+if [ $? -ne 0 ]; then
+  echo "wallpaperd: failed to set remote; falling back to local"
+  setlocal
+fi

@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+echo "wallpaperd: initializing"
+for pid in $(pgrep -f "wallpaperd"); do
+  if [ $pid != $$ ]; then
+    echo "wallpaperd: killing existing instance $pid"
+    kill -TERM $pid
+  fi
+done
+
+while true; do
+  echo "wallpaperd: setting wallpaper"
+  $HOME/.wallpaper/wallpaper
+
+  echo "wallpaperd: sleeping 1 hour"
+  sleep 3600
+done
+
+echo "wallpaperd: exiting unexpectedly"
