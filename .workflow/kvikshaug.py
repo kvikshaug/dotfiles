@@ -28,5 +28,5 @@ project = Project("code/kvikshaug.no", [
     Command("gunicorn", ["docker compose run --rm web gunicorn --check-config -c gunicorn.py kvikshaug.app:app"]),
     Command("safety", ["docker compose run --rm web safety check --full-report"]),
 
-    Command("deploy", ["ssh spittle ./kvikshaug.no/deploy.sh"]),
+    Command("deploy", ["ssh brillig ./services/kvikshaug.no/deploy.sh"]),
 ])
