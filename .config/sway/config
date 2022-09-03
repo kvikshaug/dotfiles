@@ -1,5 +1,8 @@
 ### Sway config: Read `man 5 sway` for a complete reference.
 
+# Load host specific configuration
+include ~/.config/sway/`hostname`
+
 # Variables
 set $mod Mod4
 set $left h
@@ -19,12 +22,8 @@ bar {
   swaybar_command waybar
 }
 
-# Default outputs (use `wdisplays` for gui)
-output DP-1 pos 0 0
-output HDMI-A-2 pos 2560 0
-output eDP-1 pos 5120 360
+# Initialize output workspaces
 exec swayws init
-focus output HDMI-A-2
 
 # Workaround for Xwayland DPI increasing after hotplug
 # See: https://gitlab.freedesktop.org/xorg/xserver/-/issues/731
@@ -34,8 +33,8 @@ exec xrdb -load ~/.Xresources
 # exec_always ~/.wallpaper/wallpaperd
 bindsym $mod+Shift+e exec ~/.wallpaper/wallpaper
 
-# Redshift (screen color temperature)
-exec redshift -l 55.7:12.5 -t 6500:4400 -m wayland -v &
+# Screen color temperature
+exec gammastep -l 55.7:12.5 -t 6500:4400 -m wayland -v &
 
 # Print screen
 bindsym Print exec grim

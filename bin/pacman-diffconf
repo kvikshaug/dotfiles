@@ -1,0 +1,25 @@
+#!/bin/sh --
+# pacman-diffconf - generate diff between a current file and its packaged twin
+# requires: pacman bsdtar gdiff
+
+error() {
+    r=$1 m=$2
+    shift 2
+    printf "%s: $m" pacman-diffconf "$@" >&2
+    exit "$r"
+}
+
+if [ ! -f "$1" ]; then
+    error 1 '%s: no such file\n' "$1"
+elif [ ! -r "$1" ]; then
+    error 1 '%s: permission denied\n' "$1"
+elif pkg=$(pacman -Qqo "$1") && uri=$(pacman -Sqp "$pkg"); then
+    case $uri in
+        file://*) package=${uri#file://} ;;
+        *) error 1 '%s: file not local\n' "$uri"
+    esac
+
+    bsdtar -Oxf "$package" -- "${1#/}" | diff --label="$1" --label="$1" -u - -- "$1"
+else
+    exit 1
+fi
