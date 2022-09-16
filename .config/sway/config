@@ -1,14 +1,16 @@
 ### Sway config: Read `man 5 sway` for a complete reference.
 
-# Load host specific configuration
-include ~/.config/sway/`hostname`
-
 # Variables
 set $mod Mod4
 set $left h
 set $down j
 set $up k
 set $right l
+
+# Default outputs (use `wdisplays` for gui)
+output HDMI-A-2 pos 0 0
+output DP-1 pos 1920 0
+output eDP-1 pos 5120 360
 
 # Input configuration
 input type:keyboard {
