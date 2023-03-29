@@ -6,8 +6,8 @@ if [[ $1 == "laptop" ]]; then
   swaymsg output eDP-1 enable pos 0 0
 elif [[ $1 == "monitors" ]]; then
   swaymsg output eDP-1 disable
-  swaymsg output HDMI-A-2 enable pos 0 0 res 2560x1440
-  swaymsg output DP-1 enable pos 2560 0 res 2560x1440
+  swaymsg output DP-1 enable pos 0 0 res 2560x1440
+  swaymsg output HDMI-A-2 enable pos 2560 0 res 2560x1440
 elif [[ $1 == "triple" ]]; then
   swaymsg output HDMI-A-2 enable pos 0 0
   swaymsg output DP-1 enable pos 1920 0
