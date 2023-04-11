@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "disk", "temperature", "battery#bat0", "battery#bat1", "clock"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network#eth", "network#wlan", "cpu", "memory", "disk", "temperature", "battery#bat0", "battery#bat1", "clock"],
     "sway/workspaces": {
         "format": "{name}"
     },
@@ -32,10 +32,15 @@
         },
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
-    "network": {
+    "network#eth": {
+        "interface": "enp*",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-disconnected": ""
+    },
+    "network#wlan": {
+        "interface": "wlan*",
         "format-wifi": "{essid} {signalStrength}% ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-disconnected": "Offline"
+        "format-disconnected": ""
     },
     "cpu": {
         "interval": 3,
