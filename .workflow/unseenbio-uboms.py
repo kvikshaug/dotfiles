@@ -24,11 +24,19 @@ project = Project("code/unseen-bio/uboms", [
     Command("gunicorn", ["docker compose run --rm web gunicorn --check-config -c gunicorn.py uboms.app:app"]),
     Command("safety", ["docker compose run --rm web safety check --full-report"]),
     Command("deploy master", ["ssh marvin ./scripts/deploy-uboms.sh"]),
+    Command("deploy staging", ["ssh marvin ./scripts/deploy-uboms-staging.sh"]),
     Command("mpd master", [
         "git co master",
         "git merge -",
         "git push",
         "git co -",
         "wf deploy master",
+    ]),
+    Command("mpd staging", [
+        "git co staging",
+        "git merge -",
+        "git push",
+        "git co -",
+        "wf deploy staging",
     ]),
 ])
