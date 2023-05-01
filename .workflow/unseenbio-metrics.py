@@ -2,8 +2,8 @@ from _models import Command, Project
 
 project = Project("code/unseen-bio/metrics", [
     Command("ipython", ["docker compose run --rm web ipython"]),
-    Command("pip-compile", ["docker compose run --rm web pip-compile --generate-hashes"]),
-    Command("pip-compile upgrade", ["docker compose run --rm web pip-compile --generate-hashes --upgrade"]),
+    Command("pip-compile", ["docker compose run --rm web pip-compile --resolver=backtracking --generate-hashes"]),
+    Command("pip-compile upgrade", ["docker compose run --rm web pip-compile --resolver=backtracking --generate-hashes --upgrade"]),
     Command("format", [
         "docker compose run --rm web isort src tests",
         "docker compose run --rm web black src tests",

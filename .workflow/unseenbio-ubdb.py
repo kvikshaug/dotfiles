@@ -1,8 +1,8 @@
 from _models import Command, Project
 
 project = Project("code/unseen-bio/ubdb", [
-    Command("pip-compile", ["docker compose run --rm web pip-compile --generate-hashes"]),
-    Command("pip-compile upgrade", ["docker compose run --rm web pip-compile --generate-hashes --upgrade"]),
+    Command("pip-compile", ["docker compose run --rm web pip-compile --resolver=backtracking --generate-hashes"]),
+    Command("pip-compile upgrade", ["docker compose run --rm web pip-compile --resolver=backtracking --generate-hashes --upgrade"]),
     Command("createdb", [
         "docker compose exec ubdb psql -U postgres -c 'create database unseen'",
         "docker compose exec ubdb psql -U postgres -c 'create database testing'",
