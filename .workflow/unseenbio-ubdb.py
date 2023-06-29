@@ -25,7 +25,7 @@ project = Project("code/unseen-bio/ubdb", [
         "cat ubdb.sql | docker-compose exec -T ubdb pg_restore -U postgres -d unseen",
     ]),
     Command("importdb backup", [
-        "mcli cp wasabi-2/unseenbio-backups-marvin/$(date +"%Y-%m-%d")/ubdb.sql.zst .",
+        "mcli cp wasabi-2/unseenbio-backups-marvin/$(date +\"%Y-%m-%d\")/ubdb.sql.zst .",
         "unzstd ubdb.sql.zst",
         "docker compose exec ubdb psql -U postgres -c 'drop database unseen;'",
         "docker compose exec ubdb psql -U postgres -c 'create database unseen;'",
