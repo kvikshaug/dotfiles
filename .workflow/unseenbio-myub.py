@@ -2,8 +2,8 @@ from _models import Command, Project
 
 project = Project("code/unseen-bio/myub", [
     Command("ipython", ["docker compose run --rm web ipython"]),
-    Command("pip-compile", ["docker compose run --rm web pip-compile --resolver=backtracking --generate-hashes"]),
-    Command("pip-compile upgrade", ["docker compose run --rm web pip-compile --resolver=backtracking --generate-hashes --upgrade"]),
+    Command("pip-compile", ["docker compose run --rm web pip-compile --generate-hashes"]),
+    Command("pip-compile upgrade", ["docker compose run --rm web pip-compile --generate-hashes --upgrade"]),
     Command("sass build", ["sass -s compressed static/sass:static/css"]),
     Command("sass watch", ["sass --watch -s compressed static/sass:static/css"]),
     Command("i18n external", ["docker compose run --rm web python translations/external/extract.py"]),
