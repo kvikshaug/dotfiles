@@ -60,4 +60,8 @@ project = Project("code/unseen-bio/myub", [
         "git push",
         "git co -",
     ]),
+    Command("datamigrate staging", [
+        "scp datamigration.py marvin:services/myub-staging",
+        "ssh marvin ./scripts/migrate-myub-staging.sh",
+    ]),
 ])
