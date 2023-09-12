@@ -17,4 +17,4 @@ font:
 
 
 import:
-- ~/.config/alacritty/current-theme.yml
+- ~/.config/alacritty/theme.yml
