@@ -39,4 +39,12 @@ project = Project("code/unseen-bio/uboms", [
         "git co -",
         "wf deploy staging",
     ]),
+    Command("datamigrate", [
+        "scp datamigration.py marvin:services/uboms",
+        "ssh marvin ./scripts/migrate-uboms.sh",
+    ]),
+    Command("datamigrate staging", [
+        "scp datamigration.py marvin:services/uboms-staging",
+        "ssh marvin ./scripts/migrate-uboms-staging.sh",
+    ]),
 ])
