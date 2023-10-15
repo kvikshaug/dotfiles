@@ -33,7 +33,7 @@
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "network#eth": {
-        "interface": "enp*",
+        "interface": "en*",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "format-disconnected": ""
     },
