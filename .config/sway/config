@@ -32,8 +32,7 @@ exec swayws init
 exec xrdb -load ~/.Xresources
 
 # Wallpaper
-# exec_always ~/.wallpaper/wallpaperd
-bindsym $mod+Shift+e exec ~/.wallpaper/wallpaper
+bindsym $mod+Shift+e exec ~/bin/wallpaper
 
 # Screen color temperature
 exec gammastep -l 55.7:12.5 -t 6500:4400 -m wayland -v &
