@@ -137,6 +137,9 @@ setopt AUTO_PARAM_SLASH     # If completed parameter is a directory, add a trail
 setopt EXTENDED_GLOB        # Needed for file modification glob modifiers with compinit.
 unsetopt MENU_COMPLETE      # Do not autoselect the first completion entry.
 unsetopt FLOW_CONTROL       # Disable start/stop characters in shell editor.
+# Shift-tab for reverse direction
+zmodload zsh/complist
+bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 #
 # Completion settings
