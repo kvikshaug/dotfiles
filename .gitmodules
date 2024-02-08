@@ -1,9 +1,9 @@
-[submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule ".config/alacritty/themes"]
 	path = .config/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
 [submodule ".pure"]
 	path = .pure
 	url = https://github.com/kvikshaug/pure
+[submodule ".vim/pack/dist/start/vim-airline"]
+	path = .vim/pack/dist/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline

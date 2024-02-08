@@ -1,14 +1,4 @@
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-
-" Vundle: See :h vundle
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'scrooloose/nerdtree'
-call vundle#end()
-
 filetype plugin indent on
 syntax on
 set number
