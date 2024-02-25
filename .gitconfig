@@ -21,47 +21,45 @@
   rank = shortlog -sn --no-merges
   conflicted = diff --name-only --diff-filter=U
 
+[help]
+  format = man
+  autocorrect = -1
+
 [init]
   defaultBranch = master
 
 [branch]
   autosetupmerge = always
 
+[status]
+  submoduleSummary = true
+
+[log]
+  date = default
+
+[diff]
+  algorithm = histogram
+  submodule = log
+
+[grep]
+  extendRegexp = true
+  lineNumber = true
+
+[commit]
+  verbose = true
+  gpgSign = true
+
 [merge]
   conflictstyle = zdiff3
+
+[fetch]
+  prune = true
 
 [push]
   default = current
 
 [pull]
   ff = only
-
-[log]
-  date = default
-
-[help]
-  format = man
-  autocorrect = -1
-
-[grep]
-  extendRegexp = true
-  lineNumber = true
-
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
-
-[diff]
-  compactionHeuristic = true
-
-[commit]
-  verbose = true
-  gpgSign = true
-
-[fetch]
-  prune = true
 
 [gcrypt]
   require-explicit-force-push = true
