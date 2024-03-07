@@ -27,8 +27,7 @@ alias s='subl . && exit'
 alias c='code .'
 alias lo="libreoffice"
 
-# Default privelige escalation
-alias sudo="sudo -E "  # intentional trailing space
+# Default privilege escalation
 alias pm='sudo pacman'
 alias iftop='sudo iftop'
 
