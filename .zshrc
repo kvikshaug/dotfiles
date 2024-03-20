@@ -3,7 +3,7 @@
 #
 
 alias l='ls'
-alias ls='ls -lh --color=auto --group-directories-first'
+alias ls='ls -lh --color=auto --group-directories-first --time-style=long-iso'
 eval "$(dircolors --sh)"
 alias la='ls -a'
 alias mv='mv -v'
