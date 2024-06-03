@@ -30,6 +30,7 @@
 
 [branch]
   autosetupmerge = always
+  sort = -committerdate
 
 [status]
   submoduleSummary = true
@@ -51,6 +52,9 @@
 
 [merge]
   conflictstyle = zdiff3
+
+[rerere]
+  enabled = true
 
 [fetch]
   prune = true
