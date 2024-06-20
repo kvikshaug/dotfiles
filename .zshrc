@@ -26,6 +26,7 @@ alias dc='docker compose'
 alias s='subl . && exit'
 alias c='code .'
 alias lo="libreoffice"
+alias duf="duf --hide special"
 
 # Default privilege escalation
 alias pm='sudo pacman'
