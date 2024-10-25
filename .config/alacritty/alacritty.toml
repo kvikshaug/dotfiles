@@ -1,3 +1,4 @@
+[general]
 import = ["/home/ali/.config/alacritty/theme.toml"]
 
 [env]
