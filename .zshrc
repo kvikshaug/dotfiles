@@ -6,9 +6,9 @@ alias l='ls'
 alias ls='ls -lh --color=auto --group-directories-first --time-style=long-iso'
 eval "$(dircolors --sh)"
 alias la='ls -a'
-alias mv='mv -v'
-alias cp='cp -v'
-alias ln='ln -v'
+alias mv='mv -vi'
+alias cp='cp -vi'
+alias ln='ln -vi'
 function mkcd { [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1" }
 alias rm='rm -vi'
 alias rmdir='rmdir -v'
