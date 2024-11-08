@@ -254,4 +254,4 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-domain' ignored-patterns '<->.<->.
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
 # Lastly, source machine-local environment, if any
-if [ -f "${HOME}/.zshrc.local" ]; then source "${HOME}/zshrc.local"; fi
+if [ -f "${HOME}/.zshrc.local" ]; then source "${HOME}/.zshrc.local"; fi
