@@ -1,11 +1,14 @@
 #!/usr/bin/env zsh
 
+setrandom -r ~/.wallpapers
+
 # Resources:
 # Simpledesktops: http://simpledesktops.com/
 # die.net earth projections: https://static.die.net/earth/mercator/1600.jpg
 
+# Reddit (DEPRECATED):
 # Fetch random post from a subreddit of your liking.
 # Ideas: r/earthporn, r/spaceporn, r/wallpaper
-subreddit="r/wallpaper"
-curl -so /tmp/wallpaperd.image $(wget -O - -q https://www.reddit.com/${subreddit}/random.json | jq -r '.[0].data.children[0].data.url')
-setwallpaper -m fill /tmp/wallpaperd.image
+# subreddit="r/wallpaper"
+# curl -so /tmp/wallpaperd.image $(wget -O - -q https://www.reddit.com/${subreddit}/random.json | jq -r '.[0].data.children[0].data.url')
+# setwallpaper -m fill /tmp/wallpaperd.image
