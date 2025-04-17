@@ -27,6 +27,7 @@ alias s='subl . && exit'
 alias c='code .'
 alias lo="libreoffice"
 alias duf="duf --hide special"
+alias jl="just --list --unsorted"
 
 # Default privilege escalation
 alias pm='sudo pacman'
