@@ -1,3 +1,4 @@
 /.python-home/requirements.txt
 /.vim/bundle/
+/.vim/.netrwhist
 /.config/alacritty/theme.toml
