@@ -50,6 +50,9 @@ fi
 # google-cloud-sdk
 export CLOUDSDK_PYTHON=/usr/bin/python
 
+# golang
+export GOPATH=$HOME/.go
+
 # Local bin
 path=(
   $HOME/{,s}bin(N)
