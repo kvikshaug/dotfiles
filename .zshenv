@@ -30,12 +30,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 # Docker Compose
 export COMPOSE_BAKE=true
 
-# pyenv
-if [ -d "$HOME/.pyenv" ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  path=($PYENV_ROOT/bin $path)
-  eval "$(pyenv init --path)"
-fi
+# uv
+export UV_MANAGED_PYTHON=true
 
 # rubygems
 if [ $commands[gem] ]; then
@@ -56,6 +52,7 @@ export GOPATH=$HOME/.go
 # Local bin
 path=(
   $HOME/{,s}bin(N)
+  $HOME/.local/bin
   /usr/local/{,s}bin(N)
   $path
 )

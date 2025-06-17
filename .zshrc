@@ -119,9 +119,6 @@ if [ -f '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.
 # Look for invalid command among uninstalled packages (requires `pkgfile`)
 if [ -f '/usr/share/doc/pkgfile/command-not-found.zsh' ]; then source /usr/share/doc/pkgfile/command-not-found.zsh; fi
 
-# pyenv; note that there's also a section in .zprofile to modify path.
-if [ -d "$HOME/.pyenv" ]; then eval "$(pyenv init -)"; fi
-
 # Line editor
 bindkey -e
 autoload edit-command-line; zle -N edit-command-line
