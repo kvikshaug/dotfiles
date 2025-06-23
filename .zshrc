@@ -50,12 +50,6 @@ function umnt {
   done
 }
 
-# SSH shortcuts
-alias anton='ssh -t anton tmux -u at'
-alias marvin='ssh -t marvin tmux -u at -t ali'
-alias brillig='ssh -t brillig'
-alias weechat='ssh -t brillig "tmux -u at -t weechat" && exit'
-
 # Media tools
 alias webcam='mpv av://v4l2:/dev/video0'
 alias record_screen_full='wf-recorder'
