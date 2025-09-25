@@ -36,17 +36,24 @@ alias iftop='sudo iftop'
 # Mounts
 function mnt {
   for vol (storage media backups); do
-    if mount | grep /mnt/${vol} > /dev/null;
-    then
+    if mount | grep /mnt/${vol} > /dev/null; then
       echo /mnt/${vol} already mounted
     else
-      sshfs -C dwarf:${vol}/ /mnt/${vol} && ln -s /mnt/${vol} ~/${vol}
+      sshfs -C dwarf:${vol}/ /mnt/${vol}
+    fi
+    if [[ -L ~/${vol} ]]; then
+      echo "~/${vol} already symlinked"
+    else
+      ln -s /mnt/${vol} ~/${vol}
     fi
   done
 }
 function umnt {
   for vol (storage media backups); do
-    fusermount3 -u /mnt/${vol} && rm -fv ~/${vol}
+    fusermount3 -u /mnt/${vol}
+    if [[ -L ~/${vol} ]]; then
+      command rm -v ~/${vol}
+    fi
   done
 }
 
