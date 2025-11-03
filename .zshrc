@@ -269,5 +269,8 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-host' ignored-patterns '*(.|:)*' l
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
+# zoxide
+if (( ${+commands[zoxide]} )); then eval "$(zoxide init zsh)"; fi
+
 # Lastly, source machine-local environment, if any
 if [ -f "${HOME}/.zshrc.local" ]; then source "${HOME}/.zshrc.local"; fi
