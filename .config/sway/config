@@ -70,8 +70,8 @@ bindsym $mod+Shift+w exec $lock
 bindsym $mod+Shift+p exec ~/bin/suspend
 
 # Application launcher
-exec albert &
-bindsym $mod+p exec albert show
+exec vicinae server &
+bindsym $mod+p exec vicinae open
 bindsym $mod+Shift+Return exec alacritty
 
 # Enable floating by default for select applications.
