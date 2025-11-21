@@ -57,5 +57,8 @@ path=(
   $path
 )
 
+# Make sure PATH is exported to child processes (primarily needed for sway).
+export PATH
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path

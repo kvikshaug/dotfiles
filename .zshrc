@@ -28,6 +28,7 @@ alias c='code .'
 alias lo="libreoffice"
 alias duf="duf --hide special"
 alias jl="just --list --unsorted"
+alias tmp='cd "$(mktemp -d)"'
 
 # Default privilege escalation
 alias pm='sudo pacman'
@@ -116,9 +117,6 @@ if [ -f '/usr/share/fzf/completion.zsh' ]; then source /usr/share/fzf/completion
 
 # Syntax highlighting (requires `zsh-syntax-highlighting`)
 if [ -f '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' ]; then source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; fi
-
-# Look for invalid command among uninstalled packages (requires `pkgfile`)
-if [ -f '/usr/share/doc/pkgfile/command-not-found.zsh' ]; then source /usr/share/doc/pkgfile/command-not-found.zsh; fi
 
 # Line editor
 bindkey -e

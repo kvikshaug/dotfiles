@@ -7,11 +7,6 @@ set $down j
 set $up k
 set $right l
 
-# Default outputs (use `wdisplays` for gui)
-output eDP-1 pos 0 360
-output DP-1 pos 1920 0
-output HDMI-A-2 pos 4480 0
-
 # Input configuration
 input type:keyboard {
   xkb_layout us(altgr-intl)
@@ -153,3 +148,5 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 include /etc/sway/config.d/*
+
+exec_always systemctl --user start sway-session.target

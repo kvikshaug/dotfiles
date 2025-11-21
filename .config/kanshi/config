@@ -1,0 +1,41 @@
+profile office {
+  output "Samsung Electric Company S27H85x H4ZN100720" enable position 0,0
+  output "Samsung Electric Company S27H85x H4ZN100774" enable position 2560,0
+}
+
+profile office-ignore-tv {
+  output "Samsung Electric Company S27H85x H4ZN100720" enable position 0,0
+  output "Samsung Electric Company S27H85x H4ZN100774" enable position 2560,0
+  output "LG Electronics LG TV SSCR2 0x01010101" disable
+}
+
+profile tv {
+  output "LG Electronics LG TV SSCR2 0x01010101" enable mode 3840x2160@60 scale 2 position 0,0
+}
+
+profile laptop {
+  output "AU Optronics 0x243D Unknown" enable position 0,0
+}
+
+profile laptop-tv {
+  output "AU Optronics 0x243D Unknown" enable position 0,0
+  output "LG Electronics LG TV SSCR2 0x01010101" enable mode 3840x2160@60 scale 2 position 1920,0
+}
+
+profile laptop-office {
+  output "AU Optronics 0x243D Unknown" enable position 0,0
+  output "Samsung Electric Company S27H85x H4ZN100720" enable position 1920,0
+  output "Samsung Electric Company S27H85x H4ZN100774" enable position 4480,0
+}
+
+# Unnamed external laptop connections: Enable by default, use wdisplays to customize.
+
+profile laptop-hdmi {
+  output "AU Optronics 0x243D Unknown" enable position 0,0
+  output HDMI-A-2 enable position 1920,0
+}
+
+profile laptop-thunderbolt {
+  output "AU Optronics 0x243D Unknown" enable position 0,0
+  output DP-1 enable position 1920,0
+}

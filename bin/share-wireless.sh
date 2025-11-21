@@ -1,4 +1,7 @@
-ETHDEV=enp0s31f6
+#!/usr/bin/env zsh
+
+ETHDEV=(${(M)$(command ls /sys/class/net)##en*})
+ETHDEV=$ETHDEV[1]
 WLANDEV=wlan0
 
 if [ "$1" = "undo" ]; then
