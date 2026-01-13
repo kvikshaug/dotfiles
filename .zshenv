@@ -49,11 +49,13 @@ export CLOUDSDK_PYTHON=/usr/bin/python
 # golang
 export GOPATH=$HOME/.go
 
-# Local bin
 path=(
+  # Local bin
   $HOME/{,s}bin(N)
   $HOME/.local/bin
   /usr/local/{,s}bin(N)
+  # Cargo
+  $HOME/.cargo/bin
   $path
 )
 

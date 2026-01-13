@@ -7,6 +7,9 @@ set $down j
 set $up k
 set $right l
 
+# Not needed on init, but useful when reloading sway to restore the monitor configuration.
+exec_always kanshictl reload
+
 # Input configuration
 input type:keyboard {
   xkb_layout us(altgr-intl)
@@ -28,10 +31,7 @@ exec xrdb -load ~/.Xresources
 
 # Wallpaper
 bindsym $mod+Shift+e exec ~/bin/wallpaper
-exec ~/bin/wallpaper
-
-# Screen color temperature
-exec gammastep -l 55.7:12.5 -t 6500:4400 -m wayland -v &
+exec_always ~/bin/wallpaper
 
 # Print screen
 bindsym Print exec grim
@@ -59,10 +59,9 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 # Idle configuration and locking
-set $lock swaylock --screenshots --fade-in 1 --grace 3 --grace-no-mouse --grace-no-touch --indicator-idle-visible --effect-blur 7x5 --effect-vignette 0.3:0.3 --clock --datestr "%A, %b %d" --timestr "%H:%M"
-exec swayidle -w timeout 1800 $lock
-bindsym $mod+Shift+w exec $lock
-bindsym $mod+Shift+p exec ~/bin/suspend
+exec swayidle -w timeout 1800 swaylock
+bindsym $mod+Shift+w exec swaylock
+bindsym $mod+Shift+p exec swaylock --grace 0 && systemctl suspend
 
 # Application launcher
 exec vicinae server &
@@ -129,10 +128,6 @@ bindsym --whole-window $mod+button2 floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 floating_modifier $mod normal
-
-# Scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
 
 # Resizing containers
 mode "resize" {

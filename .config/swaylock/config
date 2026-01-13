@@ -1,0 +1,37 @@
+daemonize
+grace=3
+grace-no-mouse
+grace-no-touch
+
+screenshot
+effect-blur=13x13
+color=6272A4
+font=Noto Serif Display
+
+clock
+datestr=%A, %b %d
+timestr=%H:%M
+ignore-empty-password
+show-failed-attempts
+
+indicator
+indicator-radius=200
+indicator-thickness=8
+line-uses-ring
+
+inside-color=fbf1c7
+text-color=282828
+ring-color=d5c4a1
+key-hl-color=282828
+
+inside-clear-color=282828
+text-clear-color=fbf1c7
+ring-clear-color=665c54
+
+inside-ver-color=282828
+text-ver-color=fbf1c7
+ring-ver-color=665c54
+
+inside-wrong-color=cc241d
+text-wrong-color=fbf1c7
+ring-wrong-color=9d0006

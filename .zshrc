@@ -40,7 +40,7 @@ function mnt {
     if mount | grep /mnt/${vol} > /dev/null; then
       echo /mnt/${vol} already mounted
     else
-      sshfs -C dwarf:${vol}/ /mnt/${vol}
+      sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 -C dwarf:${vol}/ /mnt/${vol}
     fi
     if [[ -L ~/${vol} ]]; then
       echo "~/${vol} already symlinked"

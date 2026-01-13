@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-swaylock --ignore-empty-password --screenshots --effect-blur 7x5 --effect-vignette 0.3:0.3 --effect-greyscale --clock --datestr "%A, %b %d" --timestr "%H:%M" &
-systemctl suspend

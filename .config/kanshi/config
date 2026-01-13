@@ -32,10 +32,10 @@ profile laptop-office {
 
 profile laptop-hdmi {
   output "AU Optronics 0x243D Unknown" enable position 0,0
-  output HDMI-A-2 enable position 1920,0
+  output "HDMI-A-2" enable position 1920,0
 }
 
 profile laptop-thunderbolt {
   output "AU Optronics 0x243D Unknown" enable position 0,0
-  output DP-1 enable position 1920,0
+  output "DP-1" enable position 1920,0
 }
