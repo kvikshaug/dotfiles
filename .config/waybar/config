@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["privacy", "idle_inhibitor", "wireplumber", "bluetooth", "network#eth", "network#wlan", "cpu", "memory", "disk", "temperature", "battery#bat0", "battery#bat1", "clock"],
+    "modules-right": ["privacy", "idle_inhibitor", "mpris", "wireplumber", "bluetooth", "network#eth", "network#wlan", "memory", "temperature", "battery#bat0", "battery#bat1", "clock"],
     "sway/workspaces": {
         "format": "{name}"
     },
@@ -27,10 +27,21 @@
             { "type": "audio-in" }
         ]
     },
+    "mpris": {
+        "format": "{player} {player_icon}",
+        "format-paused": "{player} {status_icon}",
+        "player-icons": {
+            "default": "▶"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        }
+    },
     "wireplumber": {
         "format": "{volume}% {icon}",
         "format-muted": "0% ",
         "format-icons": ["", "", ""],
+        "max-volume": 150,
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "bluetooth": {
@@ -53,21 +64,13 @@
         "format-wifi": "{essid} {signalStrength}% ",
         "format-disconnected": ""
     },
-    "cpu": {
-        "interval": 3,
-        "format": "{usage}% "
-    },
     "memory": {
         "interval": 3,
-        "format": "{}% ",
+        "format": "{percentage}/{swapPercentage}% ",
+        "tooltip-format": "{used}/{total}G RAM\n{swapUsed}/{swapTotal}G Swap",
         "states": {
             "critical": 80
         }
-    },
-    "disk": {
-        "interval": 60,
-        "format": "{percentage_used}% ",
-        "path": "/"
     },
     "temperature": {
         "interval": 3,
@@ -97,6 +100,7 @@
         }
     },
     "clock": {
-        "format": "{:%Y-%m-%d %V %H:%M}"
+        "format": "{:%Y-%m-%d %V %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
     }
 }

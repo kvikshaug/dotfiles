@@ -68,10 +68,14 @@
 }
 
 #window {
+  padding: 0 8px;
   background-color: @bg_s;
   color: @fg4;
-  padding: 0 8px;
-  /* border-radius: 8px; */
+}
+
+#window:hover {
+  background: @bg2;
+  color: @fg0;
 }
 
 window#waybar.empty #window {
@@ -79,22 +83,37 @@ window#waybar.empty #window {
   background-color: transparent;
 }
 
-#backlight,
 #privacy,
 #idle_inhibitor,
+#mpris,
 #wireplumber,
 #bluetooth,
 #network,
-#cpu,
 #memory,
-#disk,
 #temperature,
 #battery,
 #clock {
-  padding: 0 6px;
-  margin-left: 4px;
+  padding: 0 8px;
   color: @fg4;
   background-color: @bg_s;
+}
+
+#privacy:hover,
+#idle_inhibitor:hover,
+#mpris:hover,
+#wireplumber:hover,
+#bluetooth:hover,
+#network:hover,
+#memory:hover,
+#temperature:hover,
+#battery:hover,
+#clock:hover {
+  background: @bg2;
+  color: @fg0;
+}
+
+#privacy {
+  color: @red;
 }
 
 #idle_inhibitor.activated {
