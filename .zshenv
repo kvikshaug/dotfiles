@@ -64,3 +64,7 @@ export PATH
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
+
+# We're using autologin, so terminals spawn interactive non-login shells, so
+# explicitly source the profile for login shells.
+source /etc/zsh/zprofile
