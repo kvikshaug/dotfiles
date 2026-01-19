@@ -38,12 +38,12 @@
 }
 
 #waybar {
-  background: rgba(40, 40, 40, 0.7); /* @bg + transparency*/
+  background: @bg_s;
 }
 
 #workspaces button {
   padding: 0 8px 2px 8px;
-  background: @bg;
+  background: @bg_h;
   border-top: 2px solid transparent;
   color: @fg4;
 }
