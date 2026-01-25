@@ -15,7 +15,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
-export LESS='-i -M -R -S -w -X -z-4'
+export LESS='-i -M -R -S -w -X'
 export MANROFFOPT="-c"
 export MANPAGER='less +Ggjk'
 
